@@ -1,0 +1,144 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Time is Up</title>
+  <style>
+    :root{
+      --bg:#f3f4f6;
+      --panel:#ffffff;
+      --text:#111827;
+      --muted:#6b7280;
+      --line:#d1478c;
+      --primary:#2563eb;
+      --primaryHover:#1d4ed8;
+      --warn:#a81c5e;
+    }
+
+    body{
+      font-family: Arial, Helvetica, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+    }
+
+    .wrap{
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 22px 16px;
+    }
+
+    .card{
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 16px;
+    }
+
+    .title{
+      font-size: 18px;
+      font-weight: 900;
+      margin: 0 0 8px 0;
+    }
+
+    .muted{
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.55;
+      margin: 0 0 14px 0;
+    }
+
+    .banner{
+      border: 1px solid var(--line);
+      border-left: 6px solid var(--warn);
+      border-radius: 10px;
+      padding: 12px 12px;
+      background: #fff;
+      margin: 12px 0 14px 0;
+    }
+
+    .scoreRow{
+      display:flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .score{
+      font-size: 22px;
+      font-weight: 900;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .pill{
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 6px 10px;
+      font-size: 12px;
+      color: var(--muted);
+      background: #fff;
+      white-space: nowrap;
+    }
+
+    .btnRow{
+      display:flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 14px;
+    }
+
+    .btn{
+      display:inline-block;
+      background: var(--primary);
+      color: #fff;
+      border: 1px solid var(--primary);
+      border-radius: 6px;
+      padding: 10px 14px;
+      font-weight: 900;
+      text-decoration: none;
+    }
+
+    .btn:hover{
+      background: var(--primaryHover);
+      border-color: var(--primaryHover);
+    }
+
+    .btnSecondary{
+      display:inline-block;
+      background: #fff;
+      color: var(--text);
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      padding: 10px 14px;
+      font-weight: 900;
+      text-decoration: none;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <div class="card">
+      <div class="scoreRow">
+        <div>
+          <div class="title">Time is up! Always plan your time wisely!</div>
+          <p class="muted">Your test was automatically submitted when the timer reached 00:00.</p>
+        </div>
+        <div class="pill">Attempt {{ attempt_id }}</div>
+      </div>
+
+      <div class="banner">
+        <div class="muted" style="margin:0 0 6px 0;">Score</div>
+        <div class="score">{{ score }} / {{ total }}</div>
+      </div>
+
+      <div class="btnRow">
+        <a class="btn" href="/result/{{ attempt_id }}">Review Answers</a>
+        <a class="btnSecondary" href="/">Restart</a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

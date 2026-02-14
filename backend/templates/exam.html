@@ -1,0 +1,436 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ title }} - Exam</title>
+  <style>
+    :root{
+      --bg:#f3f4f6;
+      --panel:#ffffff;
+      --text:#111827;
+      --muted:#6b7280;
+      --line:#4ba4ec;
+      --primary:#1411ce;
+      --primaryHover:#22bae9;
+    }
+
+    body {
+      font-family: Arial, Helvetica, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+    }
+
+    .wrap {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 14px 16px 18px;
+    }
+
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: var(--panel);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .header-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 16px;
+      max-width: 1180px;
+      margin: 0 auto;
+    }
+
+    .h-left {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      min-width: 0;
+    }
+
+    .h-title {
+      font-weight: 700;
+      font-size: 14px;
+      letter-spacing: 0.2px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .h-sub {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .timerBox {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-shrink: 0;
+    }
+
+    .timeLabel {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .timeValue {
+      border: 1px solid var(--line);
+      background: #fff;
+      border-radius: 6px;
+      padding: 6px 10px;
+      font-weight: 800;
+      min-width: 92px;
+      text-align: center;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .progress {
+      width: 160px;
+      height: 8px;
+      border-radius: 999px;
+      background: #eef2ff;
+      border: 1px solid var(--line);
+      overflow: hidden;
+    }
+
+    .progress > div {
+      height: 100%;
+      width: 0%;
+      background: var(--primary);
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr; /* Left: Questions, Right: Passage */
+      gap: 12px;
+      margin-top: 12px;
+    }
+
+    @media (max-width: 980px) {
+      .layout { grid-template-columns: 1fr; }
+      .progress { display: none; }
+    }
+
+    .pane {
+      border: 1px solid var(--line);
+      background: var(--panel);
+      border-radius: 8px;
+      padding: 12px;
+      height: 76vh;
+      overflow: auto;
+    }
+
+    .passage {
+      white-space: pre-wrap;
+      line-height: 1.55;
+      font-size: 14px;
+    }
+
+    .qbox {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 12px;
+      margin-bottom: 12px;
+      background: #fff;
+    }
+
+    .qhead {
+      font-weight: 800;
+      margin-bottom: 8px;
+      font-size: 14px;
+    }
+
+    .qprompt {
+      margin-bottom: 10px;
+      font-size: 14px;
+      line-height: 1.45;
+    }
+
+    .hint {
+      font-size: 12px;
+      color: var(--muted);
+      margin: 0 0 8px 0;
+    }
+
+    .choice {
+      display: flex;
+      gap: 10px;
+      padding: 10px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      margin: 8px 0;
+      background: #fff;
+    }
+
+    .choice:hover {
+      border-color: var(--primary);
+    }
+
+    .choice input {
+      transform: translateY(1px);
+    }
+
+    .actions {
+      position: sticky;
+      bottom: 0;
+      background: rgba(255,255,255,0.92);
+      border-top: 1px solid var(--line);
+      padding: 10px 0 0;
+      margin-top: 12px;
+      backdrop-filter: blur(6px);
+    }
+
+    /* Top-right action buttons next to timer */
+    .rightBox {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-shrink: 0;
+    }
+
+    .topActions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .btn {
+      background: var(--primary);
+      color: #fff;
+      border: 1px solid var(--primary);
+      border-radius: 6px;
+      padding: 10px 14px;
+      font-weight: 800;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .btn:hover {
+      background: var(--primaryHover);
+      border-color: var(--primaryHover);
+    }
+
+    .btn.secondary {
+      background: #ffffff;
+      color: var(--primary);
+      border: 1px solid var(--primary);
+    }
+
+    .btn.secondary:hover {
+      background: #eef2ff;
+      border-color: var(--primaryHover);
+    }
+
+    /* Make header buttons smaller so they won't fight timer space */
+    .topActions .btn {
+      padding: 8px 12px;
+      font-size: 12px;
+      border-radius: 6px;
+    }
+
+    .btnRow {
+      display: flex;
+      justify-content: flex-end;
+      gap: 10px;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 2px 8px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      font-size: 12px;
+      color: var(--muted);
+      margin-left: 8px;
+    }
+
+    @media (max-width: 980px) {
+      .rightBox { gap: 8px; }
+      .topActions { gap: 8px; }
+      .topActions .btn { padding: 8px 10px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="header-inner">
+      <div class="h-left">
+        <div class="h-title">{{ title }}</div>
+        <div class="h-sub">
+          Reading
+          {% if review_mode %}
+            <span class="badge">Review Mode</span>
+          {% endif %}
+        </div>
+      </div>
+
+      <div class="rightBox">
+        <div class="timerBox">
+          <div class="timeLabel">Time Left</div>
+          <div class="timeValue" id="timeLeft">--:--</div>
+          <div class="progress" aria-hidden="true"><div id="timeBar"></div></div>
+        </div>
+
+        <div class="topActions">
+          {% if review_mode %}
+            <a class="btn" href="/">Back to Dashboard</a>
+            <a class="btn secondary" href="/result/{{ attempt_id }}">Back to Results</a>
+          {% else %}
+            <button class="btn" type="submit" form="examForm">Submit</button>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="layout">
+      <!-- Left: Questions -->
+      <div class="pane">
+        <form method="post" action="/exam/{{ attempt_id }}/submit" id="examForm">
+          {% for q in questions %}
+            <div class="qbox">
+              <div class="qhead">
+                Question {{ loop.index }}
+                {% if q.type != "single" %}
+                  <span class="badge">Multiple Answer</span>
+                {% endif %}
+              </div>
+
+              <div class="qprompt">{{ q.prompt }}</div>
+
+              {% if q.type != "single" %}
+                <div class="hint">Select 2 answers.</div>
+              {% endif %}
+
+              {% if q.type == "single" %}
+                {% for c in q.choices %}
+                  <label class="choice">
+                    <input
+                      type="radio"
+                      name="ans_{{ q.id }}"
+                      value="{{ c[0] }}"
+                      {% if saved_answers.get(q.id) == c[0] %}checked{% endif %}
+                      {% if not review_mode %}required{% endif %}
+                      {% if review_mode %}disabled{% endif %}
+                    >
+                    <div><b>{{ c[0] }}.</b> {{ c[1] }}</div>
+                  </label>
+                {% endfor %}
+              {% else %}
+                {% for c in q.choices %}
+                  <label class="choice">
+                    <input
+                      type="checkbox"
+                      name="ans_{{ q.id }}"
+                      value="{{ c[0] }}"
+                      {% if c[0] in (saved_answers.get(q.id) or []) %}checked{% endif %}
+                      {% if review_mode %}disabled{% endif %}
+                    >
+                    <div><b>{{ c[0] }}.</b> {{ c[1] }}</div>
+                  </label>
+                {% endfor %}
+              {% endif %}
+            </div>
+          {% endfor %}
+
+          <!-- Bottom actions removed (buttons moved to header). Keep block hidden to avoid layout shifts. -->
+          <div class="actions" style="display:none;">
+            <div class="btnRow"></div>
+          </div>
+        </form>
+      </div>
+
+      <!-- Right: Passage -->
+      <div class="pane passage">{{ passage }}</div>
+    </div>
+  </div>
+
+<script>
+  const reviewMode = {{ 'true' if review_mode else 'false' }};
+  const duration = {{ duration_seconds }};
+  const startedAt = {{ started_at }} * 1000; // seconds -> ms
+
+  let tickHandle = null;
+  let stopped = false;
+
+  function stopTimerUI() {
+    stopped = true;
+    if (tickHandle) {
+      clearTimeout(tickHandle);
+      tickHandle = null;
+    }
+  }
+
+  function fmt(s) {
+    const m = Math.floor(s / 60);
+    const r = s % 60;
+    return String(m).padStart(2,'0') + ":" + String(r).padStart(2,'0');
+  }
+
+  function tick() {
+    if (stopped) return;
+
+    const elapsed = Math.floor((Date.now() - startedAt) / 1000);
+    const left = Math.max(0, duration - elapsed);
+
+    const timeEl = document.getElementById("timeLeft");
+    if (timeEl) timeEl.textContent = fmt(left);
+
+    const bar = document.getElementById("timeBar");
+    if (bar) {
+      const pct = Math.min(100, Math.max(0, (elapsed / duration) * 100));
+      bar.style.width = pct.toFixed(2) + "%";
+    }
+
+    // In review mode: freeze UI timer completely (no autosubmit, no ticking).
+    if (reviewMode) {
+      stopTimerUI();
+      return;
+    }
+
+    if (left <= 0) {
+      stopTimerUI();
+      const form = document.getElementById("examForm");
+      if (form) {
+        form.noValidate = true; /* bypass required fields */
+        form.action = "/exam/{{ attempt_id }}/autosubmit";
+        form.submit();
+      }
+      return;
+    }
+
+    tickHandle = setTimeout(tick, 500);
+  }
+
+  // Stop timer immediately when the user submits.
+  // This prevents countdown from continuing during navigation and avoids double submit.
+  function bindSubmitStopsTimer() {
+    const form = document.getElementById("examForm");
+    if (!form) return;
+
+    form.addEventListener("submit", function () {
+      stopTimerUI();
+
+      // Optional: prevent double clicks / repeated submits
+      const btn = document.querySelector('button[form="examForm"]');
+      if (btn) {
+        btn.disabled = true;
+        btn.textContent = "Submitting...";
+      }
+    });
+  }
+
+  bindSubmitStopsTimer();
+  tick();
+</script>
+
+</body>
+</html>
