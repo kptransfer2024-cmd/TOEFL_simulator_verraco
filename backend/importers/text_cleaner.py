@@ -1,84 +1,90 @@
 from __future__ import annotations
 
 import re
-from typing import Iterable, List
+from typing import List
 
 _RE_SPACES = re.compile(r"[ \t]+")
 _RE_MULTI_BLANK = re.compile(r"\n{3,}")
-_RE_CJK = re.compile(r"[\u4e00-\u9fff]")
 
-# Detect the first real passage page and drop everything before it (removes TOC section).
-_RE_REAL_PASSAGE01 = re.compile(r"^\s*Passage\s+0*1\s*-\s+", re.IGNORECASE)
+_PASSAGE_PREFIX_RE = re.compile(r"(?i)^\s*Passage\s+\d{1,3}\s*[-–—]\s*")
+_PARAGRAPH_TAG_RE = re.compile(r"\[\s*Paragraph\s*\d+\s*\]|\u3010\s*Paragraph\s*\d+\s*\u3011", re.IGNORECASE)
 
-# TOC-like lines: "Passage 33 - Title ............ 163"
-_RE_TOC_PASSAGE_LINE = re.compile(r"^\s*Passage\s+\d{1,2}\s*-\s*.+?\.{6,}\s*\d+\s*$", re.IGNORECASE)
-
-# Common watermarks / footer noise seen in this PDF.
-_NOISE_SUBSTRINGS = (
-    "cliffsnotes",
-    "you get more than toefl",
-    "q+a",
-    "dcy",
-    "微信公众号",
-)
-
-# Patterns for noise-only lines.
-_NOISE_PATTERNS = [
+_NOISE_LINE_RES = [
     re.compile(r"cliffsnotes\.com", re.IGNORECASE),
-    re.compile(r"^\s*q\+a\s*$", re.IGNORECASE),
-    re.compile(r"^<PARSED TEXT FOR PAGE:", re.IGNORECASE),
-    re.compile(r"^https?://\S+", re.IGNORECASE),
-    re.compile(r"^\s*\d{1,4}\s*/\s*\d{1,4}\s*$"),          # 205/281
-    re.compile(r"^\s*\d{1,4}\s*$"),                        # page number alone
-    re.compile(r"^\s*\d{1,2}/\d{1,2}/\d{2},\s*\d{1,2}:\d{2}\s*(AM|PM)\s*$", re.IGNORECASE),
-    re.compile(r"^\s*appendex[::]?\s*keys\s*$", re.IGNORECASE),
+    re.compile(r"copyright\s+©", re.IGNORECASE),
 ]
 
-def normalize_line(line: str) -> str:
-    s = line.replace("\r\n", "\n").replace("\r", "\n")
-    s = s.replace("\u00ad", "")  # soft hyphen
-    s = s.strip()
+
+def _normalize_text(s: str) -> str:
+    s = s.replace("\r\n", "\n").replace("\r", "\n")
     s = _RE_SPACES.sub(" ", s)
-    return s
+    s = _RE_MULTI_BLANK.sub("\n\n", s)
+    return s.strip()
 
-def is_noise_line(line: str) -> bool:
-    if not line:
+
+def _is_noise_line(line: str) -> bool:
+    t = line.strip()
+    if not t:
         return False
+    return any(rx.search(t) for rx in _NOISE_LINE_RES)
 
-    low = line.lower()
-    for sub in _NOISE_SUBSTRINGS:
-        if sub in low:
-            return True
 
-    if _RE_TOC_PASSAGE_LINE.match(line):
-        return True
+def extract_title_from_header_line(line: str) -> str:
+    """
+    Input:  "Passage 02 - Alaska and Bark Beetles"
+    Output: "Alaska and Bark Beetles"
+    """
+    t = (line or "").strip()
+    t = _PASSAGE_PREFIX_RE.sub("", t)
+    return t.strip()
 
-    return any(p.search(line) for p in _NOISE_PATTERNS)
 
-def clean_lines(lines: Iterable[str]) -> List[str]:
-    normalized: List[str] = []
+def clean_passage_lines(lines: List[str], *, drop_noise_lines: bool = True) -> str:
+    """
+    Key rule: never drop the first paragraph by slicing.
+    Only apply light cleanup: whitespace, optional noise lines, and paragraph tags.
+    """
+    out: List[str] = []
     for raw in lines:
-        s = normalize_line(raw)
-        if not s:
-            normalized.append("")
+        if raw is None:
             continue
-        if is_noise_line(s):
+        line = str(raw).rstrip("\n")
+
+        if drop_noise_lines and _is_noise_line(line):
             continue
-        # This PDF's Chinese lines are not part of the test content (mostly TOC/watermarks).
-        if _RE_CJK.search(s):
-            continue
-        normalized.append(s)
 
-    # Drop everything before the first real passage to remove TOC (Passage 33-50 listing).
-    start_idx = 0
-    for i, ln in enumerate(normalized):
-        if _RE_REAL_PASSAGE01.match(ln):
-            start_idx = i
-            break
+        line = _PARAGRAPH_TAG_RE.sub("", line)
+        out.append(line)
 
-    return normalized[start_idx:]
+    return _normalize_text("\n".join(out))
 
-def join_paragraphs(lines: List[str]) -> str:
-    text = "\n".join(lines)
-    text = _RE_MULTI_BLANK.sub("\n\n", text)
-    return text.strip()
+
+def repair_misparsed_first_question(passage: dict) -> dict:
+    """
+    Fix a common parse failure:
+    - First "question" has 4 empty choices
+    - First "stem" is very long (likely actual passage text)
+    Merge that stem back into content and drop the fake question.
+    """
+    qs = passage.get("questions")
+    if not isinstance(qs, list) or not qs:
+        return passage
+
+    q0 = qs[0]
+    if not isinstance(q0, dict):
+        return passage
+
+    choices = q0.get("choices")
+    stem = (q0.get("stem") or "").strip()
+
+    if (
+        isinstance(choices, list)
+        and len(choices) == 4
+        and all(((c or "").strip() == "") for c in choices)
+        and len(stem) >= 200
+    ):
+        content = (passage.get("content") or "").strip()
+        passage["content"] = (content + "\n" + stem).strip() if content else stem
+        passage["questions"] = qs[1:]
+
+    return passage

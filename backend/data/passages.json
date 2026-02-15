@@ -104,22 +104,11 @@
       ]
     },
     {
-      "id": "02",
-      "title": "Alaska and Bark Beetles",
-      "content": "Over the twentieth century, global temperatures increased by an average of about",
+  "id": "02",
+  "title": "Alaska and Bark Beetles",
+  "content": "Over the twentieth century, global temperatures increased by an average of about 0.7 degrees Celsius, but some places have warmed a lot more than this, and other places have warmed less. These temperature increases have been enough to trigger changes in ecosystems all over the world, especially in places where the warming has been the greatest. In some places, the changes have been subtle, perhaps a slight shift in vegetation that only a careful observer would notice. In other cases, small changes in climate have sparked a chain of larger effects, leading to massive changes.\n\nThe biggest climate-caused ecosystem shifts today are happening at the world's most northern latitudes, where the temperature over the last century has been rising about two times faster than the global average. In the northernmost state of the United States, Alaska, for example, warming has paved the way for a spike in the numbers of spruce bark beetles. Bark beetles have been a pest to Alaskan white spruce trees for thousands of years, but their numbers were held in check by the cold climate, which forced the insects to hide in the bark of individual trees for most of the year. As the length of the warm season increased over the 1980s and 1990s, however, bark beetles had more time to fly from one tree to the next, burrow, and lay their eggs between the bark and the wood. The beetles had another thing going for them, too: a multi-year drought had weakened many of the spruce trees, leaving them vulnerable to attack. In the mid-1990s, the bark beetle population exploded, and over the next few years the pests wiped out white spruce forests over an area the size of the U.S. state of Connecticut. In the years since, the combined forces of a longer insect-breeding season and forest management practices that left forests overcrowded gave way to similar epidemics farther south. Large swaths of pine and spruce have been destroyed by insects in several other parts of the United States.\n\nIn the late 1990s, the effects of the bark beetle epidemic rippled throughout Alaska's white spruce ecosystem and affected virtually every population of living organism, but not all of the impacts were negative. Fewer spruce trees meant a sunnier area in the forest below the treetops, which allowed grasses to move in and take hold. The grasses, in turn, changed the soil temperature, making the environment more friendly for some other types of vegetation. Animals that feed on grasses, including moose, elk, and some birds, also benefited. But the beetle infestation was bad news for organisms that rely on white spruce for their habitat, like hawks, owls, red squirrels, and voles. Voles, a type of small, mouse-like rodent, are an especially vital part of the ecosystem because they help spread mycorrhizal fungi, which attach to the roots of plants and help them take in water and nutrients. Voles are also an important food for a number of predators.\n\nEcosystem changes always hurt some living creatures and help others. It's hard to say, therefore, whether a change is good or bad overall. Instead, ecologists (people who study ecosystems) often focus on the impacts on a single species: for instance, us. In the short term, the Alaskan spruce beetle epidemic supplied a lot of people with firewood, but only by destroying tons of otherwise valuable timber and threatening the livelihoods of loggers. And no one knows for sure what the long-term impacts on the forest will be. Ecosystems tend to return to their previous states after disturbances like pest outbreaks, fires, or major storm events, but if the Alaskan spruce ecosystem is disturbed too often or too much, it might shift to a different type of forest, a woodland, or a grassland instead.\n\nIn extreme cases, major assaults on ecosystems can lead to a total collapse in which the ecosystem doesn't bounce back to the way it was or transition to a new, healthy state. The result is an area with very little life; in the oceans, biologists refer to these areas as dead zones. One such example is the coral reef die-off that happened in the Indian Ocean in the late 1990s.",
       "questions": [
-        {
-          "id": "02-0",
-          "stem": "7 degrees Celsius, but some places have warmed a lot more than this, and other places have warmed less. These temperature increases have been enough to trigger changes in ecosystems all over the world, especially in places where the warming has been the greatest. In some places, the changes have been subtle, perhaps a slight shift in vegetation that only a careful observer would notice. In other cases, small changes in climate have sparked a chain of larger effects, leading to massive changes. The biggest climate-caused ecosystem shifts today are happening at the world's most northern latitudes, where the temperature over the last century has been rising about two times faster than the global average. In the northernmost state of the United States, Alaska, for example, warming has paved the way for a spike in the numbers of spruce bark beetles. Bark beetles have been a pest to Alaskan white spruce trees for thousands of years, but their numbers were held in check by the cold climate, which forced the insects to hide in the bark of individual trees for most of the year. As the length of the warm season increased over the 1980s and 1990s, however, bark beetles had more time to fly from one tree to the next, burrow, and lay their eggs between the bark and the wood. The beetles had another thing going for them, too: a multi-year drought had weakened many of the spruce trees, leaving them vulnerable to attack. In the mid-1990s, the bark beetle population exploded, and over the next few years the pests wiped out white spruce forests over an area the size of the U.S. state of Connecticut. In the years since, the combined forces of a longer insect-breeding season and forest management practices that left forests overcrowded gave way to similar epidemics farther south. Large swaths of pine and spruce have been destroyed by insects in several other parts of the United States. In the late 1990s, the effects of the bark beetle epidemic rippled throughout Alaska's white spruce ecosystem and affected virtually every population of living organism, but not all of the impacts were negative. Fewer spruce trees meant a sunnier area in the forest below the treetops, which allowed grasses to move in and take hold. The grasses, in turn, changed the soil temperature, making the environment more friendly for some other types of vegetation. Animals that feed on grasses, including moose, elk, and some birds, also benefited. But the beetle infestation was bad news for organisms that rely on white spruce for their habitat, like hawks, owls, red squirrels, and voles. Voles, a type of small, mouse-like rodent, are an especially vital part of the ecosystem because they help spread mycorrhizal fungi, which attach to the roots of plants and help them take in water and nutrients. Voles are also an important food for a number of predators. Ecosystem changes always hurt some living creatures and help others. It's hard to say, therefore, whether a change is good or bad overall. Instead, ecologists (people who study ecosystems) often focus on the impacts on a single species: for instance, us. In the short term, the Alaskan spruce beetle epidemic supplied a lot of people with firewood, but only by destroying tons of otherwise valuable timber and threatening the livelihoods of loggers. And no one knows for sure what the long-term impacts on the forest will be. Ecosystems tend to return to their previous states after disturbances like pest outbreaks, fires, or major storm events, but if the Alaskan spruce ecosystem is disturbed too often or too much, it might shift to a different type of forest, a woodland, or a grassland instead. In extreme cases, major assaults on ecosystems can lead to a total collapse in which the ecosystem doesn't bounce back to the way it was or transition to a new, healthy state. The result is an area with very little life; in the oceans, biologists refer to these areas as dead zones. One such example is the coral reef die-off that happened in the Indian Ocean in the late 1990s.",
-          "choices": [
-            "",
-            "",
-            "",
-            ""
-          ],
-          "correct_index": 0,
-          "explanation": null
-        },
+
         {
           "id": "02-1",
           "stem": "The word \"subtle\" in the passage is closest in meaning to",
@@ -218,109 +207,110 @@
         }
       ]
     },
+{
+  "id": "03",
+  "title": "Milankovitch Cycles and Glaciation",
+  "content": "Although the history of glaciation ... low levels with cold glacial periods.",
+  "questions": [
     {
-      "id": "03",
-      "title": "Milankovitch Cycles and Glaciation",
-      "content": "It is long known that Earth's orbit around the Sun changes periodically, cyclically \naffecting the way solar radiation strikes the Earth, but the idea that these changes \naffect climate was first advanced by James Croll in the late 1800s. Later, Milutin \nMilankovitch elaborated the theory with calculations that convincingly argued that the \ncycles, now known as Milankovitch cycles, could cause climatic variations. \nThe Milankovitch cycles emerge from the way three cyclic changes in Earth's orbit \ncombine. One characteristic of Earth's orbit is its eccentricity, the degree to which the \norbit is an ellipse rather than a circle. Changes in the eccentricity of Earth's orbit \noccur in a cycle of about 96,000 years. The inclination, or tilt, of Earth's axis also \nvaries periodically, moving between 22 degrees and 24.5 degrees. The tilt of Earth's \naxis, toward the Sun at some times of the year and away from the Sun at other \ntimes, is responsible for the annual cycle of seasons. The greater the tilt, the greater \nthe contrast between summer and winter temperatures. Changes in the tilt occur in a \ncycle 41,000 years long. Also, Earth wobbles as it spins, like a slightly unsteady top. \nThe wobble cycle is completed once every 21,700 years. Changes in eccentricity, tilt, \nand wobble do not affect the total amount of solar radiation Earth receives in a year, \nbut they do affect how evenly or unevenly this radiation is disturbed over the course \nof a year. According to the Milankovitch theory, about every 40,000 years the three \nseparate cycles combine in such a way that the difference between summer and \nwinter temperatures is at a minimum. At this point winter temperatures are milder but \nso too are summer temperatures. As a result, less ice is melted in the summer than \nis formed in the winter, so glaciers build up and a period of glaciation results. \nMilankovitch worked out the ideas of climatic cycles in the 1920s and 1930s, but it \nwas not until the 1970s that a detailed chronology of the Pleistocene temperature \nchanges was determined that could test the predictions of this theory. A \ncorrespondence between Milankovitch cycles and climate fluctuations of the last 65 \nmillion years seems clear. Furthermore, studies of rock samples drilled from the \ndeep-sea floor and the fossils contained in them indicate that the fluctuation of \nclimate during the past few hundred thousand years is remarkably close to that \npredicted by Milankovitch. \nA problem with Milankovitch's explanation of glaciation arises from the fact that the \nvariations in Earth's orbit, and hence the Milankovitch cycles, have existed for billions \nof years. Thus, we might expect that glaciation would have been a cyclic event \nthroughout geologic time. In fact, periods of glaciation are rare. So there must be \nanother factor acting together with the Milankovitch cycles that causes periods of \nglaciation. Once this additional factor makes the temperature low enough, the cyclic \nvariations of the Milankovitch cycles will force the planet into and out of glacial \nepochs with a fixed regularity. \nMany hypotheses have been proposed for the additional cooling factor. Some \nsuggest that variations in the Sun's energy output could account for the ice ages. \nHowever, our present understanding of the Sun's luminosity holds that it should have \nprogressively increased, not decreased, over the course of Earth's history. Still \nothers argue that volcanic dust injected into the atmosphere shields Earth from the \nSun's rays and initiates an ice age. However, no correlation has been found between \nvolcanic activity and the start of the last ice age. An increasingly attractive theory \nholds that decreases in atmospheric carbon dioxide starts the cooling trend that \nleads to glaciation. Carbon dioxide traps solar energy reflected from the Earth's \nsurface. If carbon dioxide levels decrease, less heat is trapped and Earth's surface \ncools. Recent studies of the carbon dioxide content of gas bubbles preserved in the \nGreenland ice cap do in fact show that high carbon dioxide levels are associated \nwith warm interglacial periods, and low levels with cold glacial periods.",
-      "questions": [
-        {
-          "id": "03-1",
-          "stem": "The word \"elaborated\" in the passage is closest in meaning to",
-          "choices": [
-            "corrected",
-            "defended",
-            "studied",
-            "developed"
-          ],
-          "correct_index": 0,
-          "explanation": null
-        },
-        {
-          "id": "03-2",
-          "stem": "According to paragraph 2, all of the following are true about the cycles that affect Earth's orbit EXCEPT:",
-          "choices": [
-            "The tilt of Earth's axis varies between 22 degrees and 24.5 degrees.",
-            "The cycles determining Earth's orbital characteristics occur in regular patterns.",
-            "Earth's axis wobbles in a cycle lasting about 21,700 years.",
-            "The total amount of solar radiation Earth receives changes significantly with the eccentricity of its orbit."
-          ],
-          "correct_index": 0,
-          "explanation": null
-        },
-        {
-          "id": "03-3",
-          "stem": "According to paragraph 2, changes in the tilt of Earth's axis affect",
-          "choices": [
-            "the number of hours of daylight at the poles",
-            "the amount of solar radiation Earth receives during a year",
-            "the degree of difference between summer and winter temperatures",
-            "the length of the annual cycle of seasons"
-          ],
-          "correct_index": 0,
-          "explanation": null
-        },
-        {
-          "id": "03-4",
-          "stem": "According to paragraph 2, the Milankovitch theory maintains that glaciation occurs when the three cycles combine in such a way that",
-          "choices": [
-            "winter temperatures become milder and summer temperatures become cooler",
-            "more ice is formed during the winter than is melted during the summer",
-            "the difference between summer and winter temperatures is at a maximum",
-            "the total amount of solar radiation reaching Earth is at a minimum"
-          ],
-          "correct_index": 0,
-          "explanation": null
-        },
-        {
-          "id": "03-5",
-          "stem": "Why does the author mention \"rock samples drilled from the deep-sea floor\" in paragraph 3?",
-          "choices": [
-            "To present an alternative theory to Milankovitch's explanation of climatic cycles",
-            "To provide evidence that the Pleistocene temperature changes were caused by Milankovitch cycles",
-            "To argue that the climate fluctuations of the last 65 million years have been remarkably close to those predicted by Milankovitch",
-            "To explain how scientists developed a chronology of Pleistocene temperature changes"
-          ],
-          "correct_index": 0,
-          "explanation": null
-        },
-        {
-          "id": "03-6",
-          "stem": "According to paragraphs 3 and 4, what is the main problem with Milankovitch's explanation of glaciation?",
-          "choices": [
-            "It fails to explain why glacial periods are much less frequent than the theory would predict.",
-            "It does not account for the fact that the cycles that cause glaciation have not existed throughout geologic time.",
-            "It does not explain why glaciation would not occur on a regular cycle.",
-            "It fails to consider that Earth's orbit would have to be more eccentric for glaciation to occur."
-          ],
-          "correct_index": 0,
-          "explanation": null
-        },
-        {
-          "id": "03-7",
-          "stem": "Which of the sentences below best expresses the essential information in the highlighted sentence in the passage? Incorrect choices change the meaning in important ways or leave out essential information.",
-          "choices": [
-            "Because the Milankovitch cycles have existed for billions of years, it seems logical that glaciation would have been a rare event throughout geologic time.",
-            "The fact that periods of glaciation have been rare throughout geologic time suggests that glaciation is caused by factors other than the Milankovitch cycles.",
-            "We might expect glaciation to have been a cyclic event because Milankovitch cycles have existed for billions of years, but glaciation has actually been rare.",
-            "Since Milankovitch cycles have existed for billions of years, glaciation should have occurred more often than it actually has."
-          ],
-          "correct_index": 0,
-          "explanation": null
-        },
-        {
-          "id": "03-8",
-          "stem": "The author discusses \"volcanic dust\" and \"atmospheric carbon dioxide\" in paragraph 5 in order to",
-          "choices": [
-            "contrast two different explanations for the initial cooling that triggers ice ages",
-            "argue that volcanic dust is not a likely cause of the initial cooling that leads to ice ages",
-            "support the theory that low carbon dioxide levels are the cause of ice ages",
-            "explain why Milankovitch cycles are not the main cause of ice ages"
-          ],
-          "correct_index": 0,
-          "explanation": null
-        }
-      ]
+      "id": "03-1",
+      "stem": "The word \"elaborated\" in the passage is closest in meaning to",
+      "choices": [
+        "corrected",
+        "defended",
+        "studied",
+        "developed"
+      ],
+      "correct_index": 0,
+      "explanation": null
     },
+    {
+      "id": "03-2",
+      "stem": "According to paragraph 2, all of the following are true about the cycles that affect Earth's orbit EXCEPT:",
+      "choices": [
+        "The tilt of Earth's axis varies between 22 degrees and 24.5 degrees.",
+        "The cycles determining Earth's orbital characteristics occur in regular patterns.",
+        "Earth's axis wobbles in a cycle lasting about 21,700 years.",
+        "The total amount of solar radiation Earth receives changes significantly with the eccentricity of its orbit."
+      ],
+      "correct_index": 0,
+      "explanation": null
+    },
+    {
+      "id": "03-3",
+      "stem": "According to paragraph 2, changes in the tilt of Earth's axis affect",
+      "choices": [
+        "the number of hours of daylight at the poles",
+        "the amount of solar radiation Earth receives during a year",
+        "the degree of difference between summer and winter temperatures",
+        "the length of the annual cycle of seasons"
+      ],
+      "correct_index": 0,
+      "explanation": null
+    },
+    {
+      "id": "03-4",
+      "stem": "According to paragraph 2, the Milankovitch theory maintains that glaciation occurs when the three cycles combine in such a way that",
+      "choices": [
+        "winter temperatures become milder and summer temperatures become cooler",
+        "more ice is formed during the winter than is melted during the summer",
+        "the difference between summer and winter temperatures is at a maximum",
+        "the total amount of solar radiation reaching Earth is at a minimum"
+      ],
+      "correct_index": 0,
+      "explanation": null
+    },
+    {
+      "id": "03-5",
+      "stem": "Why does the author mention \"rock samples drilled from the deep-sea floor\" in paragraph 3?",
+      "choices": [
+        "To present an alternative theory to Milankovitch's explanation of climatic cycles",
+        "To provide evidence that the Pleistocene temperature changes were caused by Milankovitch cycles",
+        "To argue that the climate fluctuations of the last 65 million years have been remarkably close to those predicted by Milankovitch",
+        "To explain how scientists developed a chronology of Pleistocene temperature changes"
+      ],
+      "correct_index": 0,
+      "explanation": null
+    },
+    {
+      "id": "03-6",
+      "stem": "According to paragraphs 3 and 4, what is the main problem with Milankovitch's explanation of glaciation?",
+      "choices": [
+        "It fails to explain why glacial periods are much less frequent than the theory would predict.",
+        "It does not account for the fact that the cycles that cause glaciation have not existed throughout geologic time.",
+        "It does not explain why glaciation would not occur on a regular cycle.",
+        "It fails to consider that Earth's orbit would have to be more eccentric for glaciation to occur."
+      ],
+      "correct_index": 0,
+      "explanation": null
+    },
+    {
+      "id": "03-7",
+      "stem": "Which of the sentences below best expresses the essential information in the highlighted sentence in the passage? Incorrect choices change the meaning in important ways or leave out essential information.",
+      "choices": [
+        "Because the Milankovitch cycles have existed for billions of years, it seems logical that glaciation would have been a rare event throughout geologic time.",
+        "The fact that periods of glaciation have been rare throughout geologic time suggests that glaciation is caused by factors other than the Milankovitch cycles.",
+        "We might expect glaciation to have been a cyclic event because Milankovitch cycles have existed for billions of years, but glaciation has actually been rare.",
+        "Since Milankovitch cycles have existed for billions of years, glaciation should have occurred more often than it actually has."
+      ],
+      "correct_index": 0,
+      "explanation": null
+    },
+    {
+      "id": "03-8",
+      "stem": "The author discusses \"volcanic dust\" and \"atmospheric carbon dioxide\" in paragraph 5 in order to",
+      "choices": [
+        "contrast two different explanations for the initial cooling that triggers ice ages",
+        "argue that volcanic dust is not a likely cause of the initial cooling that leads to ice ages",
+        "support the theory that low carbon dioxide levels are the cause of ice ages",
+        "explain why Milankovitch cycles are not the main cause of ice ages"
+      ],
+      "correct_index": 0,
+      "explanation": null
+    }
+  ]
+}
+,
     {
       "id": "04",
       "title": "Japan's Climate",
@@ -738,115 +728,104 @@
       "title": "Earthquake Prediction",
       "content": "Research leading to short-term forecasting, which involves a shorter time interval, \nhas been focused on precursors observed prior to previous earthquakes. Precursors \nare physical or chemical phenomena that occur in a typical pattern before an \nearthquake. These phenomena include changes in the velocity of seismic waves, the \nelectrical resistance of rocks, the frequency of the usually minor preliminary \nearthquakes (foreshocks), the deformation of the land surface, and the water level or \nwater chemistry of wells in the area. Many of these precursors can be explained by a \ntheory called the dilatancy model. Under this hypothesis, rocks in the process of \nstrain along a fault show significant dilation or swelling before rupture. This volume \nincrease is caused by the opening of microcracks, which are minute failure zones in \nweaker mineral grains in the rock and along grain boundaries. Groundwater flows \ninto the highly stressed areas during the formation of microcracks. These changes in \ndensity and water content affect the ability of the rock to transmit seismic waves and \nconduct electricity. Therefore, seismic-wave velocity and electrical resistance \nprogressively change as the overall rupture along the fault draws near. Localized \nchanges in land-surface elevation are also related to volume changes at depth. An \narea of recent uplift along the San Andreas Fault near Los Angeles, which has been \nnamed the Palmdale Bulge, is being monitored in great detail as a possible indicator \nof a future earthquake. \nVolume changes and groundwater movement may be reflected by changes in water \nlevels in wells and also by changes in the chemical composition of groundwater. \nRadon gas has been observed to increase in wells prior to earthquakes. These \nincreases are perhaps related to the release of radon gas from rocks during the \nformation of microcracks. The pattern of seismic activity is also significant in the \nvicinity of a fault area where rupture is imminent. This pattern consists of an initial \nrise in the number of small events, followed by a decline in foreshocks just prior to \nthe major earthquake. The decline may represent a temporary increase in rock \nstrength before the newly formed microcracks are filled with water. \nThe precursor phenomena can be grouped into stages according to the dilatancy \nmodel. Stage I consists of a gradual stress buildup along the fault. Stages II and III \nare correlated with dilatancy and water influx. Stage IV is the major earthquake, and \nstage V is the aftermath of the event. If every earthquake followed the sequence with \nuniform stage duration, earthquake prediction would be a simple matter. Instead of \nfollowing the same patterns, each earthquake is unique in terms of specific precursor \nbehavior patterns and length of precursor stages. A magnitude 6.9 North American \nearthquake in 1989 was preceded by a substantially smaller magnitude 5 earthquake \nfifteen months before the event. Another foreshock of similar size occurred two \nmonths before the event. In each case, a public advisory was issued stating that \nthose smaller earthquakes could be foreshocks to a stronger earthquake within five \ndays. However, the fault did not cooperate, and those predictions were not \nsuccessful. Continued research and study of future earthquakes will certainly lead to \nrefinement of the dilatancy model or to a replacement model with more accurate \npredictive capabilities. \nTwo types of earthquake prediction are theoretically possible. The first type is \nlong-term forecasting, in which the probability of an earthquake along a particular \nsegment of a fault within a certain time interval is calculated by studying seismic \ngaps and historical records of earthquakes that have occurred along that fault \nsegment. By plotting the number of earthquakes within specific time intervals against \ntheir magnitudes, diagrams can be constructed for a local area. From this plot it is \npossible to estimate the recurrence interval, or the average time between \nearthquakes of a particular magnitude. For example, if a 6.0 magnitude earthquake \noccurs every 50 to 100 years along a particular fault segment, a 6.0 magnitude \nearthquake could occur at any time within that time span.",
       "questions": [
-        {
-          "id": "08-1",
-          "stem": "According to paragraph 2, long-term forecasting can be used to predict which of the following?",
-          "choices": [
-            "The influence of earthquake activity in one segment of the fault area on other segments",
-            "The frequency with which earthquakes of a certain size will occur",
-            "The possible date of the next earthquake",
-            "The magnitude of the next earthquake"
-          ],
-          "correct_index": 0,
-          "explanation": null
-        },
-        {
-          "id": "08-2",
-          "stem": "Paragraph 3 mentions all of the following as examples of precursors EXCEPT",
-          "choices": [
-            "changes in the speed of seismic waves",
-            "changes in the availability of electricity",
-            "changes in the frequency of foreshocks",
-            "changes in land surfaces"
-          ],
-          "correct_index": 0,
-          "explanation": null
-        },
-        {
-          "id": "08-3",
-          "stem": "According to paragraph 3, which of the following is true about the dilatancy model?",
-          "choices": [
-            "It explains that volume increase is caused by the closure of microcracks.",
-            "It explains how groundwater moving into stressed areas can affect the transmission of seismic waves.",
-            "It proposes that changes in land-surface elevation are related to the movement of tectonic plates.",
-            "It suggests that radon gas is released when rocks are fully saturated with water."
-          ],
-          "correct_index": 0,
-          "explanation": null
-        },
-        {
-          "id": "08-4",
-          "stem": "According to paragraph 3, which of the following is a change that may occur before an earthquake?",
-          "choices": [
-            "The electrical resistance of rocks increases due to the opening of microcracks.",
-            "The land surface in the area becomes flat.",
-            "Groundwater becomes more acidic.",
-            "Seismic waves travel more quickly through the ground."
-          ],
-          "correct_index": 0,
-          "explanation": null
-        },
-        {
-          "id": "08-5",
-          "stem": "The word \"imminent\" in the passage is closest in meaning to",
-          "choices": [
-            "about to happen",
-            "clearly visible",
-            "destructive",
-            "well understood"
-          ],
-          "correct_index": 0,
-          "explanation": null
-        },
-        {
-          "id": "08-6",
-          "stem": "According to paragraph 4, which of the following occurs just before an earthquake?",
-          "choices": [
-            "The chemical content of groundwater drops.",
-            "The rocks weaken as they fill with water.",
-            "Seismic activity decreases.",
-            "Radon gas causes microcracks to form."
-          ],
-          "correct_index": 0,
-          "explanation": null
-        },
-        {
-          "id": "08-7",
-          "stem": "How is paragraph 5 organized?",
-          "choices": [
-            "The sequence of earthquake stages is given, and the effect of variable stage length on earthquake prediction is explained.",
-            "The earthquake stages are named, and the most important stage is illustrated with a specific earthquake event.",
-            "The sequence of earthquake stages is given, and evidence is presented that the intervals between stages are roughly equal in length.",
-            "The earthquake stages are first named, and each is then described in greater detail."
-          ],
-          "correct_index": 0,
-          "explanation": null
-        },
-        {
-          "id": "08-8",
-          "stem": "According to paragraph 5, which of the following is true about the magnitude",
-          "choices": [
-            "",
-            "",
-            "",
-            ""
-          ],
-          "correct_index": 0,
-          "explanation": null
-        },
-        {
-          "id": "08-6",
-          "stem": "9 North American earthquake in 1989?",
-          "choices": [
-            "It was successfully predicted based on foreshocks that occurred fifteen months and two months before the event.",
-            "It was preceded by foreshocks that led to predictions of a stronger earthquake, but those predictions were incorrect.",
-            "It demonstrated that the dilatancy model's stages have uniform duration.",
-            "It was preceded by foreshocks that occurred within five days of the main earthquake."
-          ],
-          "correct_index": 0,
-          "explanation": null
-        }
-      ]
+  {
+    "id": "08-1",
+    "stem": "According to paragraph 2, all of the following information is used in the process of long-term earthquake prediction EXCEPT",
+    "choices": [
+      "analysis of seismic gaps",
+      "record of past earthquakes in the fault area",
+      "date of the last recorded earthquake in the area",
+      "pattern of earthquake activity in other nearby fault segments"
+    ],
+    "correct_index": null,
+    "explanation": null
+  },
+  {
+    "id": "08-2",
+    "stem": "According to paragraph 2, long-term forecasting can be used to predict which of the following?",
+    "choices": [
+      "The influence of earthquake activity in one segment of the fault area on other segments",
+      "The frequency with which earthquakes of a certain size will occur",
+      "The possible date of the next earthquake",
+      "The magnitude of the next earthquake"
+    ],
+    "correct_index": null,
+    "explanation": null
+  },
+  {
+    "id": "08-3",
+    "stem": "Paragraph 3 mentions all of the following as examples of precursors EXCEPT",
+    "choices": [
+      "changes in the speed of seismic waves",
+      "changes in the availability of electricity",
+      "changes in the frequency of foreshocks",
+      "changes in land surfaces"
+    ],
+    "correct_index": null,
+    "explanation": null
+  },
+  {
+    "id": "08-4",
+    "stem": "According to the dilatancy model, what happens to rocks shortly before an earthquake?",
+    "choices": [
+      "They lose significant amounts of moisture.",
+      "They show signs of expanding.",
+      "They move downward at great speed.",
+      "They increase in temperature."
+    ],
+    "correct_index": null,
+    "explanation": null
+  },
+  {
+    "id": "08-5",
+    "stem": "According to paragraph 3, the groundwater that flows into microcracks before an earthquake causes",
+    "choices": [
+      "changes in seismic waves and electrical activity",
+      "increases in the mineral content of rocks",
+      "the disappearance of grain boundaries in rocks",
+      "a release in the tension of highly stressed areas of rocks"
+    ],
+    "correct_index": null,
+    "explanation": null
+  },
+  {
+    "id": "08-6",
+    "stem": "The author discusses the San Andreas Fault near Los Angeles in order to",
+    "choices": [
+      "contrast past and future patterns of earthquake activity in the area",
+      "give an example of an area where underground earthquake activity is apparent from land changes above the ground",
+      "explain why recent earthquake predictions have increased accuracy",
+      "suggest that some areas of earthquake activity are easier to monitor than others"
+    ],
+    "correct_index": null,
+    "explanation": null
+  },
+  {
+    "id": "08-7",
+    "stem": "According to paragraph 4, which of the following occurs just before an earthquake?",
+    "choices": [
+      "The chemical content of groundwater drops.",
+      "The rocks weaken as they fill with water.",
+      "Seismic activity decreases.",
+      "Radon gas causes microcracks to form."
+    ],
+    "correct_index": null,
+    "explanation": null
+  },
+  {
+    "id": "08-8",
+    "stem": "How is paragraph 5 organized?",
+    "choices": [
+      "The sequence of earthquake stages is given, and the effect of variable stage length on earthquake prediction is explained.",
+      "The earthquake stages are named, and the most important stage is illustrated with a specific earthquake event.",
+      "The sequence of earthquake stages is given, and evidence is presented that the intervals between stages are roughly equal in length.",
+      "The earthquake stages are first named, and each is then described in greater detail."
+    ],
+    "correct_index": null,
+    "explanation": null
+  }
+]
+
     },
     {
       "id": "09",

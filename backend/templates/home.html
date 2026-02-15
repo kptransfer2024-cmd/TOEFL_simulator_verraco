@@ -6,12 +6,12 @@
   <title>verraco</title>
   <style>
     :root{
-      --bg:#f3f4f6;
-      --panel:#ffffff;
+      --bg:#a9bee6;
+      --panel:#ffffffb9;
       --text:#111827;
-      --muted:#6b7280;
-      --line:#52b1e7;
-      --primary:#301dda;
+      --muted:#6b7280c0;
+      --line:#035c2f;
+      --primary:#080330;
       --primaryHover:#4ea9e6;
     }
 
@@ -67,6 +67,11 @@
       border: 1px solid var(--line);
       background: #fff;
       color: var(--text);
+      width: 260px;
+    }
+
+    /* Keep timer narrower */
+    .input--timer{
       width: 120px;
     }
 
@@ -98,6 +103,11 @@
       margin: 8px 0 0 18px;
       padding: 0;
     }
+
+    .tiny{
+      font-size: 12px;
+      color: var(--muted);
+    }
   </style>
 </head>
 
@@ -108,27 +118,61 @@
 
       <p class="muted">
         This is a lightweight TOEFL Reading simulator for practice. You will read a passage,
-        answer single-choice and multiple-answer questions, and submit for scoring.
+        answer questions, and submit for scoring.
       </p>
 
       <form method="post" action="/start">
+        <!-- NEW: Your two modes -->
+        <div class="row">
+          <span class="label">Mode</span>
+          <select class="input" name="mode" id="modeSel">
+            <option value="full" selected>Single Set</option>
+            <option value="single">Single Question</option>
+          </select>
+          <span class="tiny">Recommended: Full Set for realistic pacing</span>
+        </div>
+
+        <!-- NEW: Only for single mode -->
+        <div class="row" id="singleRow" style="display:none;">
+          <span class="label">Question #</span>
+          <select class="input" name="single_index">
+            {% for i in range(1, 10) %}
+              <option value="{{ i }}">{{ i }}</option>
+            {% endfor %}
+          </select>
+          <span class="tiny">You will do 1 question and submit immediately</span>
+        </div>
+
+        <!-- Existing timer + start -->
         <div class="row">
           <span class="label">Timer (minutes)</span>
-          <input class="input" name="minutes" type="number" min="1" max="120" value="{{ default_minutes }}">
+          <input class="input input--timer" name="minutes" type="number" min="1" max="120" value="{{ default_minutes }}">
           <button class="btn" type="submit">Start</button>
         </div>
 
         <div class="note">
           <b>What to expect</b>
           <ul>
-            <li>Exam screen uses a split layout (questions + passage).</li>
+            <li>Each question is on its own page (Previous / Next).</li>
+            <li>Answers are auto-saved when you navigate.</li>
             <li>A countdown timer will auto-submit when time runs out.</li>
-            <li>The reading uses a small sample set; more content can be added later.</li>
           </ul>
         </div>
       </form>
     </div>
   </div>
+
+  <script>
+    const modeSel = document.getElementById("modeSel");
+    const singleRow = document.getElementById("singleRow");
+
+    function syncModeUI() {
+      const v = modeSel.value;
+      singleRow.style.display = (v === "single") ? "flex" : "none";
+    }
+
+    modeSel.addEventListener("change", syncModeUI);
+    syncModeUI();
+  </script>
 </body>
 </html>
-

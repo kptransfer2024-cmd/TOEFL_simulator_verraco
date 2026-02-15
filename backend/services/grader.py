@@ -1,5 +1,29 @@
 from typing import Any, List, Dict, Tuple
 
+import re
+
+_QID_P_RE = re.compile(r"^P(\d+)-Q(\d+)$", re.IGNORECASE)
+
+def _display_qid(qid: str) -> str:
+    """
+    UI-only display id.
+    Keeps internal qid unchanged.
+    Examples:
+      P20-Q09 -> 20-9
+      P3-Q1   -> 3-1
+      20-7    -> 20-7
+    """
+    if not qid:
+        return ""
+    s = str(qid).strip()
+    m = _QID_P_RE.match(s)
+    if not m:
+        return s
+    pid = int(m.group(1))
+    qn = int(m.group(2))
+    return f"{pid}-{qn}"
+
+
 def grade(questions: List[Dict[str, Any]], form: Any) -> Tuple[int, int, List[Dict[str, Any]]]:
     """
     Grades user answers with high robustness and efficiency.
@@ -54,7 +78,8 @@ def grade(questions: List[Dict[str, Any]], form: Any) -> Tuple[int, int, List[Di
             "user": user_ans,
             "correct": correct_ans,
             "ok": is_ok,
-            "explanation": explanation
+            "explanation": explanation,
+            "display_qid": _display_qid(qid),
         })
 
     return score, total, feedback

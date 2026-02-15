@@ -6,15 +6,15 @@
   <title>Results - Examination System</title>
   <style>
     :root {
-      --bg: #f8fafc;
-      --panel: #ffffff;
+      --bg: #a9bee6;
+      --panel: #ffffffb9;
       --text: #1e293b;
-      --muted: #64748b;
-      --line: #e2e8f0;
+      --muted: #6b7280c0;
+      --line: #035c2f;
       --ok: #30e773;
       --bad: #c725b9;
-      --primary: #2563eb;
-      --primary-hover: #1d4ed8;
+      --primary: #080330;
+      --primary-hover: #4ea9e6;
       --accent: #f1f5f9;
     }
 
@@ -146,7 +146,11 @@
         <div style="font-weight: 800; font-size: 18px;">Exam Report</div>
         <div style="font-size: 12px; color: var(--muted);">Attempt ID: {{ attempt_id }}</div>
       </div>
-      <a href="/" class="btn" style="padding: 8px 16px; font-size: 13px;">Restart</a>
+
+      <!-- Top-right: Review with Answers -->
+      <a href="/exam/{{ attempt_id }}?review=1" class="btn" style="padding: 8px 16px; font-size: 13px;">
+        Review
+      </a>
     </div>
   </div>
 
@@ -165,7 +169,7 @@
     {% for item in feedback %}
     <div class="card">
       <div class="q-meta">
-        <span style="font-weight: 800; color: var(--muted);">QUESTION {{ item.qid }}</span>
+        <span style="font-weight: 800; color: var(--muted);">QUESTION {{ item.display_qid if item.display_qid else item.qid }}</span>
         <span class="status-tag {{ 'ok' if item.ok else 'bad' }}">
           {{ '✓ Correct' if item.ok else '✗ Incorrect' }}
         </span>
@@ -193,6 +197,7 @@
     </div>
     {% endfor %}
 
+    <!-- Bottom buttons: Restart / Return to Dashboard (in that order) -->
     <div style="
       display: flex;
       justify-content: center;
@@ -200,8 +205,8 @@
       margin-top: 40px;
       padding-bottom: 40px;
     ">
-      <a href="/" class="btn">Return to Dashboard</a>
-      <a href="/exam/{{ attempt_id }}?review=1" class="btn">Review with Answers</a>
+      <a href="/" class="btn">Restart</a>
+      <a href="/" class="btn">Home</a>
     </div>
   </div>
 

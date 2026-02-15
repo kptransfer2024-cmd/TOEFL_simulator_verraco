@@ -6,13 +6,18 @@
   <title>{{ title }} - Exam</title>
   <style>
     :root{
-      --bg:#f3f4f6;
-      --panel:#ffffff;
+      --bg:#a9bee6;
+      --panel:#ffffffb9;
       --text:#111827;
-      --muted:#6b7280;
-      --line:#4ba4ec;
-      --primary:#1411ce;
-      --primaryHover:#22bae9;
+      --muted:#6b7280c0;
+      --line:#035c2f;
+      --primary:#080330;
+      --primaryHover:#4ea9e6;
+
+      --correctBg:#dcfce7;
+      --correctBd:#86efac;
+      --wrongBg:#fee2e2;
+      --wrongBd:#fca5a5;
     }
 
     body {
@@ -22,96 +27,49 @@
       color: var(--text);
     }
 
-    .wrap {
-      max-width: 1180px;
-      margin: 0 auto;
-      padding: 14px 16px 18px;
-    }
+    .wrap { max-width: 1180px; margin: 0 auto; padding: 14px 16px 18px; }
 
     .header {
-      position: sticky;
-      top: 0;
-      z-index: 10;
+      position: sticky; top: 0; z-index: 10;
       background: var(--panel);
       border-bottom: 1px solid var(--line);
     }
 
     .header-inner {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 12px;
-      padding: 10px 16px;
-      max-width: 1180px;
-      margin: 0 auto;
+      display: flex; justify-content: space-between; align-items: center; gap: 12px;
+      padding: 10px 16px; max-width: 1180px; margin: 0 auto;
     }
 
-    .h-left {
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
-      min-width: 0;
-    }
+    .h-left { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
 
     .h-title {
-      font-weight: 700;
-      font-size: 14px;
-      letter-spacing: 0.2px;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
+      font-weight: 700; font-size: 14px; letter-spacing: 0.2px;
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
     }
 
     .h-sub {
-      font-size: 12px;
-      color: var(--muted);
+      font-size: 12px; color: var(--muted);
+      display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
     }
 
-    .timerBox {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      flex-shrink: 0;
-    }
-
-    .timeLabel {
-      font-size: 12px;
-      color: var(--muted);
-    }
+    .timerBox { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
+    .timeLabel { font-size: 12px; color: var(--muted); }
 
     .timeValue {
-      border: 1px solid var(--line);
-      background: #fff;
-      border-radius: 6px;
-      padding: 6px 10px;
-      font-weight: 800;
-      min-width: 92px;
-      text-align: center;
+      border: 1px solid var(--line); background: #fff; border-radius: 6px;
+      padding: 6px 10px; font-weight: 800; min-width: 92px; text-align: center;
       font-variant-numeric: tabular-nums;
     }
 
     .progress {
-      width: 160px;
-      height: 8px;
-      border-radius: 999px;
-      background: #eef2ff;
-      border: 1px solid var(--line);
-      overflow: hidden;
+      width: 160px; height: 8px; border-radius: 999px;
+      background: #eef2ff; border: 1px solid var(--line); overflow: hidden;
     }
-
-    .progress > div {
-      height: 100%;
-      width: 0%;
-      background: var(--primary);
-    }
+    .progress > div { height: 100%; width: 0%; background: var(--primary); }
 
     .layout {
-      display: grid;
-      grid-template-columns: 1fr 1fr; /* Left: Questions, Right: Passage */
-      gap: 12px;
-      margin-top: 12px;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 12px;
     }
-
     @media (max-width: 980px) {
       .layout { grid-template-columns: 1fr; }
       .progress { display: none; }
@@ -126,11 +84,7 @@
       overflow: auto;
     }
 
-    .passage {
-      white-space: pre-wrap;
-      line-height: 1.55;
-      font-size: 14px;
-    }
+    .passage { white-space: pre-line; line-height: 1.55; font-size: 14px; }
 
     .qbox {
       border: 1px solid var(--line);
@@ -141,133 +95,72 @@
     }
 
     .qhead {
-      font-weight: 800;
-      margin-bottom: 8px;
-      font-size: 14px;
+      font-weight: 800; margin-bottom: 8px; font-size: 14px;
+      display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
     }
 
-    .qprompt {
-      margin-bottom: 10px;
-      font-size: 14px;
-      line-height: 1.45;
-    }
-
-    .hint {
-      font-size: 12px;
-      color: var(--muted);
-      margin: 0 0 8px 0;
-    }
+    .qprompt { margin-bottom: 10px; font-size: 14px; line-height: 1.45; white-space: pre-wrap; }
+    .hint { font-size: 12px; color: var(--muted); margin: 0 0 8px 0; }
 
     .choice {
-      display: flex;
-      gap: 10px;
-      padding: 10px;
-      border: 1px solid var(--line);
-      border-radius: 6px;
-      margin: 8px 0;
-      background: #fff;
+      display: flex; gap: 10px; padding: 10px;
+      border: 1px solid var(--line); border-radius: 6px;
+      margin: 8px 0; background: #fff;
     }
+    .choice:hover { border-color: var(--primary); }
+    .choice input { transform: translateY(1px); }
 
-    .choice:hover {
-      border-color: var(--primary);
-    }
+    .choice.correct { background: var(--correctBg); border-color: var(--correctBd); }
+    .choice.wrong { background: var(--wrongBg); border-color: var(--wrongBd); }
 
-    .choice input {
-      transform: translateY(1px);
-    }
-
-    .actions {
-      position: sticky;
-      bottom: 0;
-      background: rgba(255,255,255,0.92);
-      border-top: 1px solid var(--line);
-      padding: 10px 0 0;
-      margin-top: 12px;
-      backdrop-filter: blur(6px);
-    }
-
-    /* Top-right action buttons next to timer */
-    .rightBox {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      flex-shrink: 0;
-    }
-
-    .topActions {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
+    .rightBox { display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
+    .topActions { display: flex; align-items: center; gap: 10px; }
 
     .btn {
-      background: var(--primary);
-      color: #fff;
-      border: 1px solid var(--primary);
-      border-radius: 6px;
-      padding: 10px 14px;
-      font-weight: 800;
-      cursor: pointer;
-      text-decoration: none;
-      display: inline-block;
+      background: var(--primary); color: #fff;
+      border: 1px solid var(--primary); border-radius: 6px;
+      padding: 10px 14px; font-weight: 800;
+      cursor: pointer; text-decoration: none; display: inline-block; user-select: none;
     }
+    .btn:hover { background: var(--primaryHover); border-color: var(--primaryHover); }
 
-    .btn:hover {
-      background: var(--primaryHover);
-      border-color: var(--primaryHover);
-    }
+    .btn.secondary { background: #ffffff; color: var(--primary); border: 1px solid var(--primary); }
+    .btn.secondary:hover { background: #eef2ff; border-color: var(--primaryHover); }
 
-    .btn.secondary {
-      background: #ffffff;
-      color: var(--primary);
-      border: 1px solid var(--primary);
-    }
-
-    .btn.secondary:hover {
-      background: #eef2ff;
-      border-color: var(--primaryHover);
-    }
-
-    /* Make header buttons smaller so they won't fight timer space */
-    .topActions .btn {
-      padding: 8px 12px;
-      font-size: 12px;
-      border-radius: 6px;
-    }
-
-    .btnRow {
-      display: flex;
-      justify-content: flex-end;
-      gap: 10px;
-    }
+    .topActions .btn { padding: 8px 12px; font-size: 12px; border-radius: 6px; }
 
     .badge {
-      display: inline-block;
-      padding: 2px 8px;
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      font-size: 12px;
-      color: var(--muted);
-      margin-left: 8px;
+      display: inline-block; padding: 2px 8px; border: 1px solid var(--line);
+      border-radius: 999px; font-size: 12px; color: var(--muted);
     }
 
-    @media (max-width: 980px) {
-      .rightBox { gap: 8px; }
-      .topActions { gap: 8px; }
-      .topActions .btn { padding: 8px 10px; }
+    /* Q9 helpers */
+    .q9Box { border: 1px solid var(--line); border-radius: 8px; background: #fff; padding: 10px; margin-bottom: 10px; }
+    .q9Label { font-size: 12px; color: var(--muted); margin-bottom: 6px; font-weight: 700; }
+    .q9Sentence {
+      border-left: 4px solid var(--primary);
+      padding: 8px 10px; background: #f8fafc; border-radius: 6px;
+      line-height: 1.45; font-size: 14px; white-space: pre-wrap;
+    }
+
+    .marker {
+      display: inline-block; padding: 1px 6px; border: 1px solid var(--line);
+      border-radius: 999px; font-size: 12px; font-weight: 800;
+      color: var(--primary); background: #eef2ff; margin: 0 2px;
     }
   </style>
 </head>
+
 <body>
   <div class="header">
     <div class="header-inner">
       <div class="h-left">
         <div class="h-title">{{ title }}</div>
         <div class="h-sub">
-          Reading
-          {% if review_mode %}
-            <span class="badge">Review Mode</span>
-          {% endif %}
+          <span>Reading</span>
+          {% if review_mode %}<span class="badge">Review Mode</span>{% endif %}
+          {% if mode %}<span class="badge">{{ mode }}</span>{% endif %}
+          <span class="badge">Q {{ current_index }} / {{ total_questions }}</span>
         </div>
       </div>
 
@@ -280,10 +173,21 @@
 
         <div class="topActions">
           {% if review_mode %}
+            {% if can_prev %}<a class="btn secondary" href="/exam/{{ attempt_id }}?q={{ prev_index }}&review=1">Previous</a>{% endif %}
+            {% if can_next %}<a class="btn secondary" href="/exam/{{ attempt_id }}?q={{ next_index }}&review=1">Next</a>{% endif %}
             <a class="btn" href="/">Back to Dashboard</a>
             <a class="btn secondary" href="/result/{{ attempt_id }}">Back to Results</a>
           {% else %}
-            <button class="btn" type="submit" form="examForm">Submit</button>
+            {% if mode == "single" %}
+              <button class="btn" type="submit" form="examForm">Submit</button>
+            {% else %}
+              {% if can_prev %}<button class="btn secondary" type="submit" form="navPrevForm">Previous</button>{% endif %}
+              {% if is_last %}
+                <button class="btn" type="submit" form="examForm">Submit</button>
+              {% else %}
+                <button class="btn" type="submit" form="navNextForm">Next</button>
+              {% endif %}
+            {% endif %}
           {% endif %}
         </div>
       </div>
@@ -292,17 +196,61 @@
 
   <div class="wrap">
     <div class="layout">
-      <!-- Left: Questions -->
+
+      <!-- LEFT: Passage -->
+      <div class="pane passage">
+        {% set m = (current_q.get("meta", {}) if current_q and current_q.get("meta") is mapping else {}) %}
+        {% set is_q9p = (m.get("question_type") == "insert_sentence") %}
+
+        {% if is_q9p and m.get("paragraph_text") %}
+          {% set p = m.get("paragraph_text") %}
+        {% else %}
+          {% set p = passage or "" %}
+        {% endif %}
+
+        {{ p
+          | replace("[A]", "<span class='marker'>[A]</span>")
+          | replace("[B]", "<span class='marker'>[B]</span>")
+          | replace("[C]", "<span class='marker'>[C]</span>")
+          | replace("[D]", "<span class='marker'>[D]</span>")
+          | safe
+        }}
+      </div>
+
+      <!-- RIGHT: Question -->
       <div class="pane">
-        <form method="post" action="/exam/{{ attempt_id }}/submit" id="examForm">
-          {% for q in questions %}
+        {% set q = current_q %}
+        {% if q %}
+          {% set meta = (q.get("meta", {}) if q.get("meta") is mapping else {}) %}
+          {% set is_q9 = (meta.get("question_type") == "insert_sentence") %}
+
+          {# correct answers from backend -> ca_list (uppercase) #}
+          {% set ca_raw = (correct_answers.get(q.id) if review_mode and correct_answers is defined else none) %}
+          {% set ca_list = [] %}
+          {% if ca_raw is string %}
+            {% set _ = ca_list.append(ca_raw|upper) %}
+          {% elif ca_raw is sequence %}
+            {% for x in ca_raw %}
+              {% if x is not none and (x|string)|trim != "" %}
+                {% set _ = ca_list.append((x|string)|upper) %}
+              {% endif %}
+            {% endfor %}
+          {% endif %}
+
+          <form method="post" action="/exam/{{ attempt_id }}/submit" id="examForm">
             <div class="qbox">
               <div class="qhead">
-                Question {{ loop.index }}
-                {% if q.type != "single" %}
-                  <span class="badge">Multiple Answer</span>
-                {% endif %}
+                <span>Question {{ current_index }}</span>
+                {% if q.type != "single" %}<span class="badge">Multiple Answer</span>{% endif %}
+                {% if is_q9 %}<span class="badge">Insert Sentence</span>{% endif %}
               </div>
+
+              {% if is_q9 and meta.get("sentence") %}
+                <div class="q9Box">
+                  <div class="q9Label">Sentence to insert</div>
+                  <div class="q9Sentence">{{ meta.get("sentence") }}</div>
+                </div>
+              {% endif %}
 
               <div class="qprompt">{{ q.prompt }}</div>
 
@@ -311,52 +259,86 @@
               {% endif %}
 
               {% if q.type == "single" %}
+                {% set ua = (saved_answers.get(q.id) or "")|string|upper %}
                 {% for c in q.choices %}
-                  <label class="choice">
+                  {% set letter = (c[0]|string|upper) %}
+                  {% set text = c[1] %}
+                  {% set is_user = (ua == letter) %}
+                  {% set is_correct = (review_mode and (letter in ca_list)) %}
+                  {% set is_wrong = (review_mode and is_user and (not is_correct)) %}
+
+                  <label class="choice{% if is_correct %} correct{% endif %}{% if is_wrong %} wrong{% endif %}">
                     <input
                       type="radio"
                       name="ans_{{ q.id }}"
-                      value="{{ c[0] }}"
-                      {% if saved_answers.get(q.id) == c[0] %}checked{% endif %}
+                      value="{{ letter }}"
+                      {% if is_user %}checked{% endif %}
                       {% if not review_mode %}required{% endif %}
                       {% if review_mode %}disabled{% endif %}
                     >
-                    <div><b>{{ c[0] }}.</b> {{ c[1] }}</div>
+                    <div><b>{{ letter }}.</b> {{ text }}</div>
                   </label>
                 {% endfor %}
               {% else %}
+                {# build ua_list as uppercase list #}
+                {% set ua_list = [] %}
+                {% set ua_raw = saved_answers.get(q.id) %}
+                {% if ua_raw is string %}
+                  {% set _ = ua_list.append(ua_raw|upper) %}
+                {% elif ua_raw is sequence %}
+                  {% for x in ua_raw %}
+                    {% if x is not none and (x|string)|trim != "" %}
+                      {% set _ = ua_list.append((x|string)|upper) %}
+                    {% endif %}
+                  {% endfor %}
+                {% endif %}
+
                 {% for c in q.choices %}
-                  <label class="choice">
+                  {% set letter = (c[0]|string|upper) %}
+                  {% set text = c[1] %}
+                  {% set is_user = (letter in ua_list) %}
+                  {% set is_correct = (review_mode and (letter in ca_list)) %}
+                  {% set is_wrong = (review_mode and is_user and (not is_correct)) %}
+
+                  <label class="choice{% if is_correct %} correct{% endif %}{% if is_wrong %} wrong{% endif %}">
                     <input
                       type="checkbox"
                       name="ans_{{ q.id }}"
-                      value="{{ c[0] }}"
-                      {% if c[0] in (saved_answers.get(q.id) or []) %}checked{% endif %}
+                      value="{{ letter }}"
+                      {% if is_user %}checked{% endif %}
                       {% if review_mode %}disabled{% endif %}
                     >
-                    <div><b>{{ c[0] }}.</b> {{ c[1] }}</div>
+                    <div><b>{{ letter }}.</b> {{ text }}</div>
                   </label>
                 {% endfor %}
               {% endif %}
             </div>
-          {% endfor %}
+          </form>
 
-          <!-- Bottom actions removed (buttons moved to header). Keep block hidden to avoid layout shifts. -->
-          <div class="actions" style="display:none;">
-            <div class="btnRow"></div>
-          </div>
-        </form>
+          {% if not review_mode and mode != "single" %}
+            <form method="post" action="/exam/{{ attempt_id }}/save" id="navPrevForm" style="display:none;">
+              <input type="hidden" name="target" value="{{ prev_index }}">
+            </form>
+
+            <form method="post" action="/exam/{{ attempt_id }}/save" id="navNextForm" style="display:none;">
+              <input type="hidden" name="target" value="{{ next_index }}">
+            </form>
+          {% endif %}
+        {% else %}
+          <div class="qbox">No question found.</div>
+        {% endif %}
       </div>
 
-      <!-- Right: Passage -->
-      <div class="pane passage">{{ passage }}</div>
     </div>
   </div>
 
 <script>
   const reviewMode = {{ 'true' if review_mode else 'false' }};
-  const duration = {{ duration_seconds }};
-  const startedAt = {{ started_at }} * 1000; // seconds -> ms
+
+  const duration = Number({{ duration_seconds | default(0) }}) || 0;
+  const startedAtSecRaw = {{ started_at | default(0) }};
+  const startedAtSec = Number(startedAtSecRaw);
+  const startedAt = (Number.isFinite(startedAtSec) && startedAtSec > 0) ? (startedAtSec * 1000) : Date.now();
 
   let tickHandle = null;
   let stopped = false;
@@ -386,11 +368,10 @@
 
     const bar = document.getElementById("timeBar");
     if (bar) {
-      const pct = Math.min(100, Math.max(0, (elapsed / duration) * 100));
+      const pct = duration > 0 ? Math.min(100, Math.max(0, (elapsed / duration) * 100)) : 0;
       bar.style.width = pct.toFixed(2) + "%";
     }
 
-    // In review mode: freeze UI timer completely (no autosubmit, no ticking).
     if (reviewMode) {
       stopTimerUI();
       return;
@@ -400,7 +381,7 @@
       stopTimerUI();
       const form = document.getElementById("examForm");
       if (form) {
-        form.noValidate = true; /* bypass required fields */
+        form.noValidate = true;
         form.action = "/exam/{{ attempt_id }}/autosubmit";
         form.submit();
       }
@@ -410,24 +391,57 @@
     tickHandle = setTimeout(tick, 500);
   }
 
-  // Stop timer immediately when the user submits.
-  // This prevents countdown from continuing during navigation and avoids double submit.
+  function disableSubmitButton() {
+    const btn = document.querySelector('button[form="examForm"]');
+    if (btn) {
+      btn.disabled = true;
+      btn.textContent = "Submitting...";
+    }
+  }
+
+  function copyCheckedInputsTo(targetForm) {
+    const examForm = document.getElementById("examForm");
+    if (!examForm || !targetForm) return;
+
+    targetForm.querySelectorAll("input[data-copied='1']").forEach(x => x.remove());
+
+    examForm.querySelectorAll("input:checked").forEach(inp => {
+      const h = document.createElement("input");
+      h.type = "hidden";
+      h.name = inp.name;
+      h.value = inp.value;
+      h.setAttribute("data-copied", "1");
+      targetForm.appendChild(h);
+    });
+  }
+
+  function bindNavButtonCopy() {
+    const prevForm = document.getElementById("navPrevForm");
+    const nextForm = document.getElementById("navNextForm");
+
+    if (prevForm) {
+      prevForm.addEventListener("submit", function () {
+        copyCheckedInputsTo(prevForm);
+      });
+    }
+    if (nextForm) {
+      nextForm.addEventListener("submit", function () {
+        copyCheckedInputsTo(nextForm);
+      });
+    }
+  }
+
   function bindSubmitStopsTimer() {
     const form = document.getElementById("examForm");
     if (!form) return;
 
     form.addEventListener("submit", function () {
       stopTimerUI();
-
-      // Optional: prevent double clicks / repeated submits
-      const btn = document.querySelector('button[form="examForm"]');
-      if (btn) {
-        btn.disabled = true;
-        btn.textContent = "Submitting...";
-      }
+      disableSubmitButton();
     });
   }
 
+  bindNavButtonCopy();
   bindSubmitStopsTimer();
   tick();
 </script>
