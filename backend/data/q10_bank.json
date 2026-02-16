@@ -1,0 +1,2004 @@
+[
+  {
+    "passage_no": 1,
+    "title": "Determining the Ages of the Planets and the",
+    "q10": {
+      "qid": "p01_q10",
+      "number": 10,
+      "type": "summary",
+      "prompt": "10. [Directions] An introductory sentence for a brief summary of the passage is provided below. Complete the summary by selecting the THREE answer choices that express the most important ideas in the passage. Some answer choices do not belong in the summary because they express ideas that are not presented in the passage or are minor ideas in the passage. This question is worth 2 points. There is strong evidence that all the planets of our solar system were formed from",
+      "intro": "the same disk of matter at the same time.",
+      "max_selections": 3,
+      "choices": [
+        {
+          "id": "A",
+          "text": "Determining the age of the planets by examining rocks on Earth is difficult because Earth's crust is constantly changing."
+        },
+        {
+          "id": "B",
+          "text": "Meteorites found on Earth and rocks from the Moon's surface are the best evidence for estimating the age of the planets."
+        },
+        {
+          "id": "C",
+          "text": "The expansion of the universe makes it possible to estimate its age by measuring the amount of the redshift of light coming from distant galaxies."
+        },
+        {
+          "id": "D",
+          "text": "All three kinds of meteorites are similar in composition to Earth in that they have an inner core, a rocky mantle, and an outer crust."
+        },
+        {
+          "id": "E",
+          "text": "Radiometric dating of meteorites recovered from the Moon shows that they are older than those that are found on Earth."
+        },
+        {
+          "id": "F",
+          "text": "The redshift phenomenon measures the rate at which the stars in a galaxy are moving away from each other."
+        }
+      ],
+      "needs_review": false,
+      "choices_count": 6
+    }
+  },
+  {
+    "passage_no": 2,
+    "title": "Alaska and Bark Beetles",
+    "q10": {
+      "qid": "p02_q10",
+      "number": 10,
+      "type": "summary",
+      "prompt": "10. [Directions] An introductory sentence for a brief summary of the passage is provided below. Complete the summary by selecting the THREE answer choices that express the most important ideas in the passage. Some sentences do not belong in the summary because they express ideas that are not presented in the passage or are minor ideas in the passage. This question is worth 2 points. Over the twentieth century, global temperatures increased by an average of about",
+      "intro": "0.7 degrees Celsius.",
+      "max_selections": 3,
+      "choices": [
+        {
+          "id": "A",
+          "text": "Some changes in ecosystems have been massive, like the explosion of bark beetles in Alaska, while others have been subtle."
+        },
+        {
+          "id": "B",
+          "text": "The spruce bark beetle epidemic in Alaska shows that the effects of climate change can ripple throughout an ecosystem and affect virtually every population of living organisms."
+        },
+        {
+          "id": "C",
+          "text": "The spruce bark beetle population exploded when a multi-year drought reduced the number of trees available for the beetles to attack."
+        },
+        {
+          "id": "D",
+          "text": "Ecosystem changes hurt some living creatures and help others, so ecologists often focus on the impacts on a single species, such as humans."
+        },
+        {
+          "id": "E",
+          "text": "If an ecosystem is disturbed too often or too much, it might collapse and become an area with very little life, like a dead zone in the ocean."
+        },
+        {
+          "id": "F",
+          "text": "The spruce bark beetle epidemic in Alaska had negative effects on animals like hawks and owls but positive effects on animals like moose and elk."
+        }
+      ],
+      "needs_review": false,
+      "choices_count": 6
+    }
+  },
+  {
+    "passage_no": 3,
+    "title": "Milankovitch Cycles and Glaciation",
+    "q10": {
+      "qid": "p03_q10",
+      "number": 10,
+      "type": "summary",
+      "prompt": "10. [Directions] An introductory sentence for a brief summary of the passage is provided below. Complete the summary by selecting the THREE answer choices that express the most important ideas in the passage. Some answer choices do not belong in the summary because they express ideas that are not presented in the passage or are minor ideas in the passage. This question is worth 2 points. In the 1920s and 1930s, Milutin Milankovitch worked out an account of the cause of Earth's glaciations.",
+      "intro": "● ● ●",
+      "max_selections": 3,
+      "choices": [
+        {
+          "id": "A",
+          "text": "Milankovitch argued that glaciations would result when three cycles that affect characteristics of Earth's orbit combined in a certain way."
+        },
+        {
+          "id": "B",
+          "text": "Milankovitch's predictions have been shown to be in agreement with periods of glaciation over the past 65 million years."
+        },
+        {
+          "id": "C",
+          "text": "Since ice ages are much less frequent than Milankovitch's explanation predicts, some factor, such as low levels of atmospheric carbon dioxide, must also be involved in triggering glaciation."
+        },
+        {
+          "id": "D",
+          "text": "Milankovitch showed that changes in Earth's orbit periodically lengthen cold seasons and shorten warm ones so that glaciers build up."
+        },
+        {
+          "id": "E",
+          "text": "Other explanations, such as variations in the Sun's energy output and volcanic dust, have been ruled out as primary causes of ice ages."
+        },
+        {
+          "id": "F",
+          "text": "Studies of gas bubbles preserved in the Greenland ice cap strongly suggest that Milankovitch cycles may also influence atmospheric carbon dioxide levels."
+        }
+      ],
+      "needs_review": false,
+      "choices_count": 6
+    }
+  },
+  {
+    "passage_no": 4,
+    "title": "Japan's Climate",
+    "q10": {
+      "qid": "p04_q10",
+      "number": 10,
+      "type": "summary",
+      "prompt": "10. [Directions] An introductory sentence for a brief summary of the passage is provided below. Complete the summary by selecting the THREE answer choices that express the most important ideas in the passage. Some answer choices do not belong in the summary because they express ideas that are not presented in the passage or are minor ideas in the passage. This question is worth 2 points. Japan's yearly weather cycled influences settlement patterns and agriculture across the islands.",
+      "intro": "● ● ●",
+      "max_selections": 3,
+      "choices": [
+        {
+          "id": "A",
+          "text": "The yamase effects has a great impact on rice growth in northern Japan but does not affect cultivation in southern Japan, where precipitation comes in the forms of rain rather than snow."
+        },
+        {
+          "id": "B",
+          "text": "Agriculture practices that stabilize sediments have reduced erosion and landscape allowed the growth of lush forests in Japan."
+        },
+        {
+          "id": "C",
+          "text": "Climate changes during the last two millennia have caused the Japanese to move their settlements towards the northeast, where the climate is more favorable to agriculture."
+        },
+        {
+          "id": "D",
+          "text": "Japan's yearly weather cycle makes farming possible only in the summer, as the effects of the Siberia air mass result in winters that are too cold and snowy for agriculture."
+        },
+        {
+          "id": "E",
+          "text": "Cold westerly winds from Siberia and cyclonic airflows from the Pacific Ocean provide ample rainfall for farming but contribute to high rates of erosion."
+        },
+        {
+          "id": "F",
+          "text": "Settlements are most concentrated along the Pacific seaboard to the south where climate and topography are more suitable for crop cultivation than along the Sea of Japan."
+        }
+      ],
+      "needs_review": false,
+      "choices_count": 6
+    }
+  },
+  {
+    "passage_no": 5,
+    "title": "Saving Soil and Cropland",
+    "q10": {
+      "qid": "p05_q10",
+      "number": 10,
+      "type": "summary",
+      "prompt": "10. Directions: An introductory sentence for a brief summary of the passage is provided below. Complete the summary by selecting the THREE answer choices that express the most important ideas in the passage. Some sentences do not belong in the summary because the express ideas that are not presented in the passage or are minor ideas in the passage. This question is worth 2 points. Agricultural output all over the world is being reduced due to soil erosion and an",
+      "intro": "increased use of cropland for nonfarming purposes.",
+      "max_selections": 3,
+      "choices": [
+        {
+          "id": "A",
+          "text": "Terracing, probably one of the oldest methods for controlling soil erosion, led to the creation of the more sophisticated and more efficient conservation practices used in contemporary farming."
+        },
+        {
+          "id": "B",
+          "text": "The United States has successfully instituted programs that encourage conservation tillage and the retirement of highly erodible land."
+        },
+        {
+          "id": "C",
+          "text": "City governments in the United States and Japan developed conservation programs that encourage farmers near big cities to cultivate crops that minimize soil erosion."
+        },
+        {
+          "id": "D",
+          "text": "After the 1930s Dust Bowl, the United States made significant changes to its agricultural practices, including the planting of tree shelterbelts and strip cropping."
+        },
+        {
+          "id": "E",
+          "text": "The conservation Reserve Program created in the United States in 1985 is gradually being adopted in other areas at the world such as Europe, Africa, and Asia."
+        },
+        {
+          "id": "F",
+          "text": "Saving cropland is sometimes difficult because it involves dealing with commercial forces, but some efforts like those in Tokyo and Oregon have been successful."
+        }
+      ],
+      "needs_review": false,
+      "choices_count": 6
+    }
+  },
+  {
+    "passage_no": 6,
+    "title": "Continental Drift",
+    "q10": {
+      "qid": "p06_q10",
+      "number": 10,
+      "type": "summary",
+      "prompt": "10. [Directions] An introductory sentence for a brief summary of the passage is provides below. Complete the summary by selecting the THREE answer choices that express the most important ideas in the passage. Some sentences do not belong in the summary because they express ideas that are not presented in the passage or are minor ideas in the passage. Several theories involving the movement of continents were proposed in the",
+      "intro": "nineteenth and early twentieth centuries.",
+      "max_selections": 3,
+      "choices": [
+        {
+          "id": "A",
+          "text": "Early maps showing the coastlines of South America and Africa inspired Eduard Suess to search for fossil evidence that today's southern continents had once been joined in a single landmass."
+        },
+        {
+          "id": "B",
+          "text": "To Eduard Suess, continental drift accounted for the presence of the same types of fossils on different continents that had at times been connected by land bridges."
+        },
+        {
+          "id": "C",
+          "text": "Du Toit's study of the freshwater reptile Mesosaurus added to the already considerable body of evidence that Alfred Wegener had gathered in support of the idea of continental drift."
+        },
+        {
+          "id": "D",
+          "text": "Frank Taylor expanded on Eduard Suess's theory of continental drift by arguing that tidal forces 100 million years ago had broken continents apart and caused the rise of the Mid-Atlantic Ridge."
+        },
+        {
+          "id": "E",
+          "text": "Alfred Wegener, who first developed the theory of continental drift argued that all landmasses were originally part of a supercontinent that broke up into separate continents."
+        },
+        {
+          "id": "F",
+          "text": "Early theories of continental drift were not widely accepted at the time because they failed to explain why continents moved."
+        }
+      ],
+      "needs_review": false,
+      "choices_count": 6
+    }
+  },
+  {
+    "passage_no": 7,
+    "title": "Soil Formation",
+    "q10": {
+      "qid": "p07_q10",
+      "number": 10,
+      "type": "summary",
+      "prompt": "10. [Directions] An introductory sentence for a brief summary of the passage is provided below. Complete the summary by selecting the THREE answer choices that express the most important ideas in the passage. Some answer choices do not belong in the summary because they express ideas that are not presented in the passage or are minor ideas in the passage. This question is worth 2 points.",
+      "intro": "There are a variety of elements that influence soil development.",
+      "max_selections": 3,
+      "choices": [
+        {
+          "id": "A",
+          "text": "By analyzing the chemical composition of developed soil, it is possible to determine the location of the geological substrate from which the parent material was originally derived."
+        },
+        {
+          "id": "B",
+          "text": "Both topography and the types of organisms present in the soil as it develops determine its nutrient level."
+        },
+        {
+          "id": "C",
+          "text": "The length of time that is takes to develop high-quality soil is determined by humidity levels, the makeup of parent materials, and patterns of water flow and erosion."
+        },
+        {
+          "id": "D",
+          "text": "The weathering process is strongly influenced by temperature and its variation, the nature of the water flow, and by the acids carried in the water."
+        },
+        {
+          "id": "E",
+          "text": "Where soil material is regularly subject to rapid and extreme variations in temperature and water content, certain biogeochemical reactions necessary for soil formation cannot take place."
+        },
+        {
+          "id": "F",
+          "text": "Because high humidity speeds up both leaching processes and erosion, soils in humid regions take much longer to reach equilibrium than soils in dry regions, and are seldom as fertile."
+        }
+      ],
+      "needs_review": false,
+      "choices_count": 6
+    }
+  },
+  {
+    "passage_no": 8,
+    "title": "Earthquake Prediction",
+    "q10": {
+      "qid": "p08_q10",
+      "number": 10,
+      "type": "summary",
+      "prompt": "10. [Directions] Complete the summary by selecting the THREE answer choices that express the most important ideas in the passage. Some sentences do not belong in the summary because they express ideas that are not presented in the passage or are minor ideas in the passage. This question is worth 2 points. Two types of earthquake prediction are theoretically possible: long-term forecasting",
+      "intro": "and short-term forecasting.",
+      "max_selections": 3,
+      "choices": [
+        {
+          "id": "A",
+          "text": "Short-term forecasting has been used more widely than long-term forecasting in the prediction of earthquakes."
+        },
+        {
+          "id": "B",
+          "text": "Long-term forecasting of earthquakes uses data on past seismic activity to determine the likelihood that an earthquake will occur in a certain area within a certain time period."
+        },
+        {
+          "id": "C",
+          "text": "Short-term forecasting research has studied earthquake precursors such as volume increases in rocks and unusual movements in underground water that occur shortly before an earthquake takes place."
+        },
+        {
+          "id": "D",
+          "text": "The dilatancy model has been used to successfully forecast some recent earthquakes."
+        },
+        {
+          "id": "E",
+          "text": "Attempts to improve forecasting by using five stages of earthquake predictors have been unsuccessful because each earthquake has unique precursor patterns and durations."
+        },
+        {
+          "id": "F",
+          "text": "The magnitude 6.9 North American earthquake in 1989 was not successfully predicted because the many foreshocks before the event were too small to measure."
+        }
+      ],
+      "needs_review": false,
+      "choices_count": 6
+    }
+  },
+{
+  "passage_no": 9,
+  "title": "Cave and Rock Art",
+  "q10": {
+    "qid": "p09_q10",
+    "number": 10,
+    "type": "summary",
+    "prompt": "10. [Directions] An introductory sentence for a brief summary of the passage is provided below. Complete the summary by selecting the THREE answer choices that express the most important ideas in the passage. Some answer choices do not belong in the summary because they express ideas that are not presented in the passage or are minor ideas in the passage. This question is worth 2 points.",
+    "intro": "Magdalenian artworks were created during the Upper Paleolithic period.",
+    "max_selections": 3,
+    "choices": [
+      {
+        "id": "A",
+        "text": "Examples of Magdalenian art are found in all parts of Europe, and there is evidence that artists in neighboring regions were influenced by the Magdalenian system."
+      },
+      {
+        "id": "B",
+        "text": "Magdalenian artists created a variety of images, including geometric figures, and varied the type of rock chosen for engravings to produce different artistic effects."
+      },
+      {
+        "id": "C",
+        "text": "A unifying aspect of the Magdalenian system was the tendency of artists to blend multiple colors together rather than to use colors individually."
+      },
+      {
+        "id": "D",
+        "text": "Scholars know a fair amount about Magdalenian cave art, but the need to preserve the fragile works has prevented scholars from studying them as thoroughly as they would like."
+      },
+      {
+        "id": "E",
+        "text": "Magdalenian painters were able to create impressive, multicolored artworks by using minerals and plant and animal materials to make and mix colors."
+      },
+      {
+        "id": "F",
+        "text": "Some Magdalenian engravings and paintings are so sophisticated in design and skillfully executed that it was once doubted that prehistoric people created them."
+      }
+    ],
+    "needs_review": false,
+    "choices_count": 6
+  }
+},
+
+  {
+    "passage_no": 10,
+    "title": "European Urban Design",
+    "q10": {
+      "qid": "p10_q10",
+      "number": 10,
+      "type": "summary",
+      "prompt": "10. [Directions] An introductory sentence for a brief summary of the passage is provided below. Complete the summary by selecting the THREE answer choices that express the most important ideas in the passage. Some sentences do not belong in the summary because they express ideas that are not presented in the passage or are minor ideas in the passage. This question is worth 2 points.",
+      "intro": "European city planning and design have developed over a long history.",
+      "max_selections": 3,
+      "choices": [
+        {
+          "id": "A",
+          "text": "Beginning in fifteenth-century Italy, advances in weaponry led to the redesign of cities, and a new aesthetic of grand design inspired by classical art forms took hold."
+        },
+        {
+          "id": "B",
+          "text": "The walls and open spaces typical of Renaissance urban design were re-discovered in the early twentieth century and became a major component of the Modern movement."
+        },
+        {
+          "id": "C",
+          "text": "The social changes brought about by the transition to industrial capitalism placed new demands on urban planners that could only be met by adopting new design styles."
+        },
+        {
+          "id": "D",
+          "text": "The redevelopment of Paris in the mid-1800s displayed a new idea of urban design to make cities orderly, efficient, and healthier and to positively reflect the new social and economic order."
+        },
+        {
+          "id": "E",
+          "text": "The goal of Beaux Arts style architects was to replace the older palaces, cathedrals, and civic buildings that dominated European cities with modern buildings."
+        },
+        {
+          "id": "F",
+          "text": "The twentieth-century International Style's boxlike steel, glass, and concrete buildings arose from the Modernist view that buildings and cities should be designed and run like machines."
+        }
+      ],
+      "needs_review": false,
+      "choices_count": 6
+    }
+  },
+{
+  "passage_no": 11,
+  "title": "Mexican Muralism",
+  "q10": {
+    "qid": "p11_q10",
+    "number": 10,
+    "type": "summary",
+    "prompt": "10. [Directions] An introductory sentence for a brief summary of the passage is provided below. Complete the summary by selecting the THREE answer choices that express the most important ideas in the passage. Some answer choices do not belong in the summary because they express ideas that are not presented in the passage or are minor ideas in the passage. This question is worth 2 points.",
+    "intro": "Mexican muralism was the first major modern art movement in Latin America.",
+    "max_selections": 3,
+    "choices": [
+      {
+        "id": "A",
+        "text": "The Mexican Revolution resulted in a new respect for traditional culture, leading the muralists to paint scenes depicting the everyday lives of poor Mexicans."
+      },
+      {
+        "id": "B",
+        "text": "In the 1920s and 1930s, following the Mexican Revolution, a talented group of artists painted many large-scale, politically motivated murals on public buildings."
+      },
+      {
+        "id": "C",
+        "text": "Jose Vasconcelos made Mexico an important international player by promoting the art and ideas of the revolutionary muralists."
+      },
+      {
+        "id": "D",
+        "text": "The muralists challenged cultural and economic stereotypes and experimented with both pre-Columbian and industrial themes, styles, and techniques."
+      },
+      {
+        "id": "E",
+        "text": "The leaders of the muralist movement Rivera, Orozco, and Siqueiros all believed in the transformative power of art but differed in terms of their artistic methods and political beliefs."
+      },
+      {
+        "id": "F",
+        "text": "Mexican muralism was a traditional representational art focused on Mexico's pre-Colombian society and culture."
+      }
+    ],
+    "needs_review": false,
+    "choices_count": 6
+  }
+}
+,
+  {
+    "passage_no": 12,
+    "title": "Olmec Art",
+    "q10": {
+      "qid": "p12_q10",
+      "number": 10,
+      "type": "summary",
+      "prompt": "10. [Directions] An introductory sentence for a brief summary of the passage is provided below. Complete the summary by selecting the THREE answer choices that express the most important ideas in the passage. Some sentences do not belong in the summary because they express ideas that are not presented in the passage or are minor ideas in the passage. This question is worth 2 points. The Olmec culture was identified as the oldest of Mesoamerican civilizations,",
+      "intro": "perhaps a mother culture from which all others derived.",
+      "max_selections": 3,
+      "choices": [
+        {
+          "id": "A",
+          "text": "Between 1500 B.C. and 100 B.C., the Olmecs developed complex ceremonial centers, an extensive agricultural and trading economy, and a highly distinctive art."
+        },
+        {
+          "id": "B",
+          "text": "Early in their history, the Olmec left the fertile gulf plain and moved to Teopanteucanitlan."
+        },
+        {
+          "id": "C",
+          "text": "The frequent reappearance of Olmec images in the art of the Maya and Aztecs suggests that the Olmecs gave rise to these later civilizations."
+        },
+        {
+          "id": "D",
+          "text": "The Kunz axe, once linked with Maya culture after being found at an ancient Maya site, was eventually attributed to Olmec artists."
+        },
+        {
+          "id": "E",
+          "text": "Many cultural innovations are now attributed to the Olmecs that were once attributed to other Mesoamerican cultures, including the calendar used by the Maya."
+        },
+        {
+          "id": "F",
+          "text": "Olmec art involved a complex symbolic code, including various animal images and the howling baby seen on the Kunz axe and elsewhere, that was used consistently for a thousand years."
+        }
+      ],
+      "needs_review": false,
+      "choices_count": 6
+    }
+  },
+  {
+    "passage_no": 13,
+    "title": "Portrait Painting",
+    "q10": {
+      "qid": "p13_q10",
+      "number": 10,
+      "type": "summary",
+      "prompt": "10. [Directions] An introductory sentence for a brief summary of the passage is provided below. Complete the summary by selecting the THREE answer choices that express the most important ideas in the passage. Some sentences do not belong in the summary because they express ideas that are not presented in the passage or are minor ideas in the passage. This question is worth 2 points.",
+      "intro": "Portraiture as an art form is more complex than is suggested by its definition.",
+      "max_selections": 3,
+      "choices": [
+        {
+          "id": "A",
+          "text": "The definitions of portrait art in the dictionary have regularly transformed throughout the years to reflect shifting attitudes regarding the genre."
+        },
+        {
+          "id": "B",
+          "text": "Portrait art should be considered as a distinct artistic genre due to its intense occupation with the subject and the way in which it was produced."
+        },
+        {
+          "id": "C",
+          "text": "Beginning in the Renaissance and continuing into the start of the nineteenth century, portrait art was idealized to a greater degree than it is in today."
+        },
+        {
+          "id": "D",
+          "text": "Portraits generally mirror the conventions of the time rather than the unique qualities of the individual."
+        },
+        {
+          "id": "E",
+          "text": "Throughout history, the majority of professional artists avoided portrait art since they regarded it as a mechanical art form, and not as fine art."
+        },
+        {
+          "id": "F",
+          "text": "Portrait art was at times viewed in a negative light since it was considered as simple copying void of artistic innovation."
+        }
+      ],
+      "needs_review": false,
+      "choices_count": 6
+    }
+  },
+  {
+    "passage_no": 14,
+    "title": "Motion Pictures",
+    "q10": {
+      "qid": "p14_q10",
+      "number": 10,
+      "type": "summary",
+      "prompt": "10. [Directions] An introductory sentence for a brief summary of the passage is provided below. Complete the summary by selected THREE answer choices that express the most important ideas in the passage. Some sentences do not belong in the summary because they express ideas that are not presented in the passage or are minor ideas in the passage. This question is worth 2 points. The phi phenomenon and persistence of vision are two characteristics of the human",
+      "intro": "perceptual system that make motion pictures and television possible.",
+      "max_selections": 3,
+      "choices": [
+        {
+          "id": "A",
+          "text": "When the persistence of vision became widely known, it inspired the development of toys that made hand-drawn pictures appear to move."
+        },
+        {
+          "id": "B",
+          "text": "The invention of the motion-picture camera led to the discovery that a horse's feet do not leave the ground while the horse is galloping."
+        },
+        {
+          "id": "C",
+          "text": "The primary competitors in early motion-picture technology were Edison's Kinetoscope and the European-designed and manufactured large-screen projection devices."
+        },
+        {
+          "id": "D",
+          "text": "The motion-picture camera develops from the experiments in sequential photography that were originally done by Edward Muybridge."
+        },
+        {
+          "id": "E",
+          "text": "Later developments in film included a focus on large-screens projection rather than individual viewing machines and narrative films rather than simple action sequences."
+        },
+        {
+          "id": "F",
+          "text": "French filmmakers Alice Guy-Blaché and Georges Méliès started the first two major movie studios in America and in France, respectively."
+        }
+      ],
+      "needs_review": false,
+      "choices_count": 6
+    }
+  },
+  {
+    "passage_no": 15,
+    "title": "Bioluminescence in Marine Creatures",
+    "q10": {
+      "qid": "p15_q10",
+      "number": 10,
+      "type": "summary",
+      "prompt": "10. [Directions] An introductory sentence for a brief summary of the passage is provides below. Complete the summary by selecting the THREE answer choices that express the most important ideas in the passage. Some sentences do not belong in the summary because they express ideas that are not presented in the passage or are minor ideas in the passage. This question is worth 2 points.",
+      "intro": "Many of the sea's creatures produce light through bioluminescence.",
+      "max_selections": 3,
+      "choices": [
+        {
+          "id": "A",
+          "text": "Bioluminescent creature uses a substance called luciferin and an enzyme to produce light in a biologically driven chemical reaction."
+        },
+        {
+          "id": "B",
+          "text": "Bioluminescence can be used to achieve various and sometimes seemingly opposite goals such as frightening away predators or luring prey."
+        },
+        {
+          "id": "C",
+          "text": "Bioluminescence can be used by some sea creatures as a form of communication or as a means of identifying an appropriate mate."
+        },
+        {
+          "id": "D",
+          "text": "The majority of bioluminescent creatures are gelatinous in nature, allowing them to produce light."
+        },
+        {
+          "id": "E",
+          "text": "The same bioluminescent creature cannot have both light-sensing and light-producing organs."
+        },
+        {
+          "id": "F",
+          "text": "Sea creatures that eat bioluminescent material possess special chemicals that keep their stomach contents from flashing."
+        }
+      ],
+      "needs_review": false,
+      "choices_count": 6
+    }
+  },
+  {
+    "passage_no": 16,
+    "title": "Coral Reef Communities",
+    "q10": {
+      "qid": "p16_q10",
+      "number": 10,
+      "type": "summary",
+      "prompt": "10. [Directions] An introductory sentence for a brief summary of the passage is provided below. Complete the summary by selecting the THREE answer choices that express the most important ideas in the passage. Some answer choices do not belong in the summary because they express ideas that are not presented in the passage or are minor ideas in the passage. This question is worth 2 points. Coral reef communities include many different organisms that must compete for resources such as space and light.",
+      "intro": "● ● ●",
+      "max_selections": 3,
+      "choices": [
+        {
+          "id": "A",
+          "text": "In order to keep from being overgrown, the different species of coral kill each other's polyps, or live in different local habitats within the reef community."
+        },
+        {
+          "id": "B",
+          "text": "Competition among the different species of corals is more intense than that between corals and other coral reef inhabitants."
+        },
+        {
+          "id": "C",
+          "text": "Grazing by fishes and urchins prevents algae and seaweeds from overgrowing the corals, although damselfish exclude grazers from some areas."
+        },
+        {
+          "id": "D",
+          "text": "Fish and invertebrate corallivores are the most common cause of coral colony destruction, followed by tropical storms and damage by humans."
+        },
+        {
+          "id": "E",
+          "text": "Algae are competitively superior to corals in shallow water but less so at depth, so coral survival may depend on grazing."
+        },
+        {
+          "id": "F",
+          "text": "Sponges, soft corals, and algae can overgrow and smother stony corals."
+        }
+      ],
+      "needs_review": false,
+      "choices_count": 6
+    }
+  },
+  {
+    "passage_no": 17,
+    "title": "Sea Turtle Hatchling Strategies for Navigation",
+    "q10": {
+      "qid": "p17_q10",
+      "number": 10,
+      "type": "summary",
+      "prompt": "10. Directions: An introductory sentence for a brief summary of the passage is provides below. Complete the summary by selecting the THREE answer choices that express the most important ideas in the passage. Some sentences do not belong in the summary because they express ideas that are not presented in the passage or are minor ideas in the passage. This question is worth 2 points. To minimize attacks from predators, turtle hatchlings must quickly find their way to",
+      "intro": "the water's edge.",
+      "max_selections": 3,
+      "choices": [
+        {
+          "id": "A",
+          "text": "When light cues are absent, hatchlings use other navigational strategies, such as following the downward slope of the beach to find the water's edge."
+        },
+        {
+          "id": "B",
+          "text": "If the incoming waves are too strong to allow hatchlings to reach the open sea, they are carried back to the beach where they wait for calmer waters."
+        },
+        {
+          "id": "C",
+          "text": "Once hatchlings reach the open sea, they begin to use their geomagnetic compasses as simple directional compasses."
+        },
+        {
+          "id": "D",
+          "text": "The most important cue seems to be light, and hatchlings respond only to light that is low on the horizon."
+        },
+        {
+          "id": "E",
+          "text": "Once in the water, hatchlings swim toward incoming waves until they are far from shore, at which point they may use a geomagnetic compass."
+        },
+        {
+          "id": "F",
+          "text": "The geomagnetic compass of hatchlings does not tell them which way to go but keeps them on course once other cues are used to get them headed in the right direction."
+        }
+      ],
+      "needs_review": false,
+      "choices_count": 6
+    }
+  },
+  {
+    "passage_no": 18,
+    "title": "Temperature Regulation in Marine Organisms",
+    "q10": {
+      "qid": "p18_q10",
+      "number": 10,
+      "type": "summary",
+      "prompt": "10. [Directions] An introductory sentence for a brief summary of the passage is provided below. Complete the summary by selecting the THREE answer choices that express the most important ideas in the passage. Some answer choices do not belong in the summary because they express ideas that are not presented in the passage or are minor ideas in the passage. This question is worth 2 points. Drag your choices to the spaces where they belong. Marine and other organisms are classified as homeotherms if they maintain a constant body temperature and as poikilotherms if their body temperature matches",
+      "intro": "that of the environment.",
+      "max_selections": 3,
+      "choices": [
+        {
+          "id": "A",
+          "text": "Although strong-swimming fishes and intertidal organisms have body temperatures that are higher or lower than ambient temperatures, most fishes and subtidal marine organisms are poikilotherms."
+        },
+        {
+          "id": "B",
+          "text": "There are no homeotherms in cold ocean waters because it is too difficult for homeotherms to prevent heat loss in these environments."
+        },
+        {
+          "id": "C",
+          "text": "Features such as fur help reduce heat loss, but marine homeotherms require a higher metabolism than do terrestrial homeotherms of similar size to maintain a constant body temperature."
+        },
+        {
+          "id": "D",
+          "text": "Some organisms are thought to have various methods of heat regulation in order to maintain different body temperatures at different times of year."
+        },
+        {
+          "id": "E",
+          "text": "Marine homeotherms lose heat to the environment through respiration and other means, the most important being skin contact with colder seawater."
+        },
+        {
+          "id": "F",
+          "text": "Animals with disadvantage limbs are regarding at a body temperature because their circulatory anatomy is poorly designed for managing heat loss."
+        }
+      ],
+      "needs_review": false,
+      "choices_count": 6
+    }
+  },
+  {
+    "passage_no": 19,
+    "title": "Dolphin Brains",
+    "q10": {
+      "qid": "p19_q10",
+      "number": 10,
+      "type": "summary",
+      "prompt": "10. [Directions] An introductory sentence for a brief summary of the passage is provided below. Complete the summary by selecting the THREE answer choices that express the most important ideas in the passage. Some sentences do not belong in the summary because they express ideas that are not presented in the passage or are minor ideas in the passage. This question is worth 2 points. Bottlenose dolphins have brains that are not only absolutely large but also relatively",
+      "intro": "very large.",
+      "max_selections": 3,
+      "choices": [
+        {
+          "id": "A",
+          "text": "The encephalization quotient (EQ), the ratio of brain mass to body size, is a measure of relative brain size that correlates with cognitive processing ability and life history patterns."
+        },
+        {
+          "id": "B",
+          "text": "The need to process high-frequency sounds for echolocation has been offered as an explanation for bottlenose dolphins' unusually large brains, but not all good echolocators have high EQs."
+        },
+        {
+          "id": "C",
+          "text": "The brain size of bottlenose dolphins is strongly correlated with the amount of cooperation and competition in relationships outside the mother-offspring relationship."
+        },
+        {
+          "id": "D",
+          "text": "Scientists are now using findings from their studies of bottlenose dolphins to determine the connection between the presence of a large brain and the potential for intelligence in other species."
+        },
+        {
+          "id": "E",
+          "text": "Bottlenose dolphins, like certain other large-brained animals, have complex social relationships, so their large, metabolically expensive brains may have evolved partly to permit complex social functioning."
+        },
+        {
+          "id": "F",
+          "text": "Biologists disagree about whether the larger-than-usual brain of the bottlenose dolphin makes it more intelligent or more metabolically efficient than other mammals with less brain mass."
+        }
+      ],
+      "needs_review": false,
+      "choices_count": 6
+    }
+  },
+  {
+    "passage_no": 20,
+    "title": "Bird Colonies",
+    "q10": {
+      "qid": "p20_q10",
+      "number": 10,
+      "type": "summary",
+      "prompt": "10. [Directions] An introductory sentence for a brief summary of the passage is provided below. Complete the summary by selecting the THREE answer choices that express the most important ideas in the passage. Some sentences do not belong in the summary because they express ideas that are not presented in the passage or are minor ideas in the passage. This question is worth 2 points. Colonial nesting has evolved in many species of birds in response to environmental",
+      "intro": "conditions.",
+      "max_selections": 3,
+      "choices": [
+        {
+          "id": "A",
+          "text": "Colonial nesting offers birds several advantages such as predator protection and information about food sources."
+        },
+        {
+          "id": "B",
+          "text": "Birds that nest in colonies can synchronize their nesting, which helps ensure that enough food is available for all the young."
+        },
+        {
+          "id": "C",
+          "text": "Large colonies of birds require abundant food sources near the nesting area, and when food supplies decline, populations may crash."
+        },
+        {
+          "id": "D",
+          "text": "The ability of colony members to share information about food sources improves their foraging efficiency and helps ensure reproductive success."
+        },
+        {
+          "id": "E",
+          "text": "There are some disadvantages associated with life in large colonies like the increased rate of infestation by parasites."
+        },
+        {
+          "id": "F",
+          "text": "The concentration of bird colonies along coasts makes their inhabitants especially vulnerable to food shortages and weather-related destruction."
+        }
+      ],
+      "needs_review": false,
+      "choices_count": 6
+    }
+  },
+  {
+    "passage_no": 21,
+    "title": "Bison and Humans",
+    "q10": {
+      "qid": "p21_q10",
+      "number": 10,
+      "type": "summary",
+      "prompt": "10. [Directions] An introductory sentence for a brief summary of the passage is provided below. Complete the summary by selecting the THREE answer choices that express the most important ideas in the passage. Some sentences do not belong in the summary because they express ideas that are not presented in the passage or are minor ideas in the passage. This question is worth 2 points.",
+      "intro": "Hunting by humans changed bison's body structure and the mode of living.",
+      "max_selections": 3,
+      "choices": [
+        {
+          "id": "A",
+          "text": "Judging from campsite remains, the first wave of immigrants to North America carried with them hunting tools they had successfully used to hunt large animals in Asia."
+        },
+        {
+          "id": "B",
+          "text": "Fossil bones suggest that several species of the long-horned bison once existed in North America, but by the time humans arrived, most of them had become extinct."
+        },
+        {
+          "id": "C",
+          "text": "The size of the bison's horns suggest that individuals lived alone or in small groups, a habit that made them attractive prey for human hunters."
+        },
+        {
+          "id": "D",
+          "text": "The bison began living in herds, which would have provided protection from hunters but also decreased the amount of food available for each individual."
+        },
+        {
+          "id": "E",
+          "text": "Early Americans preferred hunting long-horned bison for their horns which could be used to create sharp spear tips for hunting other large animals such as moose and musk ox."
+        },
+        {
+          "id": "F",
+          "text": "When bison began to live close together, this led to other adaptations in size and shape necessary for survival."
+        }
+      ],
+      "needs_review": false,
+      "choices_count": 6
+    }
+  },
+  {
+    "passage_no": 22,
+    "title": "Dinosaurs and Parental Care",
+    "q10": {
+      "qid": "p22_q10",
+      "number": 10,
+      "type": "summary",
+      "prompt": "10. [Directions] An introductory sentence for a brief summary of the passage is provided below. Complete the summary by selecting the THREE answer choices that express the most important ideas in the passage. Some answer choices do not belong in the summary because they express ideas that are not presented in the passage or are minor ideas in the passage. This question is worth 2 points. Scientists must use indirect evidence to determine whether extinct dinosaurs cared for their young.",
+      "intro": "● ● ●",
+      "max_selections": 3,
+      "choices": [
+        {
+          "id": "A",
+          "text": "Because baby dinosaur bones and eggs were very delicate, there are relatively few preserved as fossils, so little is known about dinosaur young."
+        },
+        {
+          "id": "B",
+          "text": "Fossils from sites like Egg Mountain indicate that dinosaurs built nests, and perhaps that they incubated their eggs and fed their hatchlings."
+        },
+        {
+          "id": "C",
+          "text": "Fossil evidence such as the spacing of nests may indicate advanced parental care but can have different interpretations."
+        },
+        {
+          "id": "D",
+          "text": "Tightly packed Oviraptor rookeries indicate that dinosaurs may have tended to nest in large colonies in order to better protect both eggs and hatchlings."
+        },
+        {
+          "id": "E",
+          "text": "Discovery of hadrosaur bones of different sizes in the same nest may indicate that, in some species, older siblings took care of younger ones."
+        },
+        {
+          "id": "F",
+          "text": "The strongest evidence comes from extinct dinosaurs' nearest living relatives, birds and crocodiles, who do engage in many forms of parental care."
+        }
+      ],
+      "needs_review": false,
+      "choices_count": 6
+    }
+  },
+  {
+    "passage_no": 23,
+    "title": "Human Impacts on Biogeography",
+    "q10": {
+      "qid": "p23_q10",
+      "number": 10,
+      "type": "summary",
+      "prompt": "10. [Directions] An introductory sentence for a brief summary of the passage is provided below. Complete the summary by selecting the THREE answer choices that express the most important ideas in the passage. Some sentences do not belong in the summary because they express ideas that are not presented in the passage or are minor ideas in the passage. This question is worth 2 points.",
+      "intro": "A variety of factors, including human activity, can affect the distribution of species.",
+      "max_selections": 3,
+      "choices": [
+        {
+          "id": "A",
+          "text": "Research has shown that the biogeography of species can change even without human interference as can be seen in the wide distribution of willows along a wide range of river banks."
+        },
+        {
+          "id": "B",
+          "text": "Introducing a species to a new environment can have unintended consequences such as those that occurred when a butterfly was relocated to an environment that lacked its natural predator."
+        },
+        {
+          "id": "C",
+          "text": "The success of relocating two species together depends on how they help each other survive in a new environment as demonstrated by the South African bronze butterfly and geraniums."
+        },
+        {
+          "id": "D",
+          "text": "The study of the relocations of certain species to new habitats has been difficult because it is not always clear if the relocations were natural or caused by humans."
+        },
+        {
+          "id": "E",
+          "text": "Humans have relocated species for a variety of reasons, including obtaining new food sources, creating new industries, and taking advantage of the characteristics of certain species."
+        },
+        {
+          "id": "F",
+          "text": "Understanding the distribution of a species in its native habitat can be useful in controlling its spread as a pest in its new habitat."
+        }
+      ],
+      "needs_review": false,
+      "choices_count": 6
+    }
+  },
+  {
+    "passage_no": 24,
+    "title": "The Cambrian Explosion",
+    "q10": {
+      "qid": "p24_q10",
+      "number": 10,
+      "type": "summary",
+      "prompt": "10. [Directions] An introductory sentence for a brief summary of the passage is provided below. Complete the summary by selecting the THREE answer choices that express the most important ideas in the passage. Some answer choices do not belong in the summary because they express ideas that are not presented in the passage or are minor ideas in the passage. This question is worth 2 points. The earliest fossil evidence for eukaryotes dates to only about 1.2 billion years ago,",
+      "intro": "but then quite dramatic diversification occurred.",
+      "max_selections": 3,
+      "choices": [
+        {
+          "id": "A",
+          "text": "Biologists classify animals according to their body plans into about 30 different phyla."
+        },
+        {
+          "id": "B",
+          "text": "The rapid diversification of animal body forms during the Cambrian explosion did not happen soon after the appearance of the first eukaryotes."
+        },
+        {
+          "id": "C",
+          "text": "The Cambrian explosion was a unique episode in the history of evolution that produced nearly all of the 30 or so animal body plans that have ever been seen."
+        },
+        {
+          "id": "D",
+          "text": "The Cambrian explosion may have been aided by genes that could yield a variety of body forms and the inability of early predators to eliminate the new forms."
+        },
+        {
+          "id": "E",
+          "text": "Once predators became efficient after the Cambrian explosion, they were able to eliminate any animals that began to evolve a new body plan."
+        },
+        {
+          "id": "F",
+          "text": "At the beginning of the Cambrian, an increase in oxygen needed for animal growth and the return of a hospitable climate may have contributed to the Cambrian explosion."
+        }
+      ],
+      "needs_review": false,
+      "choices_count": 6
+    }
+  },
+  {
+    "passage_no": 25,
+    "title": "The Extinction of the Dinosaurs",
+    "q10": {
+      "qid": "p25_q10",
+      "number": 10,
+      "type": "summary",
+      "prompt": "10. [Directions] An introductory sentence for a brief summary of the passage is provided below. Complete the summary by selecting the THREE answer choices that express the most important ideas in the passage. Some sentences do not belong in the summary because they express ideas that are not presented in the passage or are minor ideas in the passage. This question is worth 2 points. For a long time, scientists have argued that the extinction of the dinosaurs was",
+      "intro": "related to climate change.",
+      "max_selections": 3,
+      "choices": [
+        {
+          "id": "A",
+          "text": "Cosmic rays from a nearby supernova explosion may have penetrated Earth's atmosphere, causing genetic changes that dinosaur populations could not survive."
+        },
+        {
+          "id": "B",
+          "text": "Climate changes in the tropics may have set off a chain of indirect effects that negatively affected the ecosystems in which dinosaurs lived."
+        },
+        {
+          "id": "C",
+          "text": "The spread of lava over large parts of previously favored habitats such as the Deccan Plateau may have made these favored areas uninhabitable for many years."
+        },
+        {
+          "id": "D",
+          "text": "Although the volcanic winter resulting from the formation of sulfate aerosols eventually ended, temperatures may have remained below levels required by dinosaurs to survive."
+        },
+        {
+          "id": "E",
+          "text": "Temperature changes and geographic shifts in climate zones due to the atmospheric effects of volcanic activity may have been significant enough to cause extinction."
+        },
+        {
+          "id": "F",
+          "text": "To be convincing, theories about what caused dinosaurs to become extinct must be able to explain the disappearance of other predators in the food chain at the same time."
+        }
+      ],
+      "needs_review": false,
+      "choices_count": 6
+    }
+  },
+  {
+    "passage_no": 26,
+    "title": "The First Eyes",
+    "q10": {
+      "qid": "p26_q10",
+      "number": 10,
+      "type": "summary",
+      "prompt": "10. [Directions] An introductory sentence for a brief summary of the passage is provided below. Complete the summary by selecting the THREE answer choices that express the most important ideas in the passage. Some sentences do not belong in the summary because they express ideas that are not presented in the passage or are minor ideas in the passage. This question is worth 2 points. The first eyes originated between the beginning of the Cambrian explosion and the",
+      "intro": "death of the Burgess animals.",
+      "max_selections": 3,
+      "choices": [
+        {
+          "id": "A",
+          "text": "The ability of some unicellular organisms to detect light and change their behavior accordingly suggests that eyes did not originate with multicellular animals."
+        },
+        {
+          "id": "B",
+          "text": "The earliest eyes apparently contained molecules that were capable of forming and focusing images."
+        },
+        {
+          "id": "C",
+          "text": "Too few fossils from the Precambrian have been found to determine which if any Precambrian organisms had eyes."
+        },
+        {
+          "id": "D",
+          "text": "Evidence from the Burgess Shale suggests that eyes of some early animals were similar to the eyes of living crustaceans."
+        },
+        {
+          "id": "E",
+          "text": "Fossil evidence suggests that organisms in the Burgess Shale with faceted eyes developed later than organisms in the Burgess Shale with nonfaceted eyes."
+        },
+        {
+          "id": "F",
+          "text": "The large size and possible complexity of the eyes of some organisms in the Burgess Shale suggest that their eyes were not the first eyes."
+        }
+      ],
+      "needs_review": false,
+      "choices_count": 6
+    }
+  },
+  {
+    "passage_no": 27,
+    "title": "The Geographical Distribution of Gliding Animals",
+    "q10": {
+      "qid": "p27_q10",
+      "number": 10,
+      "type": "summary",
+      "prompt": "10. [Directions] Complete the summary by selecting the THREE answer choices that express the most important ideas in the passage. Some sentences do not belong in the summary because they express ideas that are not presented in the passage or are minor ideas in the passage. This question is worth 2 points. Various theories have been proposed to explain the unique abundance and diversity",
+      "intro": "of gliding animals in the rain forests of Southeast Asia.",
+      "max_selections": 3,
+      "choices": [
+        {
+          "id": "A",
+          "text": "One theory is that so many gliding species evolved in Southeast Asia because the forests are exceptionally tall, but there is evidence that calls that theory into question."
+        },
+        {
+          "id": "B",
+          "text": "The fact that gliding animals are most abundant in the short-stature forests of China, Vietnam, and Thailand shows that gliding did not evolve as an adaptation to an environment of tall trees."
+        },
+        {
+          "id": "C",
+          "text": "Ecologists have shown that the abundance of gliding animals in different regions of the world corresponds to variations in tree height, canopy structure, and abundance of vines."
+        },
+        {
+          "id": "D",
+          "text": "The hypothesis that gliding evolved to compensate for a scarcity of vines linking tree canopies overlooks problematic evidence from both Southeast Asian and Amazonian forests."
+        },
+        {
+          "id": "E",
+          "text": "In forests that are dominated by tall trees, jumping from tree to tree or descending to the ground may be a more efficient way of traveling through the forest than gliding."
+        },
+        {
+          "id": "F",
+          "text": "Dipterocarp trees create an environment in which many species must travel widely to find food, and gliding may have evolved as a rapid and efficient way of moving between tree crowns."
+        }
+      ],
+      "needs_review": false,
+      "choices_count": 6
+    }
+  },
+  {
+    "passage_no": 28,
+    "title": "Vocalization in Frogs",
+    "q10": {
+      "qid": "p28_q10",
+      "number": 10,
+      "type": "summary",
+      "prompt": "10. [Directions] An introductory sentence for a brief summary of the passage is provided below. Complete the summary by selecting the THREE answer choices that express the most important ideas in the passage. Some sentences do not belong in the summary because the express ideas that are not presented in the passage or are minor ideas in the passage. This question is worth 2 points. In order to attract females, male túngara frogs use two kinds of calls: a whine and a whine-chuck.",
+      "intro": "● ● ●",
+      "max_selections": 3,
+      "choices": [
+        {
+          "id": "A",
+          "text": "Túngara frogs generally use simple calls when they wish to attract a mate, and complex calls when they wish to avoid predation."
+        },
+        {
+          "id": "B",
+          "text": "The hypothesis that whine calls are used to save energy when males are not in immediate competition with each other has been disproved by showing that chuck calls do not require more energy."
+        },
+        {
+          "id": "C",
+          "text": "Most males gather in groups of several hundreds when calling because the rate of predation from bats is so high in small groups."
+        },
+        {
+          "id": "D",
+          "text": "Two hypotheses have been put forward about why females and frog-eating bats are more attracted to males using whine-chuck calls."
+        },
+        {
+          "id": "E",
+          "text": "Túngara females overwhelmingly favor the whine-chuck call used by the males, but so do certain bats that prey upon túngara frogs."
+        },
+        {
+          "id": "F",
+          "text": "Male túngara frogs use the whine-chuck call in large groups, where their risk of predation is lower, and the whine call in small groups, where the risk of predation is higher."
+        }
+      ],
+      "needs_review": false,
+      "choices_count": 6
+    }
+  },
+  {
+    "passage_no": 29,
+    "title": "Tree Branches",
+    "q10": {
+      "qid": "p29_q10",
+      "number": 10,
+      "type": "summary",
+      "prompt": "10. [Directions] An introductory sentence for a brief summary of the passage is provided below. Complete the summary by selecting the THREE answer choices that express the most important ideas in the passage. Some answer choices do not belong in the summary because they express ideas that are not presented in the passage or are minor ideas in the passage. This question is worth 2 points.",
+      "intro": "Trees prevent themselves from having too many branches by shedding them.",
+      "max_selections": 3,
+      "choices": [
+        {
+          "id": "A",
+          "text": "Trees shed branches that are unproductive, for example because they are shaded and cannot produce enough carbohydrate."
+        },
+        {
+          "id": "B",
+          "text": "Branches may also be shed to conserve water, as in the case of the creosote bush, or for self-propagation, as in the case of willows."
+        },
+        {
+          "id": "C",
+          "text": "Some trees shed branches deliberately by forming a corky layer before the branch is dropped, which seals the wound."
+        },
+        {
+          "id": "D",
+          "text": "The shedding of branches is a risky process that can lead to disease and decay if the wound is not properly sealed."
+        },
+        {
+          "id": "E",
+          "text": "Trees also reduce congestion by making some branches smaller than others, with short shoots producing leaves and flowers."
+        },
+        {
+          "id": "F",
+          "text": "The shedding of branches is a process that occurs only in hardwoods and is not observed in conifers like pine and redwood trees."
+        }
+      ],
+      "needs_review": false,
+      "choices_count": 6
+    }
+  },
+  {
+    "passage_no": 30,
+    "title": "Art and Culture of Pacific Northwest",
+    "q10": {
+      "qid": "p30_q10",
+      "number": 10,
+      "type": "summary",
+      "prompt": "10. [Directions] An introductory sentence for a brief summary of the passage is provided below. Complete the summary by selecting the THREE answer choices that express the most important ideas in the passage. Some answer choices do not belong in the summary because they express ideas that are not presented in the passage or are minor ideas in the passage. This question is worth 2 points. The peoples who lived along the northwestern coast of North America had stable",
+      "intro": "communities and a distinctive artistic style.",
+      "max_selections": 3,
+      "choices": [
+        {
+          "id": "A",
+          "text": "The people lived on food from the sea, animals, and wild plants, and used wood from the forests for building construction, boat making, and sculpture."
+        },
+        {
+          "id": "B",
+          "text": "Although the peoples of the northwestern communities came from various language groups, their languages were closely related and they could generally understand one another."
+        },
+        {
+          "id": "C",
+          "text": "The most remarkable artistic products of the northwestern peoples were totem poles and masks, which often represented families and their spirit guides."
+        },
+        {
+          "id": "D",
+          "text": "Masks were the most varied of the carvings and were made for a variety of purposes, including religious rituals, dance-dramas, and as heirlooms representing chiefs and ancestors."
+        },
+        {
+          "id": "E",
+          "text": "Totem poles were carved from single trunks of cedar and displayed a chief's prestige and genealogy, with figures representing crests inherited from his lineage."
+        },
+        {
+          "id": "F",
+          "text": "Carvers made masks using a principle of bilateral symmetry that resulted in the creation of a unity of symbolism, form, and surface."
+        }
+      ],
+      "needs_review": false,
+      "choices_count": 6
+    }
+  },
+  {
+    "passage_no": 31,
+    "title": "Domestication",
+    "q10": {
+      "qid": "p31_q10",
+      "number": 10,
+      "type": "summary",
+      "prompt": "10. [Directions] An introductory sentence for a brief summary of the passage is provided below. Complete the summary by selecting the THREE answer choices that express the most important ideas in the passage. Some sentences do not belong in the summary because the express ideas that are not presented in the passage or are minor ideas in the passage. This question is worth 2 points. About 10,000 years ago, humans living in very different parts of the world nearly simultaneously began domesticating plants and animals.",
+      "intro": "● ● ●",
+      "max_selections": 3,
+      "choices": [
+        {
+          "id": "A",
+          "text": "Some theories aim to explain the emergence of domestication everywhere - either by a single cause or by the interaction of several phenomena - but none are well supported by the evidence."
+        },
+        {
+          "id": "B",
+          "text": "One scholar does not attribute domestication to environmental or technical factors, arguing instead that it can be explained by a need for ever increasing amounts of food for competitive feasting."
+        },
+        {
+          "id": "C",
+          "text": "One assumption that all domestication theories have in common is that humans began the process that resulted in domestication only because of pressure from growing population."
+        },
+        {
+          "id": "D",
+          "text": "According to the broad-spectrum foraging argument, domestication was developed by human groups to provide a subsistence base that would permit the development of sedentary communities."
+        },
+        {
+          "id": "E",
+          "text": "Theories that take a regional approach to the development of domestication are able to take social factors into account rather than being limited to archaeological evidence."
+        },
+        {
+          "id": "F",
+          "text": "Currently, the most powerful theories focus on a particular area and try to explain the emergence of domestication there by the combined local effect of climate, environment, population, and other factors."
+        }
+      ],
+      "needs_review": false,
+      "choices_count": 6
+    }
+  },
+  {
+    "passage_no": 32,
+    "title": "Hunting and the Settling of Inner Eurasia",
+    "q10": {
+      "qid": "p32_q10",
+      "number": 10,
+      "type": "summary",
+      "prompt": "10. [Directions] An introductory sentence for a brief summary of the passage is provided below. Complete the summary by selecting the THREE answer choices that express the most important ideas in the passage. Some answer choices do not belong in the summary because they express ideas that are not presented in the passage or are minor ideas in the passage. This question is worth 2 points. The long, cold winters of Inner Eurasia made the settling of the region difficult for",
+      "intro": "humans.",
+      "max_selections": 3,
+      "choices": [
+        {
+          "id": "A",
+          "text": "Although humans had fire and animal skins for warmth, they lacked the technology that would have allowed them to hunt animals over a large territory."
+        },
+        {
+          "id": "B",
+          "text": "Although humans had sufficient means of storage, they could not gather enough edible plants to last them through the year."
+        },
+        {
+          "id": "C",
+          "text": "Hunting requires social complexity, since information and goods must be exchanged among groups that are scattered across a large territory and that have different members at different times."
+        },
+        {
+          "id": "D",
+          "text": "Heavy snowfall and extreme temperatures made hunting impossible in Inner Eurasia for much of the year and forced humans to depend on grasses for survival."
+        },
+        {
+          "id": "E",
+          "text": "Humans would have needed to survive the winters by hunting, which would have required them to be expert planners and organizers."
+        },
+        {
+          "id": "F",
+          "text": "The absence of certain kinds of archaeological evidence suggests that before 120,000 years ago, humans were not able to hunt systematically, plan ahead, or organize socially for hunting."
+        }
+      ],
+      "needs_review": false,
+      "choices_count": 6
+    }
+  },
+  {
+    "passage_no": 33,
+    "title": "Origins of the Megaliths",
+    "q10": {
+      "qid": "p33_q10",
+      "number": 10,
+      "type": "summary",
+      "prompt": "10. [Directions] An introductory sentence for a brief summary of the passage is provided below. Complete the summary by selecting the THREE answer choices that express the most important ideas in the passage. Some sentences do not belong in the summary because the express ideas that are not presented in the passage or are minor ideas in the passage. This question is worth 2 points. Megaliths found along Europe's Atlantic seaboard have long puzzled scholars.",
+      "intro": "● ● ●",
+      "max_selections": 3,
+      "choices": [
+        {
+          "id": "A",
+          "text": "The Bronze Age Aegeans most probably built some of the tombs in Iberia."
+        },
+        {
+          "id": "B",
+          "text": "Scientific evidence supports the idea that the megaliths were a western and northern European invention."
+        },
+        {
+          "id": "C",
+          "text": "Most megaliths are found in coastal regions, suggesting that people fishing may have used them to guide their travels."
+        },
+        {
+          "id": "D",
+          "text": "Archeologists have found enough indicators to believe that the layout of tombs in the landscape reflects each community's social organization."
+        },
+        {
+          "id": "E",
+          "text": "The high proportion of coastal megaliths has given rise to the idea that megalith building was related to fishing."
+        },
+        {
+          "id": "F",
+          "text": "It has been suggested that megaliths arose in response to the spread of agriculture and competition for farmland."
+        }
+      ],
+      "needs_review": false,
+      "choices_count": 6
+    }
+  },
+  {
+    "passage_no": 34,
+    "title": "Consolidated Industry in the United States",
+    "q10": {
+      "qid": "p34_q10",
+      "number": 10,
+      "type": "summary",
+      "prompt": "10. [Directions] An introductory sentence for a brief summary of the passage is provided below. Complete the summary by selecting the THREE answer choices that express the most important ideas in the passage. Some sentences do not belong in the summary because the express ideas that are not presented in the passage or are minor ideas in the passage. This question is worth 2 points. Businesses' increased ability to raise capital by selling stock led to the emergence of",
+      "intro": "large corporations as a major force in the United States after 1865.",
+      "max_selections": 3,
+      "choices": [
+        {
+          "id": "A",
+          "text": "Large businesses developed more efficient administrative structures, which allowed them to consolidate through horizontal integration, vertical integration, or both."
+        },
+        {
+          "id": "B",
+          "text": "Even though consolidation initially developed in manufacturing, it was J. P. Morgan in the banking industry who came up with the most successful consolidation technique."
+        },
+        {
+          "id": "C",
+          "text": "The most famous corporation was Rockefeller's Standard Oil, which acquired many competing businesses and controlled its supply sources, eventually establishing itself as a holding company."
+        },
+        {
+          "id": "D",
+          "text": "In order to limit competition as effectively as they could, industrialists created pool arrangements and then later trusts and holding companies."
+        },
+        {
+          "id": "E",
+          "text": "The rise of corporations as the dominant force in the American economy forced certain states to pass new laws that resulted in direct state control over consolidation."
+        },
+        {
+          "id": "F",
+          "text": "Corporate consolidation was an extremely complex process, and required enormous amounts of capital for carrying out various integration procedures."
+        }
+      ],
+      "needs_review": false,
+      "choices_count": 6
+    }
+  },
+  {
+    "passage_no": 35,
+    "title": "Costs of Quitting a Job",
+    "q10": {
+      "qid": "p35_q10",
+      "number": 10,
+      "type": "summary",
+      "prompt": "10. [Directions] An introductory sentence for a brief summary of the passage is provided below. Complete the summary by selected THREE answer choices that express the most important ideas in the passage. Some sentences do not belong in the summary because they express ideas that are not presented in the passage or are minor ideas in the passage. This question is worth 2 points. According to economic theory, workers are more likely to change jobs when the",
+      "intro": "associated costs are low.",
+      "max_selections": 3,
+      "choices": [
+        {
+          "id": "A",
+          "text": "Since job changes by a minority of workers can radically alter overall job mobility rates, job mobility rates tell us little about the mobility costs facing the average worker."
+        },
+        {
+          "id": "B",
+          "text": "Residential location and individual psychic factors could account for some differences in job mobility among workers."
+        },
+        {
+          "id": "C",
+          "text": "Economists argue strongly for job mobility despite the social and economic costs associated with it."
+        },
+        {
+          "id": "D",
+          "text": "Outside of the United States, subsidized housing and controls on rent increases explain why there is less job mobility in urban areas than in nonmetropolitan areas."
+        },
+        {
+          "id": "E",
+          "text": "Possibly due to housing and other differences, mobility costs may be lower in the United States than in most other developing nations, which could help account for differences in job mobility."
+        },
+        {
+          "id": "F",
+          "text": "High job mobility arguably has both benefits, in terms of individual well-being and economic flexibility, and economic costs."
+        }
+      ],
+      "needs_review": false,
+      "choices_count": 6
+    }
+  },
+  {
+    "passage_no": 36,
+    "title": "Controversy about Causing Emotion",
+    "q10": {
+      "qid": "p36_q10",
+      "number": 10,
+      "type": "summary",
+      "prompt": "10. [Directions] An introductory sentence for a brief summary of the passage is provided below. Complete the summary by selecting the THREE answer choices that express the most important ideas in the passage. Some sentences do not belong in the summary because they express ideas that are not presented in the passage or are minor ideas in the passage. This question is worth 2 points. There has been a controversy among researchers about the sequence of events in",
+      "intro": "an emotional experience.",
+      "max_selections": 3,
+      "choices": [
+        {
+          "id": "A",
+          "text": "Cognitive appraisal probably does not play a large role in an emotional experience, evidenced by the very brief span of time between an event and an emotional reaction."
+        },
+        {
+          "id": "B",
+          "text": "Two early theory of emotion both assert that different emotions result from distinct changes in the body that correspond to particular emotions."
+        },
+        {
+          "id": "C",
+          "text": "There is a disagreement among researchers who emphasize the cognitive aspect of an emotion about whether cognitive interpretation comes before or after physiological arousal."
+        },
+        {
+          "id": "D",
+          "text": "Theories in disagreement with each other about the sequence of events in emotional experience concentrate on the extent to which cognition and interpretation are involved in an emotional experience."
+        },
+        {
+          "id": "E",
+          "text": "Some theories claim that physiological arousal comes either before or at the same time as the feeling of an emotion, and contradict the subjective experience of emotion."
+        },
+        {
+          "id": "F",
+          "text": "The Lazarus theory emphasized that an emotion comes from a positive or negative appraisal of a physiological arousal."
+        }
+      ],
+      "needs_review": false,
+      "choices_count": 6
+    }
+  },
+  {
+    "passage_no": 37,
+    "title": "Motor Development in Children",
+    "q10": {
+      "qid": "p37_q10",
+      "number": 10,
+      "type": "summary",
+      "prompt": "10. [Directions] An introductory sentence for a brief summary of the passage is provided below. Complete the summary by selecting the THREE answer choices that express the most important ideas in the passage. Some sentences do not belong in the summary because they express ideas that are not presented in the passage or are minor ideas in the passage. This question is worth 2 points. The motor development in infants includes gross motor development and the fine motor development.",
+      "intro": "● ● ●",
+      "max_selections": 3,
+      "choices": [
+        {
+          "id": "A",
+          "text": "The ability to move around in an environment gives infants an understanding of location and thus reduces the extent to which their memory is dependent on context."
+        },
+        {
+          "id": "B",
+          "text": "Infants become better at finding hidden objects once they have developed the type of grasp that allows them to handle and explore very small objects in their environment."
+        },
+        {
+          "id": "C",
+          "text": "Piaget argues that an infant's cognitive development is related to the development of fine motor skills that make it possible for infants to interact with and adapt their actions to their environment."
+        },
+        {
+          "id": "D",
+          "text": "Fine motor skills tend to develop later than do gross motor skills because fine motor skills require smaller, more finely tuned movements and a great deal of coordination."
+        },
+        {
+          "id": "E",
+          "text": "When infants first begin to grasp objects, they transfer the objects from hand to hand and firmly close their fingers against their palms."
+        },
+        {
+          "id": "F",
+          "text": "Reaching and grasping begin early; by about three months, reaching is more coordinated and efficient, and by one year, infants begin to develop a coordinated and finely tuned grip."
+        }
+      ],
+      "needs_review": false,
+      "choices_count": 6
+    }
+  },
+  {
+    "passage_no": 38,
+    "title": "Documenting the Incas",
+    "q10": {
+      "qid": "p38_q10",
+      "number": 10,
+      "type": "summary",
+      "prompt": "10. [Directions] An introductory sentence for a brief summary of the passage is provided below. Complete the summary by selecting the THREE answer choices that express the most important ideas in the passage. Some answer choices do not belong in the summary because they express ideas that are not presented in the passage or are minor ideas in the passage. This question is worth 2 points.",
+      "intro": "The accuracy of the historical record concerning the Incas is problematic.",
+      "max_selections": 3,
+      "choices": [
+        {
+          "id": "A",
+          "text": "Numerous aspects of Incan life were recorded in the sixteenth century but many historical documents created at this time were lost or destroyed."
+        },
+        {
+          "id": "B",
+          "text": "Many Spaniards were interested primarily in the expansion of the Incan empire and therefore ignored other periods of Incan history."
+        },
+        {
+          "id": "C",
+          "text": "The fact that the Incan informants were the main sources of information about themselves as well as inconsistencies in place names call the sound aspects of the accounts into question."
+        },
+        {
+          "id": "D",
+          "text": "Descriptions of Incan society may often be influenced by the cultural biases of people writing about Incas."
+        },
+        {
+          "id": "E",
+          "text": "Incorrect information may sometimes have been knowingly included in historical records because it was advantageous to the person including such information."
+        },
+        {
+          "id": "F",
+          "text": "The movement of people due to the Incan conquest and the settlement of the Spanish has caused much confusion about place names in the historical record."
+        }
+      ],
+      "needs_review": false,
+      "choices_count": 6
+    }
+  },
+  {
+    "passage_no": 39,
+    "title": "Mesopotamian and Egyptian Settlement Patterns",
+    "q10": {
+      "qid": "p39_q10",
+      "number": 10,
+      "type": "summary",
+      "prompt": "10. [Directions] An introductory sentence for a brief summary of the passage is provided below. Complete the summary by selecting the THREE answer choices that express the most important ideas in the passage. Some sentences do not belong in the summary because the express ideas that are not presented in the passage or are minor ideas in the passage. This question is worth 2 points.",
+      "intro": "Mesopotamia and Egypt represent two types of ancient settlement distributions.",
+      "max_selections": 3,
+      "choices": [
+        {
+          "id": "A",
+          "text": "Mesopotamia was characterized by large, densely-populated urban centers, while the population of Egypt was more evenly distributed across the Nile valley."
+        },
+        {
+          "id": "B",
+          "text": "Unlike Mesopotamian city-states, which were culturally and economically distinct, Egyptian villages and towns shared a common language and economy."
+        },
+        {
+          "id": "C",
+          "text": "While defense was crucial in Mesopotamian cities due to competition for territory, trade routes, and raw materials, it was less important in Egypt."
+        },
+        {
+          "id": "D",
+          "text": "Once they realized that craft production was more profitable than crop production, many Mesopotamians moved from rural to urban areas."
+        },
+        {
+          "id": "E",
+          "text": "Differences in settlement patterns help to explain why the Egyptian central government survived and the Mesopotamian city-states did not."
+        },
+        {
+          "id": "F",
+          "text": "Trade specialists were evenly spread throughout Egypt, while Mesopotamia's vibrant commercial trade was concentrated in its large urban centers."
+        }
+      ],
+      "needs_review": false,
+      "choices_count": 6
+    }
+  },
+  {
+    "passage_no": 40,
+    "title": "The Collapse of the Maya",
+    "q10": {
+      "qid": "p40_q10",
+      "number": 10,
+      "type": "summary",
+      "prompt": "10. [Directions] An introductory sentence for a brief summary of the passage is provided below. Complete the summary by selecting the THREE answer choices that express the most important ideas in the passage. Some sentences do not belong in the summary because they express ideas that are not presented in the passage or are minor ideas in the passage. This question is worth 2 points.",
+      "intro": "The collapse of the Mayan city-states has been explained in various ways.",
+      "max_selections": 3,
+      "choices": [
+        {
+          "id": "A",
+          "text": "The Mayan attempt to develop intensive agricultural methods to support large populations in relatively small areas probably was unsuccessful and could have caused the Mayan collapse."
+        },
+        {
+          "id": "B",
+          "text": "The discovery of intact pyramids submerged in vegetation among the Mayan ruins led researchers to believe that Mayan cities were simply overgrown rather than catastrophically destroyed."
+        },
+        {
+          "id": "C",
+          "text": "Warfare and rivalry between Mayan states may have caused food shortages that contributed to the eventual collapse of Mayan civilization."
+        },
+        {
+          "id": "D",
+          "text": "Early theories that the Mayan collapse was a sudden, catastrophic event were followed by views that treated the collapse as a gradual process."
+        },
+        {
+          "id": "E",
+          "text": "The continuing warfare and social unrest that started in the North and spread to the South provided researchers with evidence that the Mayan collapse took hundreds of years to occur."
+        },
+        {
+          "id": "F",
+          "text": "Drought between A.D. 800 and A.D. 1000 likely caused the Mayan system of intensive irrigated agriculture to fail, which could have brought about a rapid collapse of the Mayan states."
+        }
+      ],
+      "needs_review": false,
+      "choices_count": 6
+    }
+  },
+  {
+    "passage_no": 41,
+    "title": "The Emergence of Civilization",
+    "q10": {
+      "qid": "p41_q10",
+      "number": 10,
+      "type": "summary",
+      "prompt": "10. [Directions] An introductory sentence for a brief summary of the passage is provided below. Complete the summary by selecting the THREE answer choices that express the most important ideas in the passage. Some answer choices do not belong in the summary because they express ideas that are not presented in the passage or are minor ideas in the passage. This question is worth 2 points. After 4000 B.C.E., organized drainage and flood-control projects in the Fertile",
+      "intro": "Crescent allowed cultivation of river deltas and led to large population increases.",
+      "max_selections": 3,
+      "choices": [
+        {
+          "id": "A",
+          "text": "The need for centralized administration to manage large-scale land-use projects led to the rise of religious and political institutions, with priests initially governing cities."
+        },
+        {
+          "id": "B",
+          "text": "The concentration of wealth and resources in river valleys led to technological advances such as wheeled vehicles, pottery wheels, and bronze metallurgy."
+        },
+        {
+          "id": "C",
+          "text": "The invention of writing around 3000 B.C.E. was a response to the need for record-keeping in increasingly complex economies and administrations."
+        },
+        {
+          "id": "D",
+          "text": "The first civilizations shared several defining characteristics including agriculture-based economies, large urban centers, social classes, labor specialization, metal technology, and writing."
+        },
+        {
+          "id": "E",
+          "text": "The Bronze Age civilizations of Mesopotamia and Egypt were located in river valleys and based on agriculture, but bronze was used mainly for luxury items rather than farming tools."
+        },
+        {
+          "id": "F",
+          "text": "Other Bronze Age civilizations, such as those in the Levant and eastern Mediterranean, pursued economies based on trade rather than large-scale agriculture."
+        }
+      ],
+      "needs_review": false,
+      "choices_count": 6
+    }
+  },
+  {
+    "passage_no": 42,
+    "title": "The Multiplier Effect",
+    "q10": {
+      "qid": "p42_q10",
+      "number": 10,
+      "type": "summary",
+      "prompt": "10. Directions: An introductory sentence for a brief summary of the passage is provided below. Complete the summary by selecting the THREE answer choices that express the most important ideas in the passage. Some answer choices do not belong in the summary because they express ideas that are not presented in the passage or are minor ideas in the passage. This question is worth 2 points. Colin Renfrew's explanation of the rise of Aegean civilization rejected traditional views that the cause was one or another external influence on the developing",
+      "intro": "society.",
+      "max_selections": 3,
+      "choices": [
+        {
+          "id": "A",
+          "text": "The emergence of Aegean civilization was the result of internal factors interacting with each other in a way that multiplied each other's effects."
+        },
+        {
+          "id": "B",
+          "text": "An increase in population created a shortage of agricultural land that increased social tensions and forced many farmers to become warriors for local chieftains."
+        },
+        {
+          "id": "C",
+          "text": "More effective bronze weapons increased the power of local chieftains, who imposed a system in which they collected farm and craft products in exchange for protecting their subjects."
+        },
+        {
+          "id": "D",
+          "text": "Once people began producing bronze, it surpassed wine and olive oil as the most important good traded in the Aegean."
+        },
+        {
+          "id": "E",
+          "text": "Agricultural surpluses from the production of olive oil and wine and the introduction of bronze technology together supported population growth, the development of crafts, and economic expansion."
+        },
+        {
+          "id": "F",
+          "text": "As the economy diversified and grew, a higher level of social organization was required, a need that encouraged the emergence of local chieftains and eventually led to the development of writing."
+        }
+      ],
+      "needs_review": false,
+      "choices_count": 6
+    }
+  },
+  {
+    "passage_no": 43,
+    "title": "The Western Roman Empire in the Fifth Century",
+    "q10": {
+      "qid": "p43_q10",
+      "number": 10,
+      "type": "summary",
+      "prompt": "10. [Directions] An introductory sentence for a brief summary of the passage is provided below. Complete the summary by selecting the THREE answer choices that express the most important ideas in the passage. Some sentences do not belong in the summary because the express ideas that are not presented in the passage or are minor ideas in the passage. This question is worth 2 points. Shortly after separation, the West Roman Empire became more vulnerable than its",
+      "intro": "eastern counterpart.",
+      "max_selections": 3,
+      "choices": [
+        {
+          "id": "A",
+          "text": "The division of the Roman Empire into two parts was particularly damaging for the Western Empire because it relied on the Eastern Empire for economic support."
+        },
+        {
+          "id": "B",
+          "text": "The heirs of Theodosius came to the throne as young children, allowing them to be dominated by advisors who competed for influence at the expense of the empire's welfare."
+        },
+        {
+          "id": "C",
+          "text": "Western emperors after Theodosius were unable to emphasize their civilian role because of their need to rely on the protection of Germanic generals loyal to them."
+        },
+        {
+          "id": "D",
+          "text": "Compared to the Eastern Empire, the Western Empire had many disadvantages, including more foreign enemies and fewer material and human resources."
+        },
+        {
+          "id": "E",
+          "text": "Resentment against Germanic chieftains achieving high rank in the Roman military and factionalism among Roman leaders were among the causes of the period's considerable instability."
+        },
+        {
+          "id": "F",
+          "text": "As the resources needed to secure Rome's borders increased, serious conflicts developed among Roman leaders over how best to protect Roman territory against invading tribes."
+        }
+      ],
+      "needs_review": false,
+      "choices_count": 6
+    }
+  },
+  {
+    "passage_no": 44,
+    "title": "Newspaper in Western Europe",
+    "q10": {
+      "qid": "p44_q10",
+      "number": 10,
+      "type": "summary",
+      "prompt": "10. [Directions] An introductory sentence for a brief summary of the passage is provided below. Complete the summary by selecting the THREE answer choices that express the most important ideas in the passage. Some sentences do not belong in the summary because the express ideas that are not presented in the passage or are minor ideas in the passage. This question is worth 2 points. By the eighteenth century, newspapers had become established as a means of",
+      "intro": "spreading news of European affairs within European society.",
+      "max_selections": 3,
+      "choices": [
+        {
+          "id": "A",
+          "text": "Governments tried to control what news got published by sponsoring official newspapers, taxing publishers, requiring newspapers to be licensed, and instituting press-censorship laws."
+        },
+        {
+          "id": "B",
+          "text": "England was the most important market for news, but disruptions caused by conflict over how the government should control the press resulted in many British newspapers being driven out of business."
+        },
+        {
+          "id": "C",
+          "text": "Censorship laws were established and enforced differently across Europe because of differences in the political systems of the various countries."
+        },
+        {
+          "id": "D",
+          "text": "Europe's expanding commercial and political interests led to increased demand for news and also to improved systems for distributing newspapers."
+        },
+        {
+          "id": "E",
+          "text": "Although eighteenth-century newspapers were modest by modern standards, they made current events accessible to the reading public and facilitated the rapid exchange of news and opinions."
+        },
+        {
+          "id": "F",
+          "text": "Newspapers' regular presentation of strange and threatening news from around the world had the effect of making their readers feel more closely connected to their own local communities."
+        }
+      ],
+      "needs_review": false,
+      "choices_count": 6
+    }
+  },
+  {
+    "passage_no": 45,
+    "title": "Effects of the Commercial Revolution",
+    "q10": {
+      "qid": "p45_q10",
+      "number": 10,
+      "type": "summary",
+      "prompt": "10. Directions: An introductory sentence for a brief summary of the passage is provided below. Complete the summary by selecting the THREE answer choices that express the most important ideas in the passage. Some answer choices do not belong in the summary because they express ideas that are not presented in the passage or are minor ideas in the passage. This question is worth 2 points. The commercial revolution of the last millennium B.C. resulted in both political and",
+      "intro": "economic changes.",
+      "max_selections": 3,
+      "choices": [
+        {
+          "id": "A",
+          "text": "New kinds of urban centers emerged that focused on commerce and encouraged craft and occupational specializations."
+        },
+        {
+          "id": "B",
+          "text": "Rulers in the last millennium B.C. began to promote the material prosperity of their people through support and improvement of commerce."
+        },
+        {
+          "id": "C",
+          "text": "More established commercial centers supplied final products to newer regions in exchange for raw materials."
+        },
+        {
+          "id": "D",
+          "text": "During the first millennium B.C., new political and religious centers arose that based their power on their ability to protect their lands and people."
+        },
+        {
+          "id": "E",
+          "text": "The focus on raw materials switched the balance of power from the manufacturing centers to the control of the exporters of the natural products."
+        },
+        {
+          "id": "F",
+          "text": "Military occupation of neighboring lands became a major means of expanding trade into new territories."
+        }
+      ],
+      "needs_review": false,
+      "choices_count": 6
+    }
+  },
+  {
+    "passage_no": 46,
+    "title": "European Context of the Scientific Revolution",
+    "q10": {
+      "qid": "p46_q10",
+      "number": 10,
+      "type": "summary",
+      "prompt": "10. [Directions] An introductory sentence for a brief summary of the passage is provided below. Complete the summary by selecting the THREE answer choices that express the most important ideas in the passage. Some answer choices do not belong in the summary because they express ideas that are not presented in the passage or are minor ideas in the passage. This question is worth 2 points. The geographical discovery of the Americas, the technology of printing, and the",
+      "intro": "revival of cultural life and the arts all contributed to the Scientific Revolution.",
+      "max_selections": 3,
+      "choices": [
+        {
+          "id": "A",
+          "text": "The discovery of the Americas stimulated the science of geography and cartography which in turn emphasized observation and practical experience."
+        },
+        {
+          "id": "B",
+          "text": "The invention of movable type increased the accuracy and availability of information, and a new group of nonreligious scholars emerged."
+        },
+        {
+          "id": "C",
+          "text": "The growth of both artistic and scientific activity in Renaissance Italy was encouraged by the financial support of universities and wealthy merchants."
+        },
+        {
+          "id": "D",
+          "text": "Johannes Gutenberg's invention of printing in the late 1430s appears to have been unrelated to earlier developments in print technology in Asia."
+        },
+        {
+          "id": "E",
+          "text": "European intellectuals first discovered the existence of ancient Greek science and mathematics texts in the late fifteenth century, when translations from the Arabic finally became available."
+        },
+        {
+          "id": "F",
+          "text": "The revival of culture and art in fourteenth-century Italy encouraged the development of perspective and the adherence to mathematical rules in painting."
+        }
+      ],
+      "needs_review": false,
+      "choices_count": 6
+    }
+  },
+  {
+    "passage_no": 47,
+    "title": "Farming New England in Colonial Times",
+    "q10": {
+      "qid": "p47_q10",
+      "number": 10,
+      "type": "summary",
+      "prompt": "10. [Directions] An introductory sentence for a brief summary of the passage is provided below. Complete the summary by selecting the THREE answer choices that express the most important ideas in the passage. Some sentences do not belong in the summary because the express ideas that are not presented in the passage or are minor ideas in the passage. When European colonists settled New England, they tended to farm areas already",
+      "intro": "cleared by Native Americans.",
+      "max_selections": 3,
+      "choices": [
+        {
+          "id": "A",
+          "text": "Once the supply of suitable cleared land ran out, the settlers had to clear new land before they could plant, generally converting the trees they removed into lumber, fuel, or potash."
+        },
+        {
+          "id": "B",
+          "text": "Because clearing fields took time and the need for food was pressing, farmers were forced to resort to extensive farming practices rather than follow their old European farming system."
+        },
+        {
+          "id": "C",
+          "text": "The settlers developed a farm ecology that eventually made the region more productive than the South or even the mid-Atlantic area."
+        },
+        {
+          "id": "D",
+          "text": "The settlers' attempt to follow what, in Europe, was considered proper farming practices was soon abandoned as they discovered that food could be grown more efficiently in other ways."
+        },
+        {
+          "id": "E",
+          "text": "After planting corn (maize) enough times to drain the excess nitrogen out of the soil, the settlers were able to grow more familiar European crops such as wheat and rye."
+        },
+        {
+          "id": "F",
+          "text": "The soil was not particularly fertile, but grass grew well and fed cattle that produced manure, which in turn served as fertilizer for crops and recycled nutrients back into the soil."
+        }
+      ],
+      "needs_review": false,
+      "choices_count": 6
+    }
+  },
+  {
+    "passage_no": 48,
+    "title": "Population Revolution in Eighteenth-Century",
+    "q10": {
+      "qid": "p48_q10",
+      "number": 10,
+      "type": "summary",
+      "prompt": "10. [Directions] An introductory sentence for a brief summary of the passage is provided below. Complete the summary by selecting the THREE answer choices that express the most important ideas in the passage. Some sentences do not belong in the summary because they express ideas that are not presented in the passage or are minor ideas in the passage. This question is worth 2 points.",
+      "intro": "Population began to expand in the late seventeenth century Europe.",
+      "max_selections": 3,
+      "choices": [
+        {
+          "id": "A",
+          "text": "Climate conditions in Europe allowed for the introduction of new crops that competed with American foods for popular consumption."
+        },
+        {
+          "id": "B",
+          "text": "An important cause of population growth was improved nutrition, due in large part to the addition of the potato and other American foods to the standard European diet."
+        },
+        {
+          "id": "C",
+          "text": "Regional landowners developed improved agricultural techniques, and mortality rates declined as governments gained control over traditional plague routes."
+        },
+        {
+          "id": "D",
+          "text": "Growth rates varied widely across the continent but were highest in France, Spain, and Britain and lowest in Prussia and the Hapsburg Empire."
+        },
+        {
+          "id": "E",
+          "text": "Birth rates went up as more people lived long enough to have their own children, had children earlier, and had larger families."
+        },
+        {
+          "id": "F",
+          "text": "Government policies promoting population growth helped to create a large labor force for the manufacturing industry."
+        }
+      ],
+      "needs_review": false,
+      "choices_count": 6
+    }
+  },
+  {
+    "passage_no": 49,
+    "title": "The British Economy under the Roman Empire",
+    "q10": {
+      "qid": "p49_q10",
+      "number": 10,
+      "type": "summary",
+      "prompt": "10. [Directions] An introductory sentence for a brief summary of the passage is provided below. Complete the summary by selecting the THREE answer choices that express the most important ideas in the passage. Some answer choices do not belong in the summary because they express ideas that are not presented in the passage or are minor ideas in the passage. This question is worth 2 points. The British Isles' economy experienced significant changes after the Roman",
+      "intro": "conquest.",
+      "max_selections": 3,
+      "choices": [
+        {
+          "id": "A",
+          "text": "British craftspeople slowly stopped producing items that generally were of little practical value in favor of the manufacturing of household products."
+        },
+        {
+          "id": "B",
+          "text": "Manufacturers invested an increased amount of resources and time towards developing specialty equipment."
+        },
+        {
+          "id": "C",
+          "text": "The production of goods still remained small scale, but the exclusive relationship between the governing elite and the best craftsmen broke down."
+        },
+        {
+          "id": "D",
+          "text": "Trade goods manufactured in Roman Britain were spread throughout the Roman Empire."
+        },
+        {
+          "id": "E",
+          "text": "The number and variety of goods found at sites in Roman Britain as well as the development of sophisticated manufacturing processes are evidence of economic development under the Romans."
+        },
+        {
+          "id": "F",
+          "text": "Roman Britain experienced a rise in product imports from elsewhere in the empire."
+        }
+      ],
+      "needs_review": false,
+      "choices_count": 6
+    }
+  },
+  {
+    "passage_no": 50,
+    "title": "Written Records",
+    "q10": {
+      "qid": "p50_q10",
+      "number": 10,
+      "type": "summary",
+      "prompt": "10. [Directions] An introductory sentence for a brief summary of the passage is provided below. Complete the summary by selecting the THREE answer choices that express the most important ideas in the passage. Some answer choices do not belong in the summary because they express ideas that are not presented in the passage or are minor ideas in the passage. This question is worth 2 points. Written records of ancient civilizations preserved in several forms have added to our",
+      "intro": "knowledge of early literate societies.",
+      "max_selections": 3,
+      "choices": [
+        {
+          "id": "A",
+          "text": "Clay tablets from Mycenaean Greece provide insights into its economy and state structures, and interpreting Mayan symbols on stone stelae has led to a new understanding of Mayan history."
+        },
+        {
+          "id": "B",
+          "text": "Accidents of preservation of ancient texts can lead to a misunderstanding of the functions and purposes of writing in early literate societies."
+        },
+        {
+          "id": "C",
+          "text": "The earliest Anglo-Saxon written record of England, The Anglo-Saxon Chronicle, describes the early kings of England and provides valuable insights into its emergence as a full state society."
+        },
+        {
+          "id": "D",
+          "text": "Literary texts written on marble by the Classical Greek and Roman civilizations have survived, while Egyptian literary texts that were written on papyrus are now very rare."
+        },
+        {
+          "id": "E",
+          "text": "As a result of reading ancient historical texts, historians have come to understand that many early European kings were as powerful as the chiefs of Africa and Polynesia in recent times."
+        },
+        {
+          "id": "F",
+          "text": "Ancient historical and literary texts present their societies from particular points of view that can lead researchers to develop mistaken assumptions about these societies."
+        }
+      ],
+      "needs_review": false,
+      "choices_count": 6
+    }
+  }
+]

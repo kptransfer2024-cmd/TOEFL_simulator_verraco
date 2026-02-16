@@ -100,7 +100,17 @@
     }
 
     .qprompt { margin-bottom: 10px; font-size: 14px; line-height: 1.45; white-space: pre-wrap; }
+
+    .qintro {
+      margin: 8px 0 10px;
+      font-size: 14px;
+      line-height: 1.45;
+      font-style: italic;
+      color: var(--text);
+    }
+
     .hint { font-size: 12px; color: var(--muted); margin: 0 0 8px 0; }
+    .hint.strong { font-weight: 700; }
 
     .choice {
       display: flex; gap: 10px; padding: 10px;
@@ -175,13 +185,18 @@
           {% if review_mode %}
             {% if can_prev %}<a class="btn secondary" href="/exam/{{ attempt_id }}?q={{ prev_index }}&review=1">Previous</a>{% endif %}
             {% if can_next %}<a class="btn secondary" href="/exam/{{ attempt_id }}?q={{ next_index }}&review=1">Next</a>{% endif %}
-            <a class="btn" href="/">Back to Dashboard</a>
-            <a class="btn secondary" href="/result/{{ attempt_id }}">Back to Results</a>
+            <a class="btn" href="/">Home</a>
+            <a class="btn secondary" href="/result/{{ attempt_id }}">Results</a>
           {% else %}
             {% if mode == "single" %}
               <button class="btn" type="submit" form="examForm">Submit</button>
             {% else %}
-              {% if can_prev %}<button class="btn secondary" type="submit" form="navPrevForm">Previous</button>{% endif %}
+              {% if current_index == 1 %}
+                <a class="btn secondary" href="/passage/{{ attempt_id }}">Passage</a>
+              {% elif can_prev %}
+                <button class="btn secondary" type="submit" form="navPrevForm">Previous</button>
+              {% endif %}
+
               {% if is_last %}
                 <button class="btn" type="submit" form="examForm">Submit</button>
               {% else %}
@@ -223,12 +238,23 @@
         {% if q %}
           {% set meta = (q.get("meta", {}) if q.get("meta") is mapping else {}) %}
           {% set is_q9 = (meta.get("question_type") == "insert_sentence") %}
+          {% set is_summary = (q.type == "summary" or meta.get("question_type") == "summary") %}
 
           {# correct answers from backend -> ca_list (uppercase) #}
           {% set ca_raw = (correct_answers.get(q.id) if review_mode and correct_answers is defined else none) %}
           {% set ca_list = [] %}
           {% if ca_raw is string %}
-            {% set _ = ca_list.append(ca_raw|upper) %}
+            {% set s = (ca_raw|string)|upper|trim %}
+            {# FIX: split "ABC"/"AEF" into letters for Q10 #}
+            {% if s|length > 1 %}
+              {% for ch in s|list %}
+                {% if ch|trim != "" %}
+                  {% set _ = ca_list.append(ch) %}
+                {% endif %}
+              {% endfor %}
+            {% elif s != "" %}
+              {% set _ = ca_list.append(s) %}
+            {% endif %}
           {% elif ca_raw is sequence %}
             {% for x in ca_raw %}
               {% if x is not none and (x|string)|trim != "" %}
@@ -238,10 +264,12 @@
           {% endif %}
 
           <form method="post" action="/exam/{{ attempt_id }}/submit" id="examForm">
+            <input type="hidden" name="_current_qid" value="{{ q.id }}">
+
             <div class="qbox">
               <div class="qhead">
                 <span>Question {{ current_index }}</span>
-                {% if q.type != "single" %}<span class="badge">Multiple Answer</span>{% endif %}
+                {% if q.type != "single" or is_summary %}<span class="badge">Multiple Answer</span>{% endif %}
                 {% if is_q9 %}<span class="badge">Insert Sentence</span>{% endif %}
               </div>
 
@@ -254,11 +282,19 @@
 
               <div class="qprompt">{{ q.prompt }}</div>
 
-              {% if q.type != "single" %}
-                <div class="hint">Select 2 answers.</div>
+              {% if is_summary and q.intro %}
+                <div class="qintro">{{ q.intro }}</div>
               {% endif %}
 
-              {% if q.type == "single" %}
+              {% if (q.type != "single") or is_summary %}
+                {% if is_summary %}
+                  <div class="hint strong">Select any number of answer choices.</div>
+                {% else %}
+                  <div class="hint">Select 2 answers.</div>
+                {% endif %}
+              {% endif %}
+
+              {% if (q.type == "single") and (not is_summary) %}
                 {% set ua = (saved_answers.get(q.id) or "")|string|upper %}
                 {% for c in q.choices %}
                   {% set letter = (c[0]|string|upper) %}
@@ -284,7 +320,17 @@
                 {% set ua_list = [] %}
                 {% set ua_raw = saved_answers.get(q.id) %}
                 {% if ua_raw is string %}
-                  {% set _ = ua_list.append(ua_raw|upper) %}
+                  {% set s = (ua_raw|string)|upper|trim %}
+                  {# FIX: split "ABC"/"AEF" if it ever comes in as a string #}
+                  {% if s|length > 1 %}
+                    {% for ch in s|list %}
+                      {% if ch|trim != "" %}
+                        {% set _ = ua_list.append(ch) %}
+                      {% endif %}
+                    {% endfor %}
+                  {% elif s != "" %}
+                    {% set _ = ua_list.append(s) %}
+                  {% endif %}
                 {% elif ua_raw is sequence %}
                   {% for x in ua_raw %}
                     {% if x is not none and (x|string)|trim != "" %}

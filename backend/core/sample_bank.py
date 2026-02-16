@@ -39,3 +39,5 @@ SAMPLE_BANK = [
         ],
     }
 ]
+
+print("[DEBUG] SAMPLE_BANK[0] questions =", len(SAMPLE_BANK[0].get("questions", [])))

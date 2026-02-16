@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+
+
 import json
 import random
 import re
@@ -12,6 +14,8 @@ from typing import Any, Dict, List, Optional, Tuple
 from core import store
 from core.store import ATTEMPTS
 from services.shuffle_service import shuffle_exam_set
+from services.q10_repo import get_q10_question
+
 
 # ----------------------------
 # Types
@@ -454,6 +458,115 @@ def _load_q9_question_for_passage(passage_id: str, warnings: List[str]) -> Optio
 
     return qs[0]
 
+def _lookup_q10_correct_from_answer_keys(passage_no: int, warnings: List[str]) -> Optional[str]:
+    """
+    Read data/answer_keys.json and return Q10 correct string like "ABC" for passage_no (1..50).
+    Uses _read_json cache.
+    """
+    try:
+        path = _data_dir() / "answer_keys.json"
+        payload = _read_json(path)
+
+        if not isinstance(payload, list):
+            warnings.append("answer_keys.json root is not a list.")
+            return None
+
+        row = None
+        for r in payload:
+            if not isinstance(r, dict):
+                continue
+            try:
+                rid = int(r.get("id") or 0)
+            except Exception:
+                continue
+            if rid == int(passage_no):
+                row = r
+                break
+
+        if not row:
+            warnings.append(f"P{passage_no}: not found in answer_keys.json.")
+            return None
+
+        answers = row.get("answers")
+        if not isinstance(answers, list) or len(answers) < 10:
+            warnings.append(f"P{passage_no}: invalid answers list in answer_keys.json.")
+            return None
+
+        q10 = answers[9]  # Q10 is index 9
+        if not isinstance(q10, str):
+            warnings.append(f"P{passage_no}: Q10 answer is not a string.")
+            return None
+
+        s = q10.strip().upper()
+        if not s:
+            warnings.append(f"P{passage_no}: Q10 answer empty.")
+            return None
+
+        return s
+    except Exception as e:
+        warnings.append(f"answer_keys.json read failed: {e}")
+        return None
+
+
+
+def _load_q10_question_for_passage(passage_id: str, warnings: List[str]) -> Optional[Dict[str, Any]]:
+    """
+    Build a Q10 question in the same shape as exam_set["questions"] items.
+    """
+    want = _norm_pid(passage_id)
+    if not want:
+        warnings.append("Q10 lookup: empty passage_id after normalization.")
+        return None
+
+    # want looks like "P9" or "P27"
+    m = re.match(r"^P(\d+)$", want, re.I)
+    if not m:
+        warnings.append(f"{want}: Q10 lookup: invalid passage_id format.")
+        return None
+
+    passage_no = int(m.group(1))
+    q10 = get_q10_question(passage_no)
+    if not q10:
+        warnings.append(f"{want}: Q10 not found in q10_bank.json.")
+        return None
+
+    qid = _as_str(q10.get("qid")) or f"p{passage_no:02d}_q10"
+    prompt = _as_str(q10.get("prompt"))
+    intro = _as_str(q10.get("intro"))
+    max_sel = int(q10.get("max_selections") or 3)
+
+    choices_raw = q10.get("choices", [])
+    choices_out: List[Tuple[str, str]] = []
+    if isinstance(choices_raw, list):
+        for item in choices_raw:
+            if not isinstance(item, dict):
+                continue
+            cid = _as_str(item.get("id")).upper()
+            text = _as_str(item.get("text"))
+            if cid and text:
+                choices_out.append((cid, text))
+
+    if len(choices_out) != 6:
+        warnings.append(f"{qid}: Q10 choices expected 6, got {len(choices_out)}.")
+        return None
+    
+    correct_q10 = _lookup_q10_correct_from_answer_keys(passage_no, warnings)
+    if not correct_q10:
+        warnings.append(f"{qid}: Q10 correct not injected (missing in answer_keys.json).")
+
+    return {
+        "id": qid,
+        "type": "summary",
+        "prompt": prompt,
+        "intro": intro,
+        "max_selections": max_sel,
+        "choices": choices_out,
+        # important: grader will now be able to score Q10
+        "correct": correct_q10,  # like "ABC"
+    }
+
+
+
 
 def pick_full_exam_set_for_attempt(seed: int) -> Dict[str, Any]:
     count = _count_passages("mcq", None)
@@ -466,49 +579,58 @@ def pick_full_exam_set_for_attempt(seed: int) -> Dict[str, Any]:
     raw_id = _as_str(exam_set.get("id"))
     passage_id = _norm_pid(raw_id)
     if not passage_id:
-        warnings.append("full_set: failed to derive passage_id; skipped Q9 merge.")
+        warnings.append("full_set: failed to derive passage_id; skipped Q9/Q10 merge.")
         _ensure_seq(exam_set)
         return exam_set
 
+    # ---- Q9 merge (your original logic, unchanged) ----
     q9_norm = _load_q9_question_for_passage(passage_id, warnings)
-    if not q9_norm:
-        _ensure_seq(exam_set)
-        return exam_set
+    if q9_norm:
+        qid = _as_str(q9_norm.get("id")) or f"{passage_id}-9"
+        stem = _as_str(q9_norm.get("stem"))
+        raw_choices = q9_norm.get("choices", ["", "", "", ""])
+        ci = q9_norm.get("correct_index", 0)
 
-    qid = _as_str(q9_norm.get("id")) or f"{passage_id}-9"
-    stem = _as_str(q9_norm.get("stem"))
-    raw_choices = q9_norm.get("choices", ["", "", "", ""])
-    ci = q9_norm.get("correct_index", 0)
+        if not isinstance(ci, int) or ci < 0 or ci > 3:
+            ci = 0
 
-    if not isinstance(ci, int) or ci < 0 or ci > 3:
-        ci = 0
+        correct_letter = _INDEX_TO_LETTER.get(ci, "A")
+        choices_out: List[Tuple[str, str]] = [(_LETTERS[i], _as_str(raw_choices[i])) for i in range(4)]
 
-    correct_letter = _INDEX_TO_LETTER.get(ci, "A")
-    choices_out: List[Tuple[str, str]] = [(_LETTERS[i], _as_str(raw_choices[i])) for i in range(4)]
+        q9_out: Dict[str, Any] = {
+            "id": qid,
+            "type": "single",
+            "prompt": stem,
+            "choices": choices_out,
+            "correct": [correct_letter],
+            "correct_index": ci,
+            "correct_letter": correct_letter,
+            "explanation": q9_norm.get("explanation"),
+        }
 
-    q9_out: Dict[str, Any] = {
-        "id": qid,
-        "type": "single",
-        "prompt": stem,
-        "choices": choices_out,
-        "correct": [correct_letter],
-        "correct_index": ci,
-        "correct_letter": correct_letter,
-        "explanation": q9_norm.get("explanation"),
-    }
+        meta = q9_norm.get("meta")
+        if isinstance(meta, dict) and meta:
+            q9_out["meta"] = meta
 
-    meta = q9_norm.get("meta")
-    if isinstance(meta, dict) and meta:
-        q9_out["meta"] = meta
+        qs = exam_set.get("questions")
+        if not isinstance(qs, list):
+            qs = []
+        if not any(isinstance(x, dict) and _as_str(x.get("id")) == qid for x in qs):
+            exam_set["questions"] = qs + [q9_out]
 
-    qs = exam_set.get("questions")
-    if not isinstance(qs, list):
-        qs = []
-    if not any(isinstance(x, dict) and _as_str(x.get("id")) == qid for x in qs):
-        exam_set["questions"] = qs + [q9_out]
+    # ---- Q10 merge (new, minimal) ----
+    q10_out = _load_q10_question_for_passage(passage_id, warnings)
+    if q10_out:
+        qs = exam_set.get("questions")
+        if not isinstance(qs, list):
+            qs = []
+        q10_id = _as_str(q10_out.get("id"))
+        if not any(isinstance(x, dict) and _as_str(x.get("id")) == q10_id for x in qs):
+            exam_set["questions"] = qs + [q10_out]
 
     _ensure_seq(exam_set)
     return exam_set
+
 
 
 # ----------------------------
@@ -551,7 +673,7 @@ def create_attempt(minutes: int, mode: str = "full", single_index: int = 1) -> s
         single_index_i = int(single_index)
     except Exception:
         single_index_i = 1
-    single_index_i = max(1, min(9, single_index_i))
+    single_index_i = max(1, min(10, single_index_i))
 
     raw_exam_set = pick_full_exam_set_for_attempt(seed)
     _ensure_seq(raw_exam_set)

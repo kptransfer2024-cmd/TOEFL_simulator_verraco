@@ -1,26 +1,22 @@
 from __future__ import annotations
 
 import json
+import os
 import re
 from functools import lru_cache
 from pathlib import Path
-
-
 
 from fastapi import APIRouter, Request, Form
 from fastapi.responses import HTMLResponse, RedirectResponse
 from fastapi.templating import Jinja2Templates
 
 from services.question_repo import normalize_question
-from services.shuffle_service import shuffle_exam_set
-
 from services.exam_services import (
     create_attempt,
     get_attempt,
     get_exam_set_for_attempt,
     duration_seconds,
 )
-
 from services.grader import grade
 from core.sample_bank import SAMPLE_BANK
 
@@ -28,6 +24,12 @@ router = APIRouter()
 templates = Jinja2Templates(directory="templates")
 
 LETTERS = ["A", "B", "C", "D"]
+_DEBUG = os.getenv("DEBUG_ROUTES", "").strip().lower() in {"1", "true", "yes", "y"}
+
+
+def _dbg(*args) -> None:
+    if _DEBUG:
+        print("[DEBUG routes]", *args)
 
 
 def _clamp(n: int, lo: int, hi: int) -> int:
@@ -64,6 +66,49 @@ def _extract_answers_from_formdata(form) -> dict:
     return answers
 
 
+def _apply_page_answers(attempt: dict, current_qid: str, page_answers: dict) -> None:
+    """
+    Update attempt["answers"] with page_answers.
+    If the current page has no selection for current_qid, delete its saved answer
+    to avoid stale answers sticking around.
+    """
+    if not isinstance(attempt, dict):
+        return
+
+    answers = attempt.setdefault("answers", {})
+    if not isinstance(answers, dict):
+        answers = {}
+        attempt["answers"] = answers
+
+    qid = str(current_qid or "").strip()
+    if not qid:
+        if page_answers:
+            answers.update(page_answers)
+        return
+
+    if page_answers and qid in page_answers:
+        answers[qid] = page_answers[qid]
+        return
+
+    if qid in answers:
+        del answers[qid]
+
+    if page_answers:
+        for k, v in page_answers.items():
+            answers[k] = v
+
+
+def _save_page_answers_from_form(attempt: dict, form) -> None:
+    """
+    One place to persist page answers for save/submit/autosubmit.
+    Requires exam.html to include:
+      <input type="hidden" name="_current_qid" value="{{ q.id }}">
+    """
+    page_answers = _extract_answers_from_formdata(form)
+    current_qid = str(form.get("_current_qid") or "").strip()
+    _apply_page_answers(attempt, current_qid, page_answers)
+
+
 def _get_seq(q: dict) -> int:
     meta = q.get("meta") if isinstance(q.get("meta"), dict) else {}
     try:
@@ -77,7 +122,7 @@ def _ensure_seq(questions: list[dict]) -> list[dict]:
     Ensure every question has meta.seq = 1..N (if missing).
     This keeps your existing navigation logic stable.
     """
-    out = []
+    out: list[dict] = []
     for i, q in enumerate(questions, start=1):
         if not isinstance(q, dict):
             continue
@@ -105,7 +150,7 @@ def _normalize_questions(raw_questions: list) -> list[dict]:
     Normalize every question for template rendering:
       - prompt always exists (mapped from stem)
       - choices become [[A,text],[B,text]...]
-      - type field present ("single"/"multi")
+      - type field present ("single"/"multi"/"summary"...)
     NOTE: normalize_question() may or may not preserve correct_*, so we also
           keep raw fields accessible for answer extraction.
     """
@@ -117,15 +162,13 @@ def _normalize_questions(raw_questions: list) -> list[dict]:
         if not isinstance(q, dict):
             continue
         nq = normalize_question(q)
-        # keep raw under meta for fallback extraction (non-breaking)
         meta = nq.get("meta") if isinstance(nq.get("meta"), dict) else {}
         meta = dict(meta)
         meta["_raw"] = q
         nq["meta"] = meta
         normalized.append(nq)
 
-    normalized = _ensure_seq(normalized)
-    return normalized
+    return _ensure_seq(normalized)
 
 
 # ------------------------------
@@ -134,19 +177,11 @@ def _normalize_questions(raw_questions: list) -> list[dict]:
 @lru_cache(maxsize=1)
 def _load_answer_keys() -> dict:
     """
-    Loads ./data/answer_keys.json.
-
-    Your file is a LIST like:
-      [
-        {"id": 20, "title": "...", "answers": ["B","A",...]} ,
-        ...
-      ]
-
-    We convert it into a flat dict for fast lookup:
-      - "20-7" -> "A"
-      - "20-07" -> "A"
-      - "P20-Q07" -> "A"
-      - "P20-Q7" -> "A"
+    Loads ./data/answer_keys.json (a list) and flattens into a dict:
+      - "20-7" -> "A" or ["A","C"]
+      - "20-07" -> ...
+      - "P20-Q07" -> ...
+      - "P20-Q7" -> ...
     """
     p = Path(__file__).resolve().parents[1] / "data" / "answer_keys.json"
     if not p.exists():
@@ -166,7 +201,6 @@ def _load_answer_keys() -> dict:
             continue
         pid = item.get("id")
         ans = item.get("answers")
-
         if pid is None or not isinstance(ans, list):
             continue
 
@@ -175,15 +209,12 @@ def _load_answer_keys() -> dict:
         except Exception:
             continue
 
-        # answers list is for Q1..Q10
         for i, a in enumerate(ans, start=1):
             if a is None:
                 continue
             s = str(a).strip().upper()
             if not s:
                 continue
-
-            # support multi like "AC" -> ["A","C"]
             v = s if len(s) == 1 else list(s)
 
             out[f"{pid_i}-{i}".upper()] = v
@@ -192,7 +223,6 @@ def _load_answer_keys() -> dict:
             out[f"P{pid_i}-Q{i}".upper()] = v
 
     return out
-
 
 
 def _to_letter_from_index(idx) -> str | None:
@@ -206,24 +236,13 @@ def _to_letter_from_index(idx) -> str | None:
 
 
 def _norm_qid(qid: str) -> str:
-    """
-    Normalize qid for lookup:
-      - strip spaces
-      - uppercase
-    We DO NOT aggressively change formats, because your ids are meaningful.
-    """
     return (qid or "").strip().upper()
 
 
 def _extract_correct_from_any(q: dict) -> str | list[str] | None:
-    """
-    Extract correct answer from normalized question OR its raw/meta.
-    Returns: "A" or ["A","C"] or None.
-    """
     if not isinstance(q, dict):
         return None
 
-    # (1) normalized direct fields
     for k in ("correct_letter", "answer", "correct"):
         v = q.get(k)
         if isinstance(v, str) and v.strip():
@@ -247,12 +266,12 @@ def _extract_correct_from_any(q: dict) -> str | list[str] | None:
                         out.append(letter)
             return out if out else None
 
-    # (2) meta fields
     meta = q.get("meta") if isinstance(q.get("meta"), dict) else {}
     for k in ("correct_letter", "answer", "correct"):
         v = meta.get(k)
         if isinstance(v, str) and v.strip():
             return v.strip().upper()
+
     if "correct_index" in meta:
         letter = _to_letter_from_index(meta.get("correct_index"))
         if letter:
@@ -271,7 +290,6 @@ def _extract_correct_from_any(q: dict) -> str | list[str] | None:
                         out.append(letter)
             return out if out else None
 
-    # (3) raw fallback stored in meta["_raw"]
     raw = meta.get("_raw") if isinstance(meta.get("_raw"), dict) else {}
     if isinstance(raw, dict):
         for k in ("correct_letter", "answer", "correct"):
@@ -311,7 +329,11 @@ def _extract_correct_from_any(q: dict) -> str | list[str] | None:
     return None
 
 
-_QID_RE = re.compile(r"^(?:P(?P<pid>\d{1,2})-Q(?P<q>\d{1,2})|(?P<pid2>\d{1,2})-(?P<q2>\d{1,2}))$", re.I)
+_QID_RE = re.compile(
+    r"^(?:P(?P<pid>\d{1,2})-Q(?P<q>\d{1,2})|(?P<pid2>\d{1,2})-(?P<q2>\d{1,2}))$",
+    re.I,
+)
+
 
 def _lookup_correct_from_answer_keys(qid: str) -> str | list[str] | None:
     keys = _load_answer_keys()
@@ -320,12 +342,10 @@ def _lookup_correct_from_answer_keys(qid: str) -> str | list[str] | None:
 
     qid_n = _norm_qid(qid)
 
-    # 1) direct hit
     v = keys.get(qid_n)
     if v is not None:
         return v
 
-    # 2) try parse-and-rebuild canonical keys
     m = _QID_RE.match(qid_n)
     if not m:
         return None
@@ -351,14 +371,7 @@ def _lookup_correct_from_answer_keys(qid: str) -> str | list[str] | None:
     return None
 
 
-
 def _build_correct_answers(questions: list[dict]) -> dict:
-    """
-    Build: {qid: "C"} or {qid: ["A","C"]}
-    Priority:
-      1) question dict itself (normalized/raw/meta)
-      2) answer_keys.json
-    """
     out: dict = {}
     for q in questions:
         if not isinstance(q, dict):
@@ -375,7 +388,7 @@ def _build_correct_answers(questions: list[dict]) -> dict:
         if isinstance(ca, str) and ca.strip():
             val = ca.strip().upper()
             out[qid_n] = val
-            out[qid] = val  # also allow original raw id
+            out[qid] = val
         elif isinstance(ca, list) and ca:
             val_list = [str(x).strip().upper() for x in ca if str(x).strip()]
             if val_list:
@@ -385,28 +398,39 @@ def _build_correct_answers(questions: list[dict]) -> dict:
     return out
 
 
+def _ensure_full_set_for_single(attempt: dict, exam_set: dict) -> dict:
+    """
+    Step A: single mode must use the full exam set (1-10).
+    If exam_services returns a trimmed set, fallback to SAMPLE_BANK[0].
+    """
+    mode = (attempt.get("mode") or "full").strip().lower()
+    if mode != "single":
+        return exam_set
+
+    raw_qs = exam_set.get("questions", [])
+    if not isinstance(raw_qs, list) or len(raw_qs) < 10:
+        _dbg("single-mode exam_set seems trimmed, fallback to SAMPLE_BANK[0].",
+             "got_len=", (len(raw_qs) if isinstance(raw_qs, list) else None))
+        return SAMPLE_BANK[0]
+
+    return exam_set
+
+
 # ------------------------------
 # Routes
 # ------------------------------
 @router.get("/", response_class=HTMLResponse)
 def home(request: Request):
     exam_set = SAMPLE_BANK[0]
+    _dbg("HOME bank questions =", len(exam_set.get("questions", [])))
     return templates.TemplateResponse(
         "home.html",
-        {
-            "request": request,
-            "title": exam_set["title"],
-            "default_minutes": exam_set["default_minutes"],
-        },
+        {"request": request, "title": exam_set["title"], "default_minutes": exam_set["default_minutes"]},
     )
 
 
 @router.post("/start")
-def start(
-    minutes: int = Form(...),
-    mode: str = Form("full"),
-    single_index: int = Form(1),
-):
+def start(minutes: int = Form(...), mode: str = Form("full"), single_index: int = Form(1)):
     mode = (mode or "full").strip().lower()
     if mode not in {"full", "single"}:
         mode = "full"
@@ -420,7 +444,60 @@ def start(
 
     if mode == "single":
         return RedirectResponse(url=f"/exam/{attempt_id}?q={single_index}", status_code=303)
-    return RedirectResponse(url=f"/exam/{attempt_id}?q=1", status_code=303)
+
+    return RedirectResponse(url=f"/passage/{attempt_id}", status_code=303)
+
+
+@router.get("/passage/{attempt_id}", response_class=HTMLResponse)
+def passage(request: Request, attempt_id: str):
+    attempt = get_attempt(attempt_id)
+    if not attempt:
+        return HTMLResponse("Attempt not found", status_code=404)
+
+    exam_set = get_exam_set_for_attempt(attempt)
+    exam_set = _ensure_full_set_for_single(attempt, exam_set)
+
+    raw_qs = exam_set.get("questions", [])
+    _dbg("PASSAGE exam_set title =", exam_set.get("title"))
+    _dbg("PASSAGE questions count =", len(raw_qs) if isinstance(raw_qs, list) else "N/A")
+    if isinstance(raw_qs, list) and raw_qs:
+        _dbg("PASSAGE first qid/type =", raw_qs[0].get("id"), raw_qs[0].get("type"))
+        _dbg("PASSAGE last  qid/type =", raw_qs[-1].get("id"), raw_qs[-1].get("type"))
+
+    p = exam_set.get("passage", "")
+    passage_title = ""
+    passage_text = ""
+
+    if isinstance(p, dict):
+        passage_title = str(p.get("title") or "").strip()
+        passage_text = str(p.get("text") or p.get("content") or "").strip()
+        if not passage_text:
+            passage_text = str(p).strip()
+    else:
+        passage_text = str(p or "").strip()
+
+    try:
+        started_at = int(attempt.get("started_at") or 0)
+    except Exception:
+        started_at = 0
+
+    dur = duration_seconds(attempt)
+    try:
+        dur = int(dur)
+    except Exception:
+        dur = 0
+
+    ctx = {
+        "request": request,
+        "attempt_id": attempt_id,
+        "title": exam_set.get("title", "Passage"),
+        "passage_title": passage_title or exam_set.get("title", "Passage"),
+        "passage_text": passage_text,
+        "duration_seconds": dur,
+        "started_at": started_at,
+        "next_url": f"/exam/{attempt_id}?q=1",
+    }
+    return templates.TemplateResponse("passage.html", ctx)
 
 
 @router.get("/exam/{attempt_id}", response_class=HTMLResponse)
@@ -432,10 +509,13 @@ def exam(request: Request, attempt_id: str, q: int = 1, review: int = 0):
     review_mode = bool(review)
 
     exam_set = get_exam_set_for_attempt(attempt)
+    exam_set = _ensure_full_set_for_single(attempt, exam_set)
 
     raw_qs = exam_set.get("questions", [])
     all_qs = _normalize_questions(raw_qs)
     total_q = len(all_qs)
+
+    _dbg("EXAM total normalized questions =", total_q)
 
     if total_q <= 0:
         return HTMLResponse("No questions available", status_code=500)
@@ -444,7 +524,6 @@ def exam(request: Request, attempt_id: str, q: int = 1, review: int = 0):
     if mode not in {"full", "single"}:
         mode = "full"
 
-    # Determine current seq
     if mode == "single":
         try:
             cur_seq = int(attempt.get("single_index") or 1)
@@ -457,17 +536,12 @@ def exam(request: Request, attempt_id: str, q: int = 1, review: int = 0):
             cur_seq = 1
 
     cur_seq = _clamp(cur_seq, 1, total_q)
-    cur_q = _find_question_by_seq(all_qs, cur_seq)
-    if cur_q is None:
-        cur_q = all_qs[cur_seq - 1]
+    cur_q = _find_question_by_seq(all_qs, cur_seq) or all_qs[cur_seq - 1]
 
-    # Build correct answers for review rendering
+    _dbg("EXAM current seq =", cur_seq, "qid/type =", cur_q.get("id"), cur_q.get("type"))
+
     correct_answers = _build_correct_answers(all_qs) if review_mode else {}
-    # IMPORTANT: template might use q.id raw, but we store normalized key (upper)
-    cur_qid = _norm_qid(cur_q.get("id") or "")
-    print("DEBUG correct for current:", cur_qid, correct_answers.get(cur_qid))
 
-    # Make started_at / duration safe for template/JS
     try:
         started_at = int(attempt.get("started_at") or 0)
     except Exception:
@@ -494,11 +568,7 @@ def exam(request: Request, attempt_id: str, q: int = 1, review: int = 0):
         "review_mode": review_mode,
         "saved_answers": attempt.get("answers", {}),
         "result": attempt.get("result"),
-
-        # ✅ key for review highlight
         "correct_answers": correct_answers,
-
-        # navigation helpers:
         "can_prev": (mode == "full" and cur_seq > 1),
         "can_next": (mode == "full" and cur_seq < total_q),
         "prev_index": _clamp(cur_seq - 1, 1, total_q),
@@ -510,25 +580,17 @@ def exam(request: Request, attempt_id: str, q: int = 1, review: int = 0):
 
 
 @router.post("/exam/{attempt_id}/save")
-async def save_and_nav(
-    request: Request,
-    attempt_id: str,
-    target: int = Form(...),
-):
-    """
-    Full mode only: save current page answers then redirect to target page.
-    """
+async def save_and_nav(request: Request, attempt_id: str, target: int = Form(...)):
     attempt = get_attempt(attempt_id)
     if not attempt:
         return HTMLResponse("Attempt not found", status_code=404)
 
     form = await request.form()
-
-    page_answers = _extract_answers_from_formdata(form)
-    if page_answers:
-        attempt.setdefault("answers", {}).update(page_answers)
+    _save_page_answers_from_form(attempt, form)
 
     exam_set = get_exam_set_for_attempt(attempt)
+    exam_set = _ensure_full_set_for_single(attempt, exam_set)
+
     all_qs = _normalize_questions(exam_set.get("questions", []))
     total_q = len(all_qs)
     if total_q <= 0:
@@ -551,10 +613,9 @@ async def submit(request: Request, attempt_id: str):
 
     form = await request.form()
     exam_set = get_exam_set_for_attempt(attempt)
+    exam_set = _ensure_full_set_for_single(attempt, exam_set)
 
-    page_answers = _extract_answers_from_formdata(form)
-    if page_answers:
-        attempt.setdefault("answers", {}).update(page_answers)
+    _save_page_answers_from_form(attempt, form)
 
     mode = (attempt.get("mode") or "full").lower().strip()
     if mode not in {"full", "single"}:
@@ -580,7 +641,6 @@ async def submit(request: Request, attempt_id: str):
             return vals[0] if vals else default
 
     fake_form = _FormAdapter(attempt.get("answers", {}))
-
     questions_all = _normalize_questions(exam_set.get("questions", []))
 
     if mode == "single":
@@ -588,11 +648,8 @@ async def submit(request: Request, attempt_id: str):
             seq = int(attempt.get("single_index") or 1)
         except Exception:
             seq = 1
-
-        q_one = _find_question_by_seq(questions_all, seq)
-        if q_one is None and 1 <= seq <= len(questions_all):
-            q_one = questions_all[seq - 1]
-
+        seq = _clamp(seq, 1, len(questions_all) if questions_all else 1)
+        q_one = _find_question_by_seq(questions_all, seq) or questions_all[seq - 1]
         grade_questions = [q_one] if q_one else []
     else:
         grade_questions = questions_all
@@ -614,10 +671,9 @@ async def autosubmit(request: Request, attempt_id: str):
 
     form = await request.form()
     exam_set = get_exam_set_for_attempt(attempt)
+    exam_set = _ensure_full_set_for_single(attempt, exam_set)
 
-    page_answers = _extract_answers_from_formdata(form)
-    if page_answers:
-        attempt.setdefault("answers", {}).update(page_answers)
+    _save_page_answers_from_form(attempt, form)
 
     mode = (attempt.get("mode") or "full").lower().strip()
     if mode not in {"full", "single"}:
@@ -643,7 +699,6 @@ async def autosubmit(request: Request, attempt_id: str):
             return vals[0] if vals else default
 
     fake_form = _FormAdapter(attempt.get("answers", {}))
-
     questions_all = _normalize_questions(exam_set.get("questions", []))
 
     if mode == "single":
@@ -651,9 +706,8 @@ async def autosubmit(request: Request, attempt_id: str):
             seq = int(attempt.get("single_index") or 1)
         except Exception:
             seq = 1
-        q_one = _find_question_by_seq(questions_all, seq)
-        if q_one is None and 1 <= seq <= len(questions_all):
-            q_one = questions_all[seq - 1]
+        seq = _clamp(seq, 1, len(questions_all) if questions_all else 1)
+        q_one = _find_question_by_seq(questions_all, seq) or questions_all[seq - 1]
         grade_questions = [q_one] if q_one else []
     else:
         grade_questions = questions_all
@@ -680,6 +734,34 @@ def timeup(request: Request, attempt_id: str):
     )
 
 
+@router.post("/restart/{attempt_id}")
+def restart(attempt_id: str):
+    attempt = get_attempt(attempt_id)
+    if not attempt:
+        return RedirectResponse(url="/", status_code=303)
+
+    try:
+        minutes = int(attempt.get("minutes") or 20)
+    except Exception:
+        minutes = 20
+
+    mode = (attempt.get("mode") or "full").strip().lower()
+    if mode not in {"full", "single"}:
+        mode = "full"
+
+    try:
+        single_index = int(attempt.get("single_index") or 1)
+    except Exception:
+        single_index = 1
+
+    new_attempt_id = create_attempt(minutes, mode=mode, single_index=single_index)
+
+    if mode == "single":
+        return RedirectResponse(url=f"/exam/{new_attempt_id}?q={single_index}", status_code=303)
+
+    return RedirectResponse(url=f"/passage/{new_attempt_id}", status_code=303)
+
+
 @router.get("/result/{attempt_id}", response_class=HTMLResponse)
 def result(request: Request, attempt_id: str):
     attempt = get_attempt(attempt_id)
@@ -689,11 +771,5 @@ def result(request: Request, attempt_id: str):
     res = attempt["result"]
     return templates.TemplateResponse(
         "result.html",
-        {
-            "request": request,
-            "attempt_id": attempt_id,
-            "score": res["score"],
-            "total": res["total"],
-            "feedback": res["feedback"],
-        },
+        {"request": request, "attempt_id": attempt_id, "score": res["score"], "total": res["total"], "feedback": res["feedback"]},
     )
