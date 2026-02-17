@@ -81,7 +81,6 @@ def _normalize_correct(q: Dict[str, Any]) -> List[str]:
     if raw is None:
         return []
 
-    # Key fix:
     # If correct is like "ABC" or "AEF", split into letters for multi select.
     if isinstance(raw, str):
         s = raw.strip().upper()
@@ -136,13 +135,16 @@ def _score_multi_exact(user: List[str], correct: List[str]) -> Tuple[int, int, b
 
 def _score_summary_q10(user: List[str], correct: List[str]) -> Tuple[int, int, bool]:
     """
-    Q10 scoring (summary):
-      - full correct => 3
-      - partial correct (subset, no wrong selections, at least 1 selected) => 2
-      - any wrong selection => 0
-      - blank => 0
+    Q10 scoring (summary) for your current design:
+      - exact match (set equality) => 2
+      - otherwise => 0
+
+    Notes:
+      - total raw points with 9 single + Q10(2) is 11.
+      - max selection (e.g., <= 3) is best enforced in routes/html, but we tolerate extra selections here:
+        extra selections will simply fail exact match => 0.
     """
-    max_points = 3
+    max_points = 2
     if not correct:
         return 0, max_points, False
 
@@ -152,13 +154,57 @@ def _score_summary_q10(user: List[str], correct: List[str]) -> Tuple[int, int, b
     if len(u_set) == 0:
         return 0, max_points, False
 
-    if not u_set.issubset(c_set):
-        return 0, max_points, False
+    ok = (u_set == c_set)
+    return (2 if ok else 0), max_points, ok
 
-    if u_set == c_set:
-        return 3, max_points, True
 
-    return 2, max_points, False
+def scale_reading_score(score_points: int, total_points: int) -> int:
+    """
+    Map raw points to a TOEFL-like Reading scaled score (0-30).
+
+    Primary target: your single test form with total_points == 11.
+    Requirement: raw >= 4 => scaled >= 20.
+    High-score region is denser (7..11 -> 26..30).
+
+    Returns an int in [0, 30].
+    """
+    # Main mapping for your current form (11 total points).
+    if total_points == 11:
+        table = {
+            11: 30,
+            10: 29,
+            9: 28,
+            8: 27,
+            7: 26,
+            6: 25,
+            5: 23,
+            4: 20,
+            3: 16,
+            2: 12,
+            1: 7,
+            0: 0,
+        }
+        s = table.get(int(score_points), 0)
+        return max(0, min(30, int(s)))
+
+    # Fallback for other totals (keeps behavior reasonable if you later change point scheme).
+    # Strategy:
+    #   - Convert to an "equivalent raw out of 11" by rounding.
+    #   - Apply the same table.
+    if total_points <= 0:
+        return 0
+
+    # Clamp and rescale to 0..11
+    sp = max(0, min(int(score_points), int(total_points)))
+    eq_raw_11 = int(round(sp * 11.0 / float(total_points)))
+
+    # Reuse the 11-point table
+    table_11 = {
+        11: 30, 10: 29, 9: 28, 8: 27, 7: 26, 6: 25,
+        5: 23, 4: 20, 3: 16, 2: 12, 1: 7, 0: 0,
+    }
+    s = table_11.get(eq_raw_11, 0)
+    return max(0, min(30, int(s)))
 
 
 def grade(questions: List[Dict[str, Any]], form: Any) -> Tuple[int, int, List[Dict[str, Any]]]:
@@ -208,3 +254,16 @@ def grade(questions: List[Dict[str, Any]], form: Any) -> Tuple[int, int, List[Di
         )
 
     return score_points, total_points, feedback
+
+
+def grade_with_scaled(
+    questions: List[Dict[str, Any]],
+    form: Any,
+) -> Tuple[int, int, int, List[Dict[str, Any]]]:
+    """
+    Convenience wrapper:
+      returns score_points, total_points, scaled_reading_score, feedback_list
+    """
+    score_points, total_points, feedback = grade(questions, form)
+    scaled = scale_reading_score(score_points, total_points)
+    return score_points, total_points, scaled, feedback

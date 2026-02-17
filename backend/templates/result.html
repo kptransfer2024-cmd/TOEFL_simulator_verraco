@@ -211,22 +211,42 @@
   </div>
 
   <div class="wrap">
+    <!-- SCORE CARD (only this block changed) -->
     <div class="score-card">
-      <div style="font-size: 12px; color: var(--muted); font-weight: 800;">Accuracy</div>
+      {% set total_q = feedback|length %}
+      {% set correct_q = (feedback | selectattr('ok') | list | length) %}
+      {% set reading = (scaled_score if scaled_score is defined else None) %}
 
-      {% set pct = (score / total * 100) if total and total > 0 else 0 %}
-      <div style="font-size: 44px; font-weight: 900; color: var(--primary);">
-        {{ pct | round(0) }}%
+      <!-- small title -->
+      <div style="font-size: 12px; color: var(--muted); font-weight: 800;">
+        Reading Score (0–30)
       </div>
+
+      <!-- big number -->
+      <div style="font-size: 56px; font-weight: 900; color: var(--primary); letter-spacing: 0.2px;">
+        {% if reading is not none %}
+          {{ reading }}
+        {% else %}
+          --
+        {% endif %}
+      </div>
+
+      {% if reading is not none %}
+        {% set pct = (reading / 30 * 100) %}
+      {% else %}
+        {% set pct = 0 %}
+      {% endif %}
 
       <div class="progress-wrapper">
         <div class="progress-bar" style="width: {{ pct }}%"></div>
       </div>
 
-      <div style="font-weight: 800;">
-        {{ score }} correct out of {{ total }}
+      <!-- subtitle -->
+      <div style="font-weight: 900;">
+        Correct: {{ correct_q }} / {{ total_q }}
       </div>
     </div>
+    <!-- END SCORE CARD -->
 
     <div class="table-card">
       <table>

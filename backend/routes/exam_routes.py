@@ -17,7 +17,7 @@ from services.exam_services import (
     get_exam_set_for_attempt,
     duration_seconds,
 )
-from services.grader import grade
+from services.grader import grade, scale_reading_score
 from core.sample_bank import SAMPLE_BANK
 
 router = APIRouter()
@@ -150,7 +150,7 @@ def _normalize_questions(raw_questions: list) -> list[dict]:
     Normalize every question for template rendering:
       - prompt always exists (mapped from stem)
       - choices become [[A,text],[B,text]...]
-      - type field present ("single"/"multi"/"summary"...)
+      - type field present ("single"/"multi"/summary"...)
     NOTE: normalize_question() may or may not preserve correct_*, so we also
           keep raw fields accessible for answer extraction.
     """
@@ -409,8 +409,11 @@ def _ensure_full_set_for_single(attempt: dict, exam_set: dict) -> dict:
 
     raw_qs = exam_set.get("questions", [])
     if not isinstance(raw_qs, list) or len(raw_qs) < 10:
-        _dbg("single-mode exam_set seems trimmed, fallback to SAMPLE_BANK[0].",
-             "got_len=", (len(raw_qs) if isinstance(raw_qs, list) else None))
+        _dbg(
+            "single-mode exam_set seems trimmed, fallback to SAMPLE_BANK[0].",
+            "got_len=",
+            (len(raw_qs) if isinstance(raw_qs, list) else None),
+        )
         return SAMPLE_BANK[0]
 
     return exam_set
@@ -524,6 +527,9 @@ def exam(request: Request, attempt_id: str, q: int = 1, review: int = 0):
     if mode not in {"full", "single"}:
         mode = "full"
 
+    # Keep the original q for redirect normalization (only meaningful in full mode).
+    q_requested = q
+
     if mode == "single":
         try:
             cur_seq = int(attempt.get("single_index") or 1)
@@ -531,11 +537,26 @@ def exam(request: Request, attempt_id: str, q: int = 1, review: int = 0):
             cur_seq = 1
     else:
         try:
-            cur_seq = int(q)
+            cur_seq = int(q_requested)
         except Exception:
             cur_seq = 1
 
     cur_seq = _clamp(cur_seq, 1, total_q)
+
+    # ---- FIX: prevent infinite "next" URL growth ----
+    # If user asks q beyond range, redirect to the canonical URL.
+    if mode == "full":
+        try:
+            q_req_i = int(q_requested)
+        except Exception:
+            q_req_i = 1
+        if q_req_i != cur_seq:
+            return RedirectResponse(
+                url=f"/exam/{attempt_id}?q={cur_seq}&review={1 if review_mode else 0}",
+                status_code=303,
+            )
+    # -----------------------------------------------
+
     cur_q = _find_question_by_seq(all_qs, cur_seq) or all_qs[cur_seq - 1]
 
     _dbg("EXAM current seq =", cur_seq, "qid/type =", cur_q.get("id"), cur_q.get("type"))
@@ -655,10 +676,16 @@ async def submit(request: Request, attempt_id: str):
         grade_questions = questions_all
 
     score, total, feedback = grade(grade_questions, fake_form)
+    scaled_score = scale_reading_score(score, total)
 
     attempt["submitted"] = True
     attempt["timed_out"] = False
-    attempt["result"] = {"score": score, "total": total, "feedback": feedback}
+    attempt["result"] = {
+        "score": score,
+        "total": total,
+        "feedback": feedback,
+        "scaled_score": scaled_score,
+    }
 
     return RedirectResponse(url=f"/result/{attempt_id}", status_code=303)
 
@@ -713,10 +740,16 @@ async def autosubmit(request: Request, attempt_id: str):
         grade_questions = questions_all
 
     score, total, feedback = grade(grade_questions, fake_form)
+    scaled_score = scale_reading_score(score, total)
 
     attempt["submitted"] = True
     attempt["timed_out"] = True
-    attempt["result"] = {"score": score, "total": total, "feedback": feedback}
+    attempt["result"] = {
+        "score": score,
+        "total": total,
+        "feedback": feedback,
+        "scaled_score": scaled_score,
+    }
 
     return RedirectResponse(url=f"/timeup/{attempt_id}", status_code=303)
 
@@ -730,7 +763,13 @@ def timeup(request: Request, attempt_id: str):
     res = attempt["result"]
     return templates.TemplateResponse(
         "timeup.html",
-        {"request": request, "attempt_id": attempt_id, "score": res["score"], "total": res["total"]},
+        {
+            "request": request,
+            "attempt_id": attempt_id,
+            "score": res["score"],
+            "total": res["total"],
+            "scaled_score": res.get("scaled_score"),
+        },
     )
 
 
@@ -771,5 +810,12 @@ def result(request: Request, attempt_id: str):
     res = attempt["result"]
     return templates.TemplateResponse(
         "result.html",
-        {"request": request, "attempt_id": attempt_id, "score": res["score"], "total": res["total"], "feedback": res["feedback"]},
+        {
+            "request": request,
+            "attempt_id": attempt_id,
+            "score": res["score"],
+            "total": res["total"],
+            "feedback": res["feedback"],
+            "scaled_score": res.get("scaled_score"),
+        },
     )
