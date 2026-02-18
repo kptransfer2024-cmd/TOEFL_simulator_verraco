@@ -206,7 +206,11 @@
         <div style="font-size: 12px; color: var(--muted);">Attempt ID: {{ attempt_id }}</div>
       </div>
 
-      <a href="/exam/{{ attempt_id }}?review=1" class="btn small">Review</a>
+      <a
+  href="/exam/{{ attempt_id }}?review=1{% if mode == 'single' %}&mode=single&q={{ single_index }}{% endif %}"
+  class="btn small"
+>Review</a>
+
     </div>
   </div>
 

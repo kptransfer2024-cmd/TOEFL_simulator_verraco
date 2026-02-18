@@ -80,8 +80,8 @@
           "id": "P03-Q09",
           "question_type": "insert_sentence",
           "paragraph_label": "Paragraph 5",
-          "paragraph_text": "A problem with Milankovitch’s explanation of glaciation arises from the\nfact that the variations in Earth’s orbit, and hence the Milankovitch cycles, have\nexisted for billions of years. [A] Thus we might expect that glaciation would have\nbeen a cyclic event throughout geologic time. In fact, periods of glaciation are rare.\n[B] So there must be another factor acting together with the Milankovitch cycles that\ncauses periods of glaciation. [C] Once this additional factor makes the temperature\nlow enough, the cyclic variations of the Milankovitch cycles will force the planet into\nand out of glacial epochs with a fixed regularity. [D]",
-          "sentence": "temperature.",
+          "paragraph_text": "A problem with Milankovitch's explanation of glaciation arises from the\nfact that the variations in Earth’s orbit, and hence the Milankovitch cycles, have\nexisted for billions of years. [A] Thus we might expect that glaciation would have\nbeen a cyclic event throughout geologic time. In fact, periods of glaciation are rare.\n[B] So there must be another factor acting together with the Milankovitch cycles that\ncauses periods of glaciation. [C] Once this additional factor makes the temperature\nlow enough, the cyclic variations of the Milankovitch cycles will force the planet into\nand out of glacial epochs with a fixed regularity. [D]",
+          "sentence": "This factor must precede an ice age and have the effect of slightly lowering Earth's temperature.",
           "prompt": "Look at the four squares [A], [B], [C], [D] that indicate where the following sentence could be added to the passage. Where would the sentence best fit?",
           "options": [
             {
@@ -676,7 +676,7 @@
           "question_type": "insert_sentence",
           "paragraph_label": "Paragraph 3",
           "paragraph_text": "Coordinated social interactions tend to be week when a colony is first\nforming, but true colonies provide extra benefits. [A] Synchronized nesting, for\nexample, produces abundance of eggs and chicks that exceeds the daily needs of\nlocal predators. [B] Additionally, colonial neighbors can improve their foraging by\nwatching others. [C] This behavior in especially valuable when the offsite food\nsupplies are restricted or variable in location, as are swarms of aerial insects\nharvested by swallows. [D] The colonies American cliff swallows, for example, serve\nas information centers from which unsuccessful individual birds follow successful\nneighbors to good feeding sites. Cliff swallows that are unable to find food return to\ntheir colony, locate a neighbor that has been successful, and then follow that\nneighbor to its food source. All birds in the colony are equally likely to follow or to be\nfollowed and thus contribute to the sharing of information that helps to ensure their\nreproductive success. As a result of their enhanced foraging efficiency, parent\nswallows in large colonies return with food for their nestlings more often and bring\nmore food each trip than do parents in small colonies.",
-          "sentence": "of these protective insects.",
+          "sentence": "The overall survival of the nest generation is thus enhanced.",
           "prompt": "Look at the four squares [A], [B], [C], [D] that indicate where the following sentence could be added to the passage. Where would the sentence best fit?",
           "options": [
             {
@@ -1166,7 +1166,7 @@
           "question_type": "insert_sentence",
           "paragraph_label": "Paragraph 3",
           "paragraph_text": "The most celebrated corporate empire of the late nineteenth century\nwas John D. Rockefeller's Standard Oil. Shortly after 1865, Rockefeller launched a\nrefining company in Cleveland, Ohio, and immediately began trying to eliminate his\ncompetition. Allying himself with other wealthy capitalists, he proceeded methodically\nto buy out competing refineries. [A] In 1870, he formed the Standard Oil Company of\nOhio, which in a few years had acquired twenty of the twenty-five refineries in\nCleveland, as well as plants in Pittsburgh, Philadelphia, New York, and Baltimore. [B]\nHe built his own barrel factories, warehouses, and pipelines. [C] Standard Oil owned\nits own railroad freight cars and developed its own marketing organization. [D] By the\n1880s, Rockefeller had established such dominance within the petroleum industry\nthat to much of the nation he served as a leading symbol of monopoly.",
-          "sentence": "well.",
+          "sentence": "In addition to expanding horizontally, Rockefeller's company expanded vertically as well.",
           "prompt": "Look at the four squares [A], [B], [C], [D] that indicate where the following sentence could be added to the passage. Where would the sentence best fit?",
           "options": [
             {
@@ -1516,7 +1516,7 @@
           "question_type": "insert_sentence",
           "paragraph_label": "Paragraph 2",
           "paragraph_text": "Dutch publishers had an advantage over many other publishers\naround Europe because the Netherlands' highly decentralized political system made\nits censorship laws very difficult to enforce. [A] Throughout Europe in the\nseventeenth century, governments began recognizing the revolutionary potential of\nthe free press and began requiring licenses of newspapers—to control who was able\nto publish news. [B] Another tactic, in France and elsewhere on the continent from\nthe 1630s onward, was for governments to sponsor official newspapers. [C] These\nstate publications met the increasing demand for news but always supported the\ngovernment's views of the events of the day. [D]",
-          "sentence": "book market.",
+          "sentence": "And even when it was possible to apply laws limiting speech, authorities were reluctant to do so because of the growing economic importance of the commercial book market.",
           "prompt": "Look at the four squares [A], [B], [C], [D] that indicate where the following sentence could be added to the passage. Where would the sentence best fit?",
           "options": [
             {

@@ -561,8 +561,9 @@ def _load_q10_question_for_passage(passage_id: str, warnings: List[str]) -> Opti
         "intro": intro,
         "max_selections": max_sel,
         "choices": choices_out,
-        # important: grader will now be able to score Q10
-        "correct": correct_q10,  # like "ABC"
+        # important: grader will now be able to score Q10 (exact-match on list)
+        "correct": [ch for ch in correct_q10],  # ["A","B","C"]
+        "meta": {"question_type": "summary"},
     }
 
 
@@ -699,7 +700,24 @@ def get_attempt(attempt_id: str) -> Optional[dict]:
     return ATTEMPTS.get(attempt_id)
 
 
-def get_exam_set_for_attempt(attempt: dict) -> dict:
+def get_exam_set_for_attempt(attempt_or_id) -> dict:
+    """
+    Accepts either:
+      - attempt_id (str)
+      - attempt (dict)
+    Returns: shuffled exam_set dict (cached if present).
+    """
+
+    # Normalize input to attempt dict
+    attempt = attempt_or_id
+    if isinstance(attempt_or_id, str):
+        attempt = get_attempt(attempt_or_id)
+
+    if not isinstance(attempt, dict):
+        raise ValueError(
+            f"get_exam_set_for_attempt expected attempt dict or attempt_id str, got {type(attempt_or_id)}"
+        )
+
     cached = attempt.get("shuffled_exam_set")
     if isinstance(cached, dict):
         return cached
@@ -718,6 +736,7 @@ def get_exam_set_for_attempt(attempt: dict) -> dict:
 
     attempt["shuffled_exam_set"] = shuffled
     return shuffled
+
 
 
 def duration_seconds(attempt: dict) -> int:

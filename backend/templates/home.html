@@ -114,7 +114,7 @@
 <body>
   <div class="wrap">
     <div class="card">
-      <h2>Welcome to Verraco!</h2>
+      <h2>Welcome to Verraco🐂!</h2>
 
       <p class="muted">
         This is a lightweight TOEFL Reading simulator for practice. You will read a passage,
@@ -124,10 +124,10 @@
       <form method="post" action="/start">
         <!-- NEW: Your two modes -->
         <div class="row">
-          <span class="label">Mode</span>
+          <span class="label">🔍 Mode</span>
           <select class="input" name="mode" id="modeSel">
-            <option value="full" selected>Single Set</option>
-            <option value="single">Single Question</option>
+            <option value="full" selected>📚Full Set</option>
+            <option value="single">🎯Single Question</option>
           </select>
           <span class="tiny">Recommended: Full Set for realistic pacing</span>
         </div>
@@ -145,7 +145,7 @@
 
         <!-- Existing timer + start -->
         <div class="row">
-          <span class="label">Timer (minutes)</span>
+          <span class="label">⏱️ Timer (minutes)</span>
           <input class="input input--timer" name="minutes" type="number" min="1" max="120" value="{{ default_minutes }}">
           <button class="btn" type="submit">Start</button>
         </div>
