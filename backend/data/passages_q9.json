@@ -116,7 +116,7 @@
           "question_type": "insert_sentence",
           "paragraph_label": "Paragraph 4",
           "paragraph_text": "This yearly cycle has played a key role in shaping Japanese\ncivilization. [A] It has assured the islands ample precipitation, ranging irregularly from\nmore than200 centimeters annually in parts of the southwest to about 100 in the\nnortheast and averaging 180 for the country as a whole. [B] The moisture enables\nthe islands to support uncommonly lush forest cover, but the combination of\nprecipitous slopes and heavy rainfall also gives the islands one of the world's highest\nrates of natural erosion, intensified by both human activity and the natural shocks of\nearthquakes and volcanism. [C] These factors have given Japan its wealth of\nsedimentary basins, but they have also made mountainsides extremely susceptible\nto erosion and landslides and hence generally unsuitable for agricultural\nmanipulation. The island chain's mountainous backbone and great length from north\nto south produce climatic diversity that has contributed to regional differences. [D]",
-          "sentence": "environment of Japanese islands.",
+          "sentence": "Such a large amount of rainfall has both positive and negative effects on the environment of Japanese islands. ",
           "prompt": "Look at the four squares [A], [B], [C], [D] that indicate where the following sentence could be added to the passage. Where would the sentence best fit?",
           "options": [
             {
@@ -150,7 +150,7 @@
           "id": "P05-Q09",
           "question_type": "insert_sentence",
           "paragraph_label": "Paragraph 3",
-          "paragraph_text": "[D] One of the time- tested methods of dealing with water erosion is\nterracing - creating hill- side ridges - to reduce runoff. [B] Another newer, highly\neffective tool in the soil conservation tool kit is conservation tillage, which includes\nboth no tillage and minimum tillage. [C] In conventional farming, land is plowed,\ndisked, or harrowed to prepare the seeded, seed is drilled into the soil with a planter,\nand row crops are cultivated with a mechanical cultivator two or three times to\ncontrol weeds. [D] With minimum tillage, farmers simply drill seeds directly into the\nsoil. The only tillage is a one- time disturbance in a narrow band of soil where the\nseeds are inserted, leaving the remainder of the soil undisturbed, covered by crop\nresidues and thus resistant to both water and wind erosion.",
+          "paragraph_text": "[A] One of the time- tested methods of dealing with water erosion is\nterracing - creating hill- side ridges - to reduce runoff. [B] Another newer, highly\neffective tool in the soil conservation tool kit is conservation tillage, which includes\nboth no tillage and minimum tillage. [C] In conventional farming, land is plowed,\ndisked, or harrowed to prepare the seeded, seed is drilled into the soil with a planter,\nand row crops are cultivated with a mechanical cultivator two or three times to\ncontrol weeds. [D] With minimum tillage, farmers simply drill seeds directly into the\nsoil. The only tillage is a one- time disturbance in a narrow band of soil where the\nseeds are inserted, leaving the remainder of the soil undisturbed, covered by crop\nresidues and thus resistant to both water and wind erosion.",
           "sentence": "These methods differ from traditional farming practices.",
           "prompt": "Look at the four squares [A], [B], [C], [D] that indicate where the following sentence could be added to the passage. Where would the sentence best fit?",
           "options": [
@@ -186,7 +186,7 @@
           "question_type": "insert_sentence",
           "paragraph_label": "Paragraph 5",
           "paragraph_text": "Alexander Du Toit, a South African geologist was one of Wegener's\nardent supporters. [A] He noted that fossils of the Permian freshwater reptile\n\"Mesosaurus\" occur in rocks of the same age in both Brazil and South Africa. [B]\nBecause the physiology of freshwater and marine animals is completely different, it\nis hard to imagine how a freshwater reptile could have swum across the Atlantic\nOcean and then found a freshwater environment nearly identical to its former habitat.\n[C] Furthermore, if Mesosaurus could have swum across the ocean, its fossil\nremains should occur in other localities besides Brazil and South Africa. [D] It is\nmore logical to assume that Mesosaurus lived in lakes in what are now adjacent\nareas of South America and Africa but were then united in a single continent.",
-          "sentence": "convincing arguments based on ancient life forms.",
+          "sentence": "In addition to supplying new geological evidence for continental drift, he crafted convincing arguments based on ancient life forms.",
           "prompt": "Look at the four squares [A], [B], [C], [D] that indicate where the following sentence could be added to the passage. Where would the sentence best fit?",
           "options": [
             {
@@ -221,7 +221,7 @@
           "question_type": "insert_sentence",
           "paragraph_label": "Paragraph 5",
           "paragraph_text": "Topography is a major factor in soil development. [A] More water runs\noff and less enters the soil on steep slopes than on relatively level land. [B] Water\ndraining from slopes enters the soil on low and flat land. [C] Thus soils and soil\nmaterial tend to be dry on slopes and moist on wet on the low land. [D] Steep slopes\nare subject to surface erosion and soil creep- the downslope movement of soil\nmaterial, which accumulates on lower slopes and lowlands.",
-          "sentence": "what happens on the lower-lying land at the bottom of those slopes.",
+          "sentence": "Its role is demonstrated by the contrast between what happens on steep slopes and what happens on the lower-lying land at the bottom of those slopes.",
           "prompt": "Look at the four squares [A], [B], [C], [D] that indicate where the following sentence could be added to the passage. Where would the sentence best fit?",
           "options": [
             {
@@ -255,7 +255,7 @@
           "id": "P08-Q09",
           "question_type": "insert_sentence",
           "paragraph_label": "Paragraph 5",
-          "paragraph_text": "[A] The precursor phenomena can be grouped into stages according\nto the dilatancy model. Stage I consists of a gradual stress buildup along the fault.\nStages II and III are correlated with dilatancy and water influx. Stage IV is the major\nearthquake, and stage V is the aftermath of the event. [B] If every earthquake\nfollowed the sequence with uniform stage duration, earthquake prediction would be a\nsimple matter. [C] Instead of following the same patterns, each earthquake is unique\nin terms of specific precursor behavior patterns and length of precursor stages. A\nmagnitude 6.9 North American earthquake in 1989 was preceded by a substantially\nsmaller magnitude 5 earthquake fifteen months before the event. Another foreshock\nof similar size occurred two months before the event. In each case, a public advisory\nwas issued stating that those smaller earthquakes could be foreshocks to a stronger\nearthquake within five days. However, the fault did not cooperate, and those\npredictions were not successful. [D] Continued research and study of future\nearthquakes will certainly lead to refinement of the dilatancy model or to a\nreplacement model with more accurate predictive capabilities.",
+          "paragraph_text": "The precursor phenomena can be grouped into stages according\nto the dilatancy model. Stage I consists of a gradual stress buildup along the fault.\n[A]Stages II and III are correlated with dilatancy and water influx. Stage IV is the major\nearthquake, and stage V is the aftermath of the event. [B] If every earthquake\nfollowed the sequence with uniform stage duration, earthquake prediction would be a\nsimple matter. [C] Instead of following the same patterns, each earthquake is unique\nin terms of specific precursor behavior patterns and length of precursor stages. [D]A\nmagnitude 6.9 North American earthquake in 1989 was preceded by a substantially\nsmaller magnitude 5 earthquake fifteen months before the event. Another foreshock\nof similar size occurred two months before the event. In each case, a public advisory\nwas issued stating that those smaller earthquakes could be foreshocks to a stronger\nearthquake within five days. However, the fault did not cooperate, and those\npredictions were not successful.  Continued research and study of future\nearthquakes will certainly lead to refinement of the dilatancy model or to a\nreplacement model with more accurate predictive capabilities.",
           "sentence": "But the reality of earthquake forecasting is considerably more complex.",
           "prompt": "Look at the four squares [A], [B], [C], [D] that indicate where the following sentence could be added to the passage. Where would the sentence best fit?",
           "options": [
@@ -291,7 +291,7 @@
           "question_type": "insert_sentence",
           "paragraph_label": "Paragraph 4",
           "paragraph_text": "In any history of art, then, the Magdalenian system must occupy a\nplace of importance. Also, of all the forms of art practiced on the planet, it is the one\nabout which we know the least. But we do possess a reasonable amount of\nknowledge, bearing in mind that the first cave art was only discovered in the 1860s,\nand it was not until 1902 that it was accepted as a fact by anthropologists and art\nhistorians. By the end of the twentieth century, there were 277 agreed examples in\nEurope. Unfortunately, most cave art works are extremely fragile. When a cave is\nopened and the conditions that enabled the paintings to survive are altered,\ndeterioration can be rapid. [A] Thus except in places where expensive\nair-conditioning has been installed, caves are no longer open to the public. [B] Even\nthe Altamira cave in Spain, finest of them all, is now open only to small parties for\nbrief periods. [C] Scholars themselves find it difficult to gain admission. Some of\nthese works are photographed, but the camera gives a poor idea of their nature and\nquality. [D] Some are difficult to see anyway: the best part of Altamira has to be\nstudied lying down. Hence inaccessibility is a real and growing obstacle to unlocking\nthe secrets of the Magdalenian art system.",
-          "sentence": "circulation, and the breath of visitors.",
+          "sentence": "There is a potential for serious damage from the introduction of light, changes in air circulation, and the breath of visitors. ",
           "prompt": "Look at the four squares [A], [B], [C], [D] that indicate where the following sentence could be added to the passage. Where would the sentence best fit?",
           "options": [
             {
@@ -326,7 +326,7 @@
           "question_type": "insert_sentence",
           "paragraph_label": "Paragraph 5",
           "paragraph_text": "Early in the twentieth century there emerged a different intellectual\nand artistic reaction to the pressures of industrialization and urbanization. This was\nthe Modern movement, which was based on the idea that buildings and cities should\nbe designed and run like machines. [A] Equally important to the Modernists was that\nurban design should not simply reflect dominant social and cultural values but,\nrather, help to create a new moral and social order. [B] The movement's best-known\nadvocate was Le Corbusier, a Paris-based Swiss who provided the inspiration for\ntechnocratic urban design. [C] Modernist buildings sought to dramatize technology,\nexploit industrial production techniques, and use modern materials and\nunembellished, functional design. Le Corbusier's ideal city featured linear clusters of\nhigh-density, medium-rise apartment blocks, elevated on stilts and segregated from\nindustrial districts; high-rise tower office blocks; and transportation routes all\nseparated by broad expanses of public open space. [D]",
-          "sentence": "emphasized the civilizing influence of cities and their buildings.",
+          "sentence": "This mechanical analogy was a significant departure from earlier attitudes that emphasized the civilizing influence of cities and their buildings.",
           "prompt": "Look at the four squares [A], [B], [C], [D] that indicate where the following sentence could be added to the passage. Where would the sentence best fit?",
           "options": [
             {

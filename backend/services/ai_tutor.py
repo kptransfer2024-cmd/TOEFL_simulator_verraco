@@ -81,11 +81,13 @@ def tutor_answer_checked(
 
     system = (
         "You are an AI tutor for TOEFL Reading.\n"
-        "Reply in Chinese unless the user asks for English.\n"
+        "Reply in the language of the user (defalut = ENGLISH) unless the user asks for a particular language.\n"
         "Use short paragraphs and cite evidence from the passage.\n"
         "Do not contradict the official answer key if it is provided.\n"
         "If the answer key conflicts with your reading, say: answer key may be wrong, and explain both sides.\n"
-        "Avoid using dashes and quotation marks."
+        "Avoid using dashes and quotation marks.\n"
+        "IMPORTANT, particularly for sentence-insertion questions (typically question 9): The official answer letters (A-D) refer to the option labels, NOT the bracket markers [A]-[D] in the passage.\n"
+        "For sentence-insertion questions, always restate the full text of the correct option (e.g., 'A = Insert at [B]') before explaining."
     )
 
     # If we have the key, ask the model to focus on explaining that key.
@@ -93,7 +95,7 @@ def tutor_answer_checked(
         user = (
             f"{header}\n\n"
             "Task:\n"
-            "1) Explain why the official correct answer is correct.\n"
+            "1) Carefully Restate and consicely Explain why the official correct answer is correct.\n"
             "2) If the user selected something else, explain why it is wrong.\n"
             "3) If multiple answers are correct, explain each briefly.\n\n"
             f"Passage:\n{passage}\n\n"

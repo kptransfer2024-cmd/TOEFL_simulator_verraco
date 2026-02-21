@@ -1,6 +1,6 @@
 [
   {"id": 1, "title": "Determining the Ages of the Planets and the Universe", "answers": ["B", "D", "A", "A", "B", "B", "A", "C", "A", "ABC"]},
-  {"id": 2, "title": "Alaska and Bark Beetles", "answers": ["C", "D", "B", "A", "B", "C", "B", "A", "C", "ABC"]},
+  {"id": 2, "title": "Alaska and Bark Beetles", "answers": ["C", "A", "B", "A", "B", "C", "B", "A", "C", "ABC"]},
   {"id": 3, "title": "Milankovitch Cycles and Glaciation", "answers": ["D", "D", "D", "A", "B", "B", "A", "C", "C", "ABC"]},
   {"id": 4, "title": "The Climate of Japan", "answers": ["C", "A", "D", "B", "D", "C", "B", "B", "B", "AEF"]},
   {"id": 5, "title": "Saving Soil and Cropland", "answers": ["B", "D", "A", "D", "B", "B", "C", "B", "C", "BDF"]},
@@ -9,7 +9,7 @@
   {"id": 8, "title": "Earthquake Prediction", "answers": ["D", "B", "B", "B", "A", "B", "C", "A", "C", "BCE"]},
   {"id": 9, "title": "Cave and Rock Art", "answers": ["B", "C", "A", "C", "D", "D", "B", "A", "A", "BDE"]},
   {"id": 10, "title": "Historical Trends in European Urban Design", "answers": ["B", "C", "A", "B", "C", "B", "A", "B", "A", "ADF"]},
-  {"id": 11, "title": "Mexican Mural Art", "answers": ["C", "B", "D", "D", "D", "A", "B", "D", "B", "BDE"]},
+  {"id": 11, "title": "Mexican Mural Art", "answers": ["C", "B", "D", "C", "D", "A", "B", "D", "B", "BDE"]},
   {"id": 12, "title": "Olmec Art", "answers": ["A", "D", "B", "D", "C", "B", "A", "B", "B", "AEF"]},
   {"id": 13, "title": "Portraits as Art", "answers": ["D", "D", "C", "A", "A", "B", "D", "D", "C", "BDF"]},
   {"id": 14, "title": "The Early History of Motion Pictures", "answers": ["A", "C", "A", "B", "B", "A", "D", "C", "B", "CDE"]},

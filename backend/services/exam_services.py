@@ -567,10 +567,10 @@ def _load_q10_question_for_passage(passage_id: str, warnings: List[str]) -> Opti
     }
 
 
-
+MAX_PASSAGES = 12
 
 def pick_full_exam_set_for_attempt(seed: int) -> Dict[str, Any]:
-    count = _count_passages("mcq", None)
+    count = min(_count_passages("mcq", None), MAX_PASSAGES)
     passage_index = _derive_passage_index(seed, passages_count=count)
     res = _load_exam_set_from_passages("mcq", None, passage_index=passage_index)
 
@@ -645,7 +645,7 @@ def pick_exam_set() -> Dict[str, Any]:
 
 
 def pick_exam_set_for_attempt(seed: int) -> Dict[str, Any]:
-    count = _count_passages("mcq", None)
+    count = min(_count_passages("mcq", None), MAX_PASSAGES)
     passage_index = _derive_passage_index(seed, passages_count=count)
     res = _load_exam_set_from_passages("mcq", None, passage_index=passage_index)
     _ensure_seq(res.exam_set)
@@ -653,7 +653,7 @@ def pick_exam_set_for_attempt(seed: int) -> Dict[str, Any]:
 
 
 def pick_exam_set_for_attempt_bank(seed: int, bank_key: str) -> Dict[str, Any]:
-    count = _count_passages(bank_key, None)
+    count = min(_count_passages(bank_key, None), MAX_PASSAGES)
     passage_index = _derive_passage_index(seed, passages_count=count)
     res = _load_exam_set_from_passages(bank_key, None, passage_index=passage_index)
     _ensure_seq(res.exam_set)

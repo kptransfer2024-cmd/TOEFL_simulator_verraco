@@ -1,6 +1,8 @@
 from __future__ import annotations
 
 import json
+import re
+
 from pathlib import Path
 from typing import Any, Dict, List, Optional
 from urllib.parse import urlparse, parse_qs
@@ -115,36 +117,157 @@ def _build_correct_answers(exam_set: Dict[str, Any]) -> Dict[str, Any]:
     Returns {qid: "A" or ["A","C"]}
 
     Priority:
-      1) data/answer_keys.json (qid -> answer)
+      1) data/answer_keys.json
+         - list schema: [{"id": 1, "answers": ["B","D",...]}]
+         - legacy dict schema: {"q1":"B", ...}
       2) fallback to question["correct"] in exam_set
+
+    If choices were shuffled, and question meta contains:
+      meta["old_to_new_letter"] = {"A":"C", "B":"A", ...}
+    then we remap answer_keys letters into the shuffled letters.
     """
     keys = _load_answer_keys()
-
-    direct: Dict[str, Any] = {}
-    if isinstance(keys, dict):
-        for k, v in keys.items():
-            if isinstance(k, str) and k.lower().startswith("q"):
-                direct[k.strip()] = v
-
     out: Dict[str, Any] = {}
 
-    for k, v in direct.items():
-        norm = _normalize_correct_value(v)
-        if not norm:
-            continue
-        out[k] = norm[0] if len(norm) == 1 else norm
+    questions = exam_set.get("questions", [])
+    if not isinstance(questions, list):
+        questions = []
 
-    for q in exam_set.get("questions", []):
+    # Fast lookup for q object by its id
+    q_by_id: Dict[str, Dict[str, Any]] = {}
+    for q in questions:
+        if not isinstance(q, dict):
+            continue
+        qid = str(q.get("id", "")).strip()
+        if qid:
+            q_by_id[qid] = q
+
+    def _extract_passage_no(exam_id: Any) -> Optional[int]:
+        s = str(exam_id or "").strip()
+        m = re.search(r"(\d+)", s)
+        if not m:
+            return None
+        try:
+            return int(m.group(1))
+        except Exception:
+            return None
+
+    def _extract_qno(qid: str) -> Optional[int]:
+        s = str(qid or "").strip()
+        # Common patterns: "P11-Q03", "p11_q3", "11-3", "11-q3", "p11q03"
+        m = re.search(r"(\d+)\s*[-_ ]\s*(?:Q|q)?\s*(\d+)$", s)
+        if not m:
+            m = re.search(r"[Pp]\s*(\d+)\s*[-_ ]?\s*[Qq]\s*(\d+)$", s)
+        if not m:
+            # last fallback: "...Q3" at the end
+            m = re.search(r"(?:^|[^0-9])[Qq]\s*(\d+)$", s)
+            if not m:
+                return None
+            try:
+                return int(m.group(1))
+            except Exception:
+                return None
+        try:
+            return int(m.group(2))
+        except Exception:
+            return None
+
+    def _get_old_to_new_map_for_qid(qid: str) -> Optional[dict]:
+        q = q_by_id.get(qid)
+        if not isinstance(q, dict):
+            return None
+        meta = q.get("meta")
+        if not isinstance(meta, dict):
+            return None
+        m = meta.get("old_to_new_letter")
+        return m if isinstance(m, dict) else None
+
+    def _remap_if_shuffled(qid: str, val: Any) -> Any:
+        """
+        val is "A" or ["A","C"].
+        If we have old_to_new_letter map, remap it.
+        """
+        m = _get_old_to_new_map_for_qid(qid)
+        if not m:
+            return val
+
+        if isinstance(val, str):
+            v = val.strip().upper()
+            return m.get(v, v)
+
+        if isinstance(val, list):
+            remapped: List[str] = []
+            for x in val:
+                if not isinstance(x, str):
+                    continue
+                v = x.strip().upper()
+                remapped.append(m.get(v, v))
+            return remapped
+
+        return val
+
+    def _put(qid: str, raw_correct: Any) -> None:
+        """
+        Normalize + optional remap + write to out.
+        """
+        norm = _normalize_correct_value(raw_correct)
+        if not norm:
+            return
+
+        val: Any = norm[0] if len(norm) == 1 else norm
+        val = _remap_if_shuffled(qid, val)
+        out[qid] = val
+
+    # --- 1) Try list schema: [{"id": passage_no, "answers": [...]}] ---
+    passage_no = _extract_passage_no(exam_set.get("id"))
+    if passage_no is not None and isinstance(keys, list):
+        row = None
+        for r in keys:
+            if not isinstance(r, dict):
+                continue
+            try:
+                rid = int(r.get("id") or 0)
+            except Exception:
+                continue
+            if rid == passage_no:
+                row = r
+                break
+
+        answers = row.get("answers") if isinstance(row, dict) else None
+        if isinstance(answers, list) and answers:
+            for q in questions:
+                if not isinstance(q, dict):
+                    continue
+                qid = str(q.get("id", "")).strip()
+                if not qid:
+                    continue
+                qno = _extract_qno(qid)
+                if not qno:
+                    continue
+                if 1 <= qno <= len(answers):
+                    _put(qid, answers[qno - 1])
+
+    # --- 2) Legacy dict schema: {"q1": "..."} ---
+    if isinstance(keys, dict):
+        for k, v in keys.items():
+            if not isinstance(k, str):
+                continue
+            kk = k.strip()
+            if kk.lower().startswith("q"):
+                # In this schema, keys are directly qids like "q1".
+                # We still support remap if qid matches a real question id.
+                _put(kk, v)
+
+    # --- 3) Fallback: embedded correct in exam_set (already shuffled correctly) ---
+    for q in questions:
+        if not isinstance(q, dict):
+            continue
         qid = str(q.get("id", "")).strip()
         if not qid:
             continue
-        if qid in out or qid.upper() in out:
+        if qid in out:
             continue
-        corr = q.get("correct")
-        norm = _normalize_correct_value(corr)
-        if not norm:
-            continue
-        out[qid] = norm[0] if len(norm) == 1 else norm
+        _put(qid, q.get("correct"))
 
     return out
 

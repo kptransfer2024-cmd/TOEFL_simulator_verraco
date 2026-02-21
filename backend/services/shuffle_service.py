@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import copy
+
 import random
 from typing import Any, Dict, List, Tuple
 
@@ -138,6 +139,17 @@ def _shuffle_choices_one(q: Dict[str, Any], rng: random.Random) -> Dict[str, Any
         meta = {}
         q2["meta"] = meta
     meta["shuffled_choices"] = True
+    # after meta["shuffled_choices"] = True
+    old_to_new = {}
+    new_to_old = {}
+    for old_i, new_i in old_index_to_new_index.items():
+        old_lab = _LETTERS[old_i]
+        new_lab = _LETTERS[new_i]
+        old_to_new[old_lab] = new_lab
+        new_to_old[new_lab] = old_lab
+
+    meta["old_to_new_letter"] = old_to_new
+    meta["new_to_old_letter"] = new_to_old
 
     return q2
 
